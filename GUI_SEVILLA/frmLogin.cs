@@ -130,7 +130,7 @@ namespace GUI_SEVILLA
                         {
                             this.Height = 435;
                             this.Hide();
-                            frmMdi menu = new frmMdi();
+                            frmMenu menu = new frmMenu();
                             menu.Show();
                         }
                     }
