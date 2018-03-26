@@ -283,7 +283,7 @@
             this.MinimizeBox = false;
             this.Name = "frmUsuarioListado";
             this.Resizable = false;
-            this.Style = MetroFramework.MetroColorStyle.Pink;
+            this.Style = MetroFramework.MetroColorStyle.Purple;
             this.Text = "...:::Listado de Usuarios:::...";
             this.Load += new System.EventHandler(this.frmUsuarioListado_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();

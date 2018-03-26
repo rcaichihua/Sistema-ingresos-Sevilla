@@ -167,7 +167,7 @@
             this.MinimizeBox = false;
             this.Name = "frmUsuarioContrasenia";
             this.Resizable = false;
-            this.Style = MetroFramework.MetroColorStyle.Pink;
+            this.Style = MetroFramework.MetroColorStyle.Purple;
             this.Text = "...:::Actualizar Contraseña:::...";
             this.Load += new System.EventHandler(this.frmUsuarioContrasenia_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ultraGroupBox1)).EndInit();

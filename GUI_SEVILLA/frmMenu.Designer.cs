@@ -35,7 +35,6 @@
             this.rbAlumnos = new System.Windows.Forms.RibbonButton();
             this.ribbonPanel2 = new System.Windows.Forms.RibbonPanel();
             this.rbConceptos = new System.Windows.Forms.RibbonButton();
-            this.rbAnioEscolar = new System.Windows.Forms.RibbonButton();
             this.ribbonPanel3 = new System.Windows.Forms.RibbonPanel();
             this.rbCobros = new System.Windows.Forms.RibbonButton();
             this.rbMatricula = new System.Windows.Forms.RibbonButton();
@@ -47,8 +46,11 @@
             this.rbCrearUsuario = new System.Windows.Forms.RibbonButton();
             this.rbActualizarUsuario = new System.Windows.Forms.RibbonButton();
             this.rbCambiarContrasenia = new System.Windows.Forms.RibbonButton();
+            this.ribbonTab2 = new System.Windows.Forms.RibbonTab();
             this.ribbonPanel6 = new System.Windows.Forms.RibbonPanel();
-            this.rbAcerca = new System.Windows.Forms.RibbonButton();
+            this.rbRegistroGrador = new System.Windows.Forms.RibbonButton();
+            this.ribbonPanel7 = new System.Windows.Forms.RibbonPanel();
+            this.rbAperturaAnio = new System.Windows.Forms.RibbonButton();
             this.ribbonOrbMenuItem1 = new System.Windows.Forms.RibbonOrbMenuItem();
             this.SuspendLayout();
             // 
@@ -73,6 +75,7 @@
             this.ribbon1.Size = new System.Drawing.Size(948, 130);
             this.ribbon1.TabIndex = 1;
             this.ribbon1.Tabs.Add(this.ribbonTab1);
+            this.ribbon1.Tabs.Add(this.ribbonTab2);
             this.ribbon1.TabsMargin = new System.Windows.Forms.Padding(12, 26, 20, 0);
             this.ribbon1.Text = "ribbon1";
             this.ribbon1.ThemeColor = System.Windows.Forms.RibbonTheme.Blue;
@@ -84,7 +87,6 @@
             this.ribbonTab1.Panels.Add(this.ribbonPanel3);
             this.ribbonTab1.Panels.Add(this.ribbonPanel4);
             this.ribbonTab1.Panels.Add(this.ribbonPanel5);
-            this.ribbonTab1.Panels.Add(this.ribbonPanel6);
             this.ribbonTab1.Text = "Instituto Sevilla";
             this.ribbonTab1.ToolTip = "Sistema de captacion de ingresos por medio de vouchers de pago";
             this.ribbonTab1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
@@ -102,11 +104,11 @@
             this.rbAlumnos.Text = "Alumnos";
             this.rbAlumnos.TextAlignment = System.Windows.Forms.RibbonItem.RibbonItemTextAlignment.Center;
             this.rbAlumnos.ToolTip = "Permite ver el Listado de Alumnos";
+            this.rbAlumnos.Click += new System.EventHandler(this.rbAlumnos_Click);
             // 
             // ribbonPanel2
             // 
             this.ribbonPanel2.Items.Add(this.rbConceptos);
-            this.ribbonPanel2.Items.Add(this.rbAnioEscolar);
             this.ribbonPanel2.Text = "Configuración";
             // 
             // rbConceptos
@@ -114,12 +116,6 @@
             this.rbConceptos.Image = global::GUI_SEVILLA.Properties.Resources.conceptos;
             this.rbConceptos.SmallImage = ((System.Drawing.Image)(resources.GetObject("rbConceptos.SmallImage")));
             this.rbConceptos.Text = "Conceptos";
-            // 
-            // rbAnioEscolar
-            // 
-            this.rbAnioEscolar.Image = global::GUI_SEVILLA.Properties.Resources.anio;
-            this.rbAnioEscolar.SmallImage = ((System.Drawing.Image)(resources.GetObject("rbAnioEscolar.SmallImage")));
-            this.rbAnioEscolar.Text = "Año Escolar";
             // 
             // ribbonPanel3
             // 
@@ -199,16 +195,31 @@
             this.rbCambiarContrasenia.Text = "Cambiar Contraseña";
             this.rbCambiarContrasenia.Click += new System.EventHandler(this.rbCambiarContrasenia_Click);
             // 
+            // ribbonTab2
+            // 
+            this.ribbonTab2.Panels.Add(this.ribbonPanel6);
+            this.ribbonTab2.Panels.Add(this.ribbonPanel7);
+            this.ribbonTab2.Text = "Configuración año escolar";
+            // 
             // ribbonPanel6
             // 
-            this.ribbonPanel6.Items.Add(this.rbAcerca);
-            this.ribbonPanel6.Text = "RDCV";
+            this.ribbonPanel6.Items.Add(this.rbRegistroGrador);
+            this.ribbonPanel6.Text = "Registro de Grados";
             // 
-            // rbAcerca
+            // rbRegistroGrador
             // 
-            this.rbAcerca.Image = global::GUI_SEVILLA.Properties.Resources.programador;
-            this.rbAcerca.SmallImage = ((System.Drawing.Image)(resources.GetObject("rbAcerca.SmallImage")));
-            this.rbAcerca.Text = "Acerca";
+            this.rbRegistroGrador.Image = global::GUI_SEVILLA.Properties.Resources.anio;
+            this.rbRegistroGrador.SmallImage = ((System.Drawing.Image)(resources.GetObject("rbRegistroGrador.SmallImage")));
+            // 
+            // ribbonPanel7
+            // 
+            this.ribbonPanel7.Items.Add(this.rbAperturaAnio);
+            this.ribbonPanel7.Text = "Apertura año escolar";
+            // 
+            // rbAperturaAnio
+            // 
+            this.rbAperturaAnio.Image = global::GUI_SEVILLA.Properties.Resources.grados;
+            this.rbAperturaAnio.SmallImage = ((System.Drawing.Image)(resources.GetObject("rbAperturaAnio.SmallImage")));
             // 
             // ribbonOrbMenuItem1
             // 
@@ -229,6 +240,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "...::: S I S T E M A  D E  M A T R I C U L A :::..";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMenu_FormClosing);
             this.ResumeLayout(false);
 
         }
@@ -245,7 +257,6 @@
         private System.Windows.Forms.RibbonOrbMenuItem ribbonOrbMenuItem1;
         private System.Windows.Forms.RibbonButton rbAlumnos;
         private System.Windows.Forms.RibbonButton rbConceptos;
-        private System.Windows.Forms.RibbonButton rbAnioEscolar;
         private System.Windows.Forms.RibbonButton rbCobros;
         private System.Windows.Forms.RibbonButton rbMatricula;
         private System.Windows.Forms.RibbonButton rbCtaCorreinte;
@@ -254,7 +265,10 @@
         private System.Windows.Forms.RibbonButton rbCrearUsuario;
         private System.Windows.Forms.RibbonButton rbActualizarUsuario;
         private System.Windows.Forms.RibbonButton rbCambiarContrasenia;
+        private System.Windows.Forms.RibbonTab ribbonTab2;
         private System.Windows.Forms.RibbonPanel ribbonPanel6;
-        private System.Windows.Forms.RibbonButton rbAcerca;
+        private System.Windows.Forms.RibbonButton rbRegistroGrador;
+        private System.Windows.Forms.RibbonPanel ribbonPanel7;
+        private System.Windows.Forms.RibbonButton rbAperturaAnio;
     }
 }

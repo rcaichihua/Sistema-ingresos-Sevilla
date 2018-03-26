@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -39,13 +41,14 @@
             this.htmlLabel1 = new MetroFramework.Drawing.Html.HtmlLabel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvAlumnos = new MetroFramework.Controls.MetroGrid();
+            this.btnAgregar = new MetroFramework.Controls.MetroButton();
+            this.btnEditar = new MetroFramework.Controls.MetroButton();
+            this.btnSalir = new MetroFramework.Controls.MetroButton();
+            this.IDALUMNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dni = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombres = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FECHANAC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.edad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnAgregar = new MetroFramework.Controls.MetroButton();
-            this.btnEditar = new MetroFramework.Controls.MetroButton();
-            this.btnSalir = new MetroFramework.Controls.MetroButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).BeginInit();
@@ -123,7 +126,7 @@
             // htmlLabel2
             // 
             this.htmlLabel2.AutoScroll = true;
-            this.htmlLabel2.AutoScrollMinSize = new System.Drawing.Size(38, 23);
+            this.htmlLabel2.AutoScrollMinSize = new System.Drawing.Size(42, 23);
             this.htmlLabel2.AutoSize = false;
             this.htmlLabel2.BackColor = System.Drawing.SystemColors.Window;
             this.htmlLabel2.Location = new System.Drawing.Point(136, 54);
@@ -135,7 +138,7 @@
             // htmlLabel1
             // 
             this.htmlLabel1.AutoScroll = true;
-            this.htmlLabel1.AutoScrollMinSize = new System.Drawing.Size(67, 23);
+            this.htmlLabel1.AutoScrollMinSize = new System.Drawing.Size(70, 23);
             this.htmlLabel1.AutoSize = false;
             this.htmlLabel1.BackColor = System.Drawing.SystemColors.Window;
             this.htmlLabel1.Location = new System.Drawing.Point(108, 25);
@@ -172,18 +175,19 @@
             this.dgvAlumnos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAlumnos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.IDALUMNO,
             this.dni,
             this.nombres,
             this.FECHANAC,
             this.edad});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAlumnos.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAlumnos.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvAlumnos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvAlumnos.EnableHeadersVisualStyles = false;
             this.dgvAlumnos.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -192,48 +196,18 @@
             this.dgvAlumnos.Name = "dgvAlumnos";
             this.dgvAlumnos.ReadOnly = true;
             this.dgvAlumnos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAlumnos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAlumnos.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvAlumnos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvAlumnos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAlumnos.Size = new System.Drawing.Size(534, 250);
             this.dgvAlumnos.TabIndex = 0;
-            // 
-            // dni
-            // 
-            this.dni.DataPropertyName = "DNI";
-            this.dni.HeaderText = "D.N.I.";
-            this.dni.Name = "dni";
-            this.dni.ReadOnly = true;
-            this.dni.Width = 70;
-            // 
-            // nombres
-            // 
-            this.nombres.DataPropertyName = "NOMBRES";
-            this.nombres.HeaderText = "NOMBRES COMPLETOS";
-            this.nombres.Name = "nombres";
-            this.nombres.ReadOnly = true;
-            this.nombres.Width = 200;
-            // 
-            // FECHANAC
-            // 
-            this.FECHANAC.DataPropertyName = "FECHANAC";
-            this.FECHANAC.HeaderText = "FECHA NACIMIENTO";
-            this.FECHANAC.Name = "FECHANAC";
-            this.FECHANAC.ReadOnly = true;
-            // 
-            // edad
-            // 
-            this.edad.DataPropertyName = "EDAD";
-            this.edad.HeaderText = "EDAD";
-            this.edad.Name = "edad";
-            this.edad.ReadOnly = true;
             // 
             // btnAgregar
             // 
@@ -265,6 +239,49 @@
             this.btnSalir.UseSelectable = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
+            // IDALUMNO
+            // 
+            this.IDALUMNO.DataPropertyName = "IDALUMNO";
+            this.IDALUMNO.HeaderText = "IDALUMNO";
+            this.IDALUMNO.Name = "IDALUMNO";
+            this.IDALUMNO.ReadOnly = true;
+            this.IDALUMNO.Visible = false;
+            // 
+            // dni
+            // 
+            this.dni.DataPropertyName = "DNI";
+            this.dni.HeaderText = "D.N.I.";
+            this.dni.Name = "dni";
+            this.dni.ReadOnly = true;
+            this.dni.Width = 70;
+            // 
+            // nombres
+            // 
+            this.nombres.DataPropertyName = "NOMBRES";
+            this.nombres.HeaderText = "NOMBRES COMPLETOS";
+            this.nombres.Name = "nombres";
+            this.nombres.ReadOnly = true;
+            this.nombres.Width = 200;
+            // 
+            // FECHANAC
+            // 
+            this.FECHANAC.DataPropertyName = "FECHANAC";
+            dataGridViewCellStyle2.Format = "d";
+            dataGridViewCellStyle2.NullValue = null;
+            this.FECHANAC.DefaultCellStyle = dataGridViewCellStyle2;
+            this.FECHANAC.HeaderText = "FECHA NACIMIENTO";
+            this.FECHANAC.Name = "FECHANAC";
+            this.FECHANAC.ReadOnly = true;
+            // 
+            // edad
+            // 
+            this.edad.DataPropertyName = "EDAD";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.edad.DefaultCellStyle = dataGridViewCellStyle3;
+            this.edad.HeaderText = "EDAD";
+            this.edad.Name = "edad";
+            this.edad.ReadOnly = true;
+            // 
             // frmBuscarAlumno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -279,7 +296,7 @@
             this.MinimizeBox = false;
             this.Name = "frmBuscarAlumno";
             this.Resizable = false;
-            this.Style = MetroFramework.MetroColorStyle.Pink;
+            this.Style = MetroFramework.MetroColorStyle.Purple;
             this.Text = "...:::Mantenimiento de Alumnos:::...";
             this.Load += new System.EventHandler(this.frmAlumno_Load);
             this.groupBox1.ResumeLayout(false);
@@ -302,6 +319,7 @@
         private MetroFramework.Controls.MetroButton btnAgregar;
         private MetroFramework.Controls.MetroButton btnEditar;
         private MetroFramework.Controls.MetroButton btnSalir;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDALUMNO;
         private System.Windows.Forms.DataGridViewTextBoxColumn dni;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombres;
         private System.Windows.Forms.DataGridViewTextBoxColumn FECHANAC;

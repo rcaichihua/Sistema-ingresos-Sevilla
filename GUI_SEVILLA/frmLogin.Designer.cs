@@ -33,6 +33,8 @@
             this.btnSalir = new MetroFramework.Controls.MetroButton();
             this.btnIngresar = new MetroFramework.Controls.MetroButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
+            this.cboAnio = new MetroFramework.Controls.MetroComboBox();
             this.txtContrasenia = new MetroFramework.Controls.MetroTextBox();
             this.txtUsuario = new MetroFramework.Controls.MetroTextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -60,7 +62,7 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(155, 89);
+            this.btnSalir.Location = new System.Drawing.Point(154, 131);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 46);
             this.btnSalir.TabIndex = 3;
@@ -70,7 +72,7 @@
             // 
             // btnIngresar
             // 
-            this.btnIngresar.Location = new System.Drawing.Point(74, 89);
+            this.btnIngresar.Location = new System.Drawing.Point(73, 131);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(75, 46);
             this.btnIngresar.TabIndex = 2;
@@ -80,18 +82,39 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.metroLabel3);
+            this.groupBox1.Controls.Add(this.cboAnio);
             this.groupBox1.Controls.Add(this.txtContrasenia);
             this.groupBox1.Controls.Add(this.txtUsuario);
             this.groupBox1.Controls.Add(this.btnSalir);
             this.groupBox1.Controls.Add(this.btnIngresar);
             this.groupBox1.Controls.Add(this.metroLabel2);
             this.groupBox1.Controls.Add(this.metroLabel1);
-            this.groupBox1.Location = new System.Drawing.Point(256, 63);
+            this.groupBox1.Location = new System.Drawing.Point(313, 63);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(296, 160);
+            this.groupBox1.Size = new System.Drawing.Size(296, 191);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Inicio de Sesión";
+            // 
+            // metroLabel3
+            // 
+            this.metroLabel3.AutoSize = true;
+            this.metroLabel3.Location = new System.Drawing.Point(11, 79);
+            this.metroLabel3.Name = "metroLabel3";
+            this.metroLabel3.Size = new System.Drawing.Size(78, 19);
+            this.metroLabel3.TabIndex = 8;
+            this.metroLabel3.Text = "Año escolar";
+            // 
+            // cboAnio
+            // 
+            this.cboAnio.FormattingEnabled = true;
+            this.cboAnio.ItemHeight = 23;
+            this.cboAnio.Location = new System.Drawing.Point(95, 77);
+            this.cboAnio.Name = "cboAnio";
+            this.cboAnio.Size = new System.Drawing.Size(121, 29);
+            this.cboAnio.TabIndex = 7;
+            this.cboAnio.UseSelectable = true;
             // 
             // txtContrasenia
             // 
@@ -107,7 +130,8 @@
             this.txtContrasenia.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txtContrasenia.CustomButton.UseSelectable = true;
             this.txtContrasenia.CustomButton.Visible = false;
-            this.txtContrasenia.Lines = new string[0];
+            this.txtContrasenia.Lines = new string[] {
+        "123"};
             this.txtContrasenia.Location = new System.Drawing.Point(95, 48);
             this.txtContrasenia.MaxLength = 32767;
             this.txtContrasenia.Name = "txtContrasenia";
@@ -120,6 +144,7 @@
             this.txtContrasenia.ShortcutsEnabled = true;
             this.txtContrasenia.Size = new System.Drawing.Size(187, 23);
             this.txtContrasenia.TabIndex = 1;
+            this.txtContrasenia.Text = "123";
             this.txtContrasenia.UseSelectable = true;
             this.txtContrasenia.WaterMark = "Ingrese su contraseña";
             this.txtContrasenia.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -140,7 +165,8 @@
             this.txtUsuario.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txtUsuario.CustomButton.UseSelectable = true;
             this.txtUsuario.CustomButton.Visible = false;
-            this.txtUsuario.Lines = new string[0];
+            this.txtUsuario.Lines = new string[] {
+        "RCAICHIHUA"};
             this.txtUsuario.Location = new System.Drawing.Point(95, 19);
             this.txtUsuario.MaxLength = 32767;
             this.txtUsuario.Name = "txtUsuario";
@@ -153,6 +179,7 @@
             this.txtUsuario.ShortcutsEnabled = true;
             this.txtUsuario.Size = new System.Drawing.Size(187, 23);
             this.txtUsuario.TabIndex = 0;
+            this.txtUsuario.Text = "RCAICHIHUA";
             this.txtUsuario.UseSelectable = true;
             this.txtUsuario.WaterMark = "Ingrese nombre de Usuario";
             this.txtUsuario.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -163,7 +190,7 @@
             this.pictureBox1.Image = global::GUI_SEVILLA.Properties.Resources.Aula;
             this.pictureBox1.Location = new System.Drawing.Point(23, 63);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(227, 160);
+            this.pictureBox1.Size = new System.Drawing.Size(284, 191);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
@@ -172,14 +199,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(573, 248);
+            this.ClientSize = new System.Drawing.Size(632, 284);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBox1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmLogin";
             this.Resizable = false;
-            this.Style = MetroFramework.MetroColorStyle.Pink;
+            this.Style = MetroFramework.MetroColorStyle.Purple;
             this.Text = "...:::Login SEVILLA:::...";
             this.Load += new System.EventHandler(this.frmLogin_Load);
             this.groupBox1.ResumeLayout(false);
@@ -198,6 +225,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private MetroFramework.Controls.MetroTextBox txtContrasenia;
         private MetroFramework.Controls.MetroTextBox txtUsuario;
+        private MetroFramework.Controls.MetroLabel metroLabel3;
+        private MetroFramework.Controls.MetroComboBox cboAnio;
     }
 }
 

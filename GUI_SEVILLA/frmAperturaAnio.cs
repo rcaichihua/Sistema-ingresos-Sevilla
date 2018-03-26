@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace GUI_SEVILLA
 {
-    public partial class frmRegistroAlumnos : MetroFramework.Forms.MetroForm
+    public partial class frmAperturaAnio : MetroFramework.Forms.MetroForm
     {
-        public frmRegistroAlumnos()
+        public frmAperturaAnio()
         {
             InitializeComponent();
         }

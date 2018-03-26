@@ -356,7 +356,7 @@
             this.MinimizeBox = false;
             this.Name = "frmUsuario";
             this.Resizable = false;
-            this.Style = MetroFramework.MetroColorStyle.Pink;
+            this.Style = MetroFramework.MetroColorStyle.Purple;
             this.Text = "...:::Mantenimiento de Usuarios:::...";
             this.Load += new System.EventHandler(this.frmUsuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ultraGroupBox1)).EndInit();

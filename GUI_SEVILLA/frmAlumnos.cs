@@ -11,9 +11,9 @@ using DAO_SEVILLA;
 
 namespace GUI_SEVILLA
 {
-    public partial class frmAlumno : MetroFramework.Forms.MetroForm
+    public partial class frmAlumnos : MetroFramework.Forms.MetroForm
     {
-        public frmAlumno()
+        public frmAlumnos()
         {
             InitializeComponent();
         }
@@ -27,6 +27,8 @@ namespace GUI_SEVILLA
         DataTable dtDepaDd = new DataTable();
         DataTable dtProvDd = new DataTable();
         DataTable dtDistDd = new DataTable();
+
+        DataTable dtResultadoCombos = new DataTable();
 
         DataTable dtDatosAlumnos;
 
@@ -46,7 +48,35 @@ namespace GUI_SEVILLA
             {
                 dtDatosAlumnos = new DataTable();
 
-                dtDatosAlumnos = cn.TraerDataset("",conectar.conexionbdSevilla).Tables[0];
+                dtDatosAlumnos = cn.TraerDataset("USP_ALUMNOSelectById", conectar.conexionbdSevilla, IdAlumno).Tables[0];
+
+                if (dtDatosAlumnos.Rows.Count > 0)
+                {
+                    dtResultadoCombos = cn.EjecutarSqlDTS("SELECT DEPA,PROV,DIST FROM UBIGEO WHERE UBIGEO='"+ dtDatosAlumnos.Rows[0][6].ToString() + "' AND DIST<>'DIST'", conectar.conexionbdSevilla).Tables[0];
+                    txtDni.Text = dtDatosAlumnos.Rows[0][1].ToString();
+                    txtApePat.Text = dtDatosAlumnos.Rows[0][2].ToString();
+                    txtApeMat.Text = dtDatosAlumnos.Rows[0][3].ToString();
+                    txtNombres.Text = dtDatosAlumnos.Rows[0][4].ToString();
+                    dtpFechaNac.Value = Convert.ToDateTime(dtDatosAlumnos.Rows[0][5]);
+                    cboDepaLn.Text = dtResultadoCombos.Rows[0][0].ToString();
+                    cboProvLn.Text = dtResultadoCombos.Rows[0][1].ToString();
+                    cboDistLn.Text = dtResultadoCombos.Rows[0][2].ToString();
+                    txtEdad.Text = dtDatosAlumnos.Rows[0][7].ToString();
+                    txtDireccion.Text = dtDatosAlumnos.Rows[0][8].ToString();
+                    dtResultadoCombos = cn.EjecutarSqlDTS("SELECT DEPA,PROV,DIST FROM UBIGEO WHERE UBIGEO='" + dtDatosAlumnos.Rows[0][9].ToString() + "' AND DIST<>'DIST'", conectar.conexionbdSevilla).Tables[0];
+                    cboDepaDd.Text = dtResultadoCombos.Rows[0][0].ToString();
+                    cboProvDd.Text = dtResultadoCombos.Rows[0][1].ToString();
+                    cboDistDd.Text = dtResultadoCombos.Rows[0][2].ToString();
+                    txtTelefono.Text = dtDatosAlumnos.Rows[0][10].ToString();
+                    cboSeguro.SelectedValue = dtDatosAlumnos.Rows[0][11];
+                    chkActivo.Checked = Convert.ToBoolean(dtDatosAlumnos.Rows[0][12]);
+                    txtMotivoBaja.Text = dtDatosAlumnos.Rows[0][13].ToString();
+                    txtObservaciones.Text = dtDatosAlumnos.Rows[0][14].ToString();
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo recuperar datos para la edición del alumno, vuelva a intentarlo.", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -95,7 +125,7 @@ namespace GUI_SEVILLA
                 this.cboDepaDd.DataSource = dtDepaDd;
                 this.cboDepaDd.DisplayMember = "DEPA";
                 this.cboDepaDd.ValueMember = "CODDEPA";
-                this.cboDepaDd.Refresh();             
+                this.cboDepaDd.Refresh();
             }
             catch (Exception)
             {
@@ -107,7 +137,7 @@ namespace GUI_SEVILLA
         {
             try
             {
-                dtProvLn = cn.EjecutarSqlDTS("select DISTINCT substring(UBIGEO,3,2) as CODPROV,PROV from UBIGEO WHERE PROV<>'PROV' AND substring(UBIGEO,1,2)='"+cboDepaLn.SelectedValue+"' ORDER BY PROV",
+                dtProvLn = cn.EjecutarSqlDTS("select DISTINCT substring(UBIGEO,3,2) as CODPROV,PROV from UBIGEO WHERE PROV<>'PROV' AND substring(UBIGEO,1,2)='" + cboDepaLn.SelectedValue + "' ORDER BY PROV",
                 conectar.conexionbdSevilla).Tables[0];
 
                 DataRow row = dtProvLn.NewRow();
@@ -153,7 +183,7 @@ namespace GUI_SEVILLA
         {
             try
             {
-                dtDistLn = cn.EjecutarSqlDTS("select DISTINCT substring(UBIGEO,4,2) as CODDIST,DIST from UBIGEO WHERE DIST<>'DIST' AND substring(UBIGEO,1,2)='"+cboDepaLn.SelectedValue+"' AND substring(UBIGEO,3,2)='" + cboProvLn.SelectedValue+"' ORDER BY DIST",
+                dtDistLn = cn.EjecutarSqlDTS("select DISTINCT substring(UBIGEO,5,2) as CODDIST,DIST from UBIGEO WHERE DIST<>'DIST' AND substring(UBIGEO,1,2)='" + cboDepaLn.SelectedValue + "' AND substring(UBIGEO,3,2)='" + cboProvLn.SelectedValue + "' ORDER BY DIST",
                 conectar.conexionbdSevilla).Tables[0];
 
                 DataRow row = dtDistLn.NewRow();
@@ -176,7 +206,7 @@ namespace GUI_SEVILLA
         {
             try
             {
-                dtDistDd = cn.EjecutarSqlDTS("select DISTINCT substring(UBIGEO,4,2) as CODDIST,DIST from UBIGEO WHERE DIST<>'DIST' AND substring(UBIGEO,1,2)='"+cboDepaDd.SelectedValue+"' AND substring(UBIGEO,3,2)='" + cboProvDd.SelectedValue+"' ORDER BY DIST",
+                dtDistDd = cn.EjecutarSqlDTS("select DISTINCT substring(UBIGEO,5,2) as CODDIST,DIST from UBIGEO WHERE DIST<>'DIST' AND substring(UBIGEO,1,2)='" + cboDepaDd.SelectedValue + "' AND substring(UBIGEO,3,2)='" + cboProvDd.SelectedValue + "' ORDER BY DIST",
                 conectar.conexionbdSevilla).Tables[0];
 
                 DataRow row = dtDistDd.NewRow();
@@ -199,19 +229,20 @@ namespace GUI_SEVILLA
         {
             try
             {
+                if (!VerificaDNI()) 
+                {
+                    MessageBox.Show("El DNI que intenta registrar ya existe.", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtDni.Focus();
+                    return;
+                }
+
                 if (Validar() == true) return;
 
                 if (TipoMantenimiento == "I")
                 {
-                    if (cn.EjecutarSP("USP_ALUMNOInsert", conectar.conexionbdSevilla, txtDni.Text.Trim(), txtApePat.Text.Trim(),
-                        txtApeMat.Text.Trim(), txtNombres.Text.Trim(), dtpFechaNac.Value,
-                        cboDepaLn.SelectedValue.ToString() + cboProvLn.SelectedValue.ToString() + cboDistLn.SelectedValue.ToString(),
-                        txtEdad.Text.Trim(), txtDireccion.Text.Trim(), cboDepaDd.SelectedValue.ToString() + cboProvDd.SelectedValue.ToString() + cboDistDd.SelectedValue.ToString(),
-                        txtTelefono.Text.Trim(), cboSeguro.SelectedValue.ToString(), chkActivo.Checked,
-                        txtMotivoBaja.Text.Trim(), txtObservaciones.Text.Trim(), VariablesGlobales.NombreUsuario,
-                        VariablesGlobales.UserHostIp) > 0)
+                    if (ActualizaInsertaAlumno("USP_ALUMNOInsert"))
                     {
-                        MessageBox.Show("Alumno Ingresado Correctamente", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Datos de alumno Ingresado Correctamente", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
@@ -220,20 +251,52 @@ namespace GUI_SEVILLA
                 }
                 else if (TipoMantenimiento == "U")
                 {
-
+                    if (ActualizaInsertaAlumno("USP_ALUMNOUpdate"))
+                    {
+                        MessageBox.Show("Datos de alumno actualizado Correctamente", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al actualizar, intente de nuevo.", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }        
+            }
+        }
+
+        private Boolean  ActualizaInsertaAlumno(string procedimiento)
+        {
+            Boolean resultado;
+            resultado = false;
+
+            if (cn.EjecutarSP(procedimiento, conectar.conexionbdSevilla, txtDni.Text.Trim(), txtApePat.Text.Trim(),
+                       txtApeMat.Text.Trim(), txtNombres.Text.Trim(), dtpFechaNac.Value.ToString("dd/MM/yyyy").ToString(),
+                       cboDepaLn.SelectedValue.ToString() + cboProvLn.SelectedValue.ToString() + cboDistLn.SelectedValue.ToString(),
+                       Convert.ToInt32(calcularEdad(dtpFechaNac.Value.ToString("yyyyMMdd")).ToString()).ToString(), txtDireccion.Text.Trim(), cboDepaDd.SelectedValue.ToString() + cboProvDd.SelectedValue.ToString() + cboDistDd.SelectedValue.ToString(),
+                       txtTelefono.Text.Trim(), cboSeguro.SelectedValue.ToString(), chkActivo.Checked,
+                       txtMotivoBaja.Text.Trim(), txtObservaciones.Text.Trim(), VariablesGlobales.NombreUsuario,
+                       VariablesGlobales.UserHostIp, IdAlumno) > 0)
+            {
+                resultado = true;
+            }
+            return resultado;
+                //MessageBox.Show("Error al ingresar, intente de nuevo.", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+        }
+
+        private Boolean VerificaDNI()
+        {
+            return (cn.EjecutarSqlDTS("select COUNT(*) from ALUMNO where DNI = '"+txtDni.Text.Trim()+"'", conectar.conexionbdSevilla).Tables[0].Rows.Count == 0);
         }
 
         private Boolean Validar()
         {
             Boolean flag;
 
-            if (txtDni.Text.Trim()!=string.Empty)
+            if (txtDni.Text.Trim() != string.Empty)
             {
                 if (txtApePat.Text.Trim() != string.Empty)
                 {
@@ -249,7 +312,25 @@ namespace GUI_SEVILLA
                                     {
                                         if (txtDireccion.Text.Trim() != string.Empty)
                                         {
-                                            flag = false;
+                                            if (Convert.ToInt32(calcularEdad(dtpFechaNac.Value.ToString("yyyyMMdd")).ToString())>5 && Convert.ToInt32(calcularEdad(dtpFechaNac.Value.ToString("yyyyMMdd")).ToString()) < 19)
+                                            {
+                                                if (txtDni.Text.Trim().Length == 8)
+                                                {
+                                                    flag = false;
+                                                }
+                                                else
+                                                {
+                                                    MessageBox.Show("Ingrese un Nº de DNI válido.", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                                    txtDni.Focus();
+                                                    flag = true;
+                                                }
+                                            }
+                                            else
+                                            {
+                                                MessageBox.Show("Ingrese una fecha de nacimiento válido.", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                                dtpFechaNac.Focus();
+                                                flag = true;
+                                            }
                                         }
                                         else
                                         {
@@ -307,6 +388,37 @@ namespace GUI_SEVILLA
                 flag = true;
             }
             return flag;
+        }
+
+        private void txtEdad_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == (char)Keys.Enter)
+            {
+                txtEdad.Text = Convert.ToInt32(calcularEdad(dtpFechaNac.Value.ToString("yyyyMMdd")).ToString()).ToString();
+            }
+        }
+
+        private decimal calcularEdad(string fecha)
+        {
+            return Math.Floor(Convert.ToDecimal((Convert.ToInt32(VariablesGlobales.FechaActual) - Convert.ToInt32(fecha)) / 10000));
+        }
+
+        private void txtDni_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            if (Char.IsControl(e.KeyChar)) //permitir teclas de control como retroceso 
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                //el resto de teclas pulsadas se desactivan 
+                e.Handled = true;
+            }
         }
     }
 }

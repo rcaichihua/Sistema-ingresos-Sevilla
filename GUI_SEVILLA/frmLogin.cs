@@ -66,6 +66,8 @@ namespace GUI_SEVILLA
                 cn.TraerServidorTesoreria();
                 cn.TraerServidorTesoreria();
                 cn.TraerServidorSevilla();
+
+                LlenarAnio();
             }
             catch (Exception ex)
             {
@@ -73,6 +75,20 @@ namespace GUI_SEVILLA
                     , VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
             }
+        }
+
+        private void LlenarAnio()
+        {
+            try
+            {
+                cboAnio.DataSource = cn.TraerDataset("USP_ANIOESCOLARSelectAll", conectar.conexionbdSevilla).Tables[0];
+                cboAnio.DisplayMember = "ANIO";
+                cboAnio.ValueMember = "IDANIO";
+            }
+            catch (Exception)
+            {
+
+            }                   
         }
 
         private void btnIngresar_Click(object sender, EventArgs e)
@@ -106,12 +122,15 @@ namespace GUI_SEVILLA
 
                 bool FLG_ACTIVO = false;
 
-                VariablesGlobales.AnioFiscal = Convert.ToInt32(cn.EjecutarSqlDTS("select year(getdate())", conectar.conexionbdSevilla).Tables[0].Rows[0][0]);
+                VariablesGlobales.FechaActual = cn.EjecutarSqlDTS("select CONVERT(VARCHAR(8),getdate(),112)", conectar.conexionbdSevilla).Tables[0].Rows[0][0].ToString();
+
+                VariablesGlobales.AnioFiscal = Convert.ToInt32(VariablesGlobales.FechaActual.Substring(1, 4));
 
                 if (dtsDatosUsuario.Tables[0].Rows.Count > 0)
                 {
                     VariablesGlobales.NombreCompletoUsuario = dtsDatosUsuario.Tables[0].Rows[0]["NOMBRECOMPLETO"].ToString();
                     VariablesGlobales.NombreUsuario = dtsDatosUsuario.Tables[0].Rows[0]["NOMBREUSUARIO"].ToString();
+                    VariablesGlobales.AnioEscolar = Convert.ToInt32(cboAnio.SelectedValue);
                     clave_user = dtsDatosUsuario.Tables[0].Rows[0]["PASSWORD"].ToString();
                     FLG_ACTIVO = Convert.ToBoolean(dtsDatosUsuario.Tables[0].Rows[0]["DESACTIVAR"]);
                     VariablesGlobales.admin = Convert.ToBoolean(dtsDatosUsuario.Tables[0].Rows[0]["administrador"]);

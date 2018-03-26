@@ -36,8 +36,9 @@ namespace GUI_SEVILLA
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            frmAlumno winAlumno = new frmAlumno();
+            frmAlumnos winAlumno = new frmAlumnos();
             winAlumno.TipoMantenimiento = "I";
+            winAlumno.IdAlumno = 0;
             winAlumno.ShowDialog();
         }
 
@@ -48,14 +49,30 @@ namespace GUI_SEVILLA
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            frmAlumno winAlumno = new frmAlumno();
+            if (dgvAlumnos.Rows.Count <= 0) return;
+
+            if (dgvAlumnos.CurrentRow is null) return;
+
+            int indexModAlumno = 0;
+            indexModAlumno = dgvAlumnos.CurrentRow.Index;
+
+            frmAlumnos winAlumno = new frmAlumnos();
             winAlumno.TipoMantenimiento = "U";
+            winAlumno.IdAlumno = Convert.ToInt32(dgvAlumnos.Rows[indexModAlumno].Cells["IDALUMNO"].Value);
             winAlumno.ShowDialog();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            AnularAutocompletadoColumnas();
             BuscarAlumnos();
+        }
+
+        private void AnularAutocompletadoColumnas()
+        {
+            this.dgvAlumnos.AutoGenerateColumns = false;
+            this.dgvAlumnos.AutoGenerateColumns = false;
+            this.dgvAlumnos.AutoGenerateColumns = false;
         }
     }
 }
