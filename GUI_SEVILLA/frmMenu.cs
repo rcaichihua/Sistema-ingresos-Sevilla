@@ -87,6 +87,7 @@ namespace GUI_SEVILLA
             }
             frmBuscarAlumno winUserList = new frmBuscarAlumno();
             winUserList.MdiParent = this;
+            winUserList.TipoModalidad = "A"; //modalidad Agregar o modificar nuevo alumno
             winUserList.Show();
         }
 
@@ -111,6 +112,83 @@ namespace GUI_SEVILLA
                 e.Cancel = true;
             }
             //}
+        }
+
+        private void rbConceptos_Click(object sender, EventArgs e)
+        {
+            if (FormIsOpen("frmConceptos"))
+
+            {
+                return;
+            }
+            frmListadoConceptos winfrmConceptos = new frmListadoConceptos();
+            winfrmConceptos.MdiParent = this;
+            winfrmConceptos.Show();
+        }
+
+        private void rbAperturaAnio_Click(object sender, EventArgs e)
+        {
+            if (FormIsOpen("frmAperturaAnioEscolar"))
+
+            {
+                return;
+            }
+            frmAperturaAnioEscolar winfrmAperturaAnioEscolar = new frmAperturaAnioEscolar();
+            winfrmAperturaAnioEscolar.MdiParent = this;
+            winfrmAperturaAnioEscolar.Show();
+        }
+
+        private void frmMenu_Load(object sender, EventArgs e)
+        {
+            this.Text = "...::: S I S T E M A  D E  M A T R I C U L A :::..  || Año " + VariablesGlobales.AnioFiscal + " : " + VariablesGlobales.NombreAnioActual;
+        }
+
+        private void rbRegistroGrado_Click(object sender, EventArgs e)
+        {
+            if (FormIsOpen("frmListadoGrado"))
+
+            {
+                return;
+            }
+            frmListadoGrado winfrmListadoGrado = new frmListadoGrado();
+            winfrmListadoGrado.MdiParent = this;
+            winfrmListadoGrado.Show();
+        }
+
+        private void rbRegistroSeccion_Click(object sender, EventArgs e)
+        {
+            if (FormIsOpen("frmListadoSeccion"))
+
+            {
+                return;
+            }
+            frmListadoSeccion winfrmListadoSeccion = new frmListadoSeccion();
+            winfrmListadoSeccion.MdiParent = this;
+            winfrmListadoSeccion.Show();
+        }
+
+        private void rbMatricula_Click(object sender, EventArgs e)
+        {
+            if (FormIsOpen("frmListadoAlumnosMatriculados"))
+
+            {
+                return;
+            }
+            frmListadoAlumnosMatriculados winfrmListadoAlumnosMatriculados = new frmListadoAlumnosMatriculados();
+            winfrmListadoAlumnosMatriculados.MdiParent = this;
+            winfrmListadoAlumnosMatriculados.Show();
+        }
+
+        private void rbCtaCorreinte_Click(object sender, EventArgs e)
+        {
+            if (FormIsOpen("frmEstadoCuenta"))
+
+            {
+                return;
+            }
+            frmEstadoCuenta winfrmEstadoCuenta = new frmEstadoCuenta();
+            winfrmEstadoCuenta.MdiParent = this;
+            winfrmEstadoCuenta.Show();
         }
     }
 }

@@ -203,6 +203,16 @@ namespace GUI_SEVILLA.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap reggrados {
+            get {
+                object obj = ResourceManager.GetObject("reggrados", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap registrarUser {
             get {
                 object obj = ResourceManager.GetObject("registrarUser", resourceCulture);

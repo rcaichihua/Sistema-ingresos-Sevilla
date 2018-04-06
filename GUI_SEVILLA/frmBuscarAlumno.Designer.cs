@@ -37,18 +37,18 @@
             this.btnBuscar = new MetroFramework.Controls.MetroButton();
             this.cboBuscar = new MetroFramework.Controls.MetroComboBox();
             this.txtFiltro = new MetroFramework.Controls.MetroTextBox();
-            this.htmlLabel2 = new MetroFramework.Drawing.Html.HtmlLabel();
-            this.htmlLabel1 = new MetroFramework.Drawing.Html.HtmlLabel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvAlumnos = new MetroFramework.Controls.MetroGrid();
-            this.btnAgregar = new MetroFramework.Controls.MetroButton();
-            this.btnEditar = new MetroFramework.Controls.MetroButton();
-            this.btnSalir = new MetroFramework.Controls.MetroButton();
             this.IDALUMNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dni = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombres = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FECHANAC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.edad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnAgregar = new MetroFramework.Controls.MetroButton();
+            this.btnEditar = new MetroFramework.Controls.MetroButton();
+            this.btnSalir = new MetroFramework.Controls.MetroButton();
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).BeginInit();
@@ -56,11 +56,11 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.metroLabel2);
+            this.groupBox1.Controls.Add(this.metroLabel1);
             this.groupBox1.Controls.Add(this.btnBuscar);
             this.groupBox1.Controls.Add(this.cboBuscar);
             this.groupBox1.Controls.Add(this.txtFiltro);
-            this.groupBox1.Controls.Add(this.htmlLabel2);
-            this.groupBox1.Controls.Add(this.htmlLabel1);
             this.groupBox1.Location = new System.Drawing.Point(23, 63);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(540, 94);
@@ -93,6 +93,7 @@
             // 
             // txtFiltro
             // 
+            this.txtFiltro.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             // 
             // 
             // 
@@ -110,7 +111,7 @@
             this.txtFiltro.MaxLength = 32767;
             this.txtFiltro.Name = "txtFiltro";
             this.txtFiltro.PasswordChar = '\0';
-            this.txtFiltro.PromptText = "Ingrese el dato para el filtro";
+            this.txtFiltro.WaterMark = "Ingrese el dato para el filtro";
             this.txtFiltro.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtFiltro.SelectedText = "";
             this.txtFiltro.SelectionLength = 0;
@@ -122,30 +123,7 @@
             this.txtFiltro.WaterMark = "Ingrese el dato para el filtro";
             this.txtFiltro.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtFiltro.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // htmlLabel2
-            // 
-            this.htmlLabel2.AutoScroll = true;
-            this.htmlLabel2.AutoScrollMinSize = new System.Drawing.Size(42, 23);
-            this.htmlLabel2.AutoSize = false;
-            this.htmlLabel2.BackColor = System.Drawing.SystemColors.Window;
-            this.htmlLabel2.Location = new System.Drawing.Point(136, 54);
-            this.htmlLabel2.Name = "htmlLabel2";
-            this.htmlLabel2.Size = new System.Drawing.Size(42, 23);
-            this.htmlLabel2.TabIndex = 2;
-            this.htmlLabel2.Text = "Filtro  :";
-            // 
-            // htmlLabel1
-            // 
-            this.htmlLabel1.AutoScroll = true;
-            this.htmlLabel1.AutoScrollMinSize = new System.Drawing.Size(70, 23);
-            this.htmlLabel1.AutoSize = false;
-            this.htmlLabel1.BackColor = System.Drawing.SystemColors.Window;
-            this.htmlLabel1.Location = new System.Drawing.Point(108, 25);
-            this.htmlLabel1.Name = "htmlLabel1";
-            this.htmlLabel1.Size = new System.Drawing.Size(70, 23);
-            this.htmlLabel1.TabIndex = 2;
-            this.htmlLabel1.Text = "Buscar por  :";
+            this.txtFiltro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFiltro_KeyPress);
             // 
             // groupBox2
             // 
@@ -209,36 +187,6 @@
             this.dgvAlumnos.Size = new System.Drawing.Size(534, 250);
             this.dgvAlumnos.TabIndex = 0;
             // 
-            // btnAgregar
-            // 
-            this.btnAgregar.Location = new System.Drawing.Point(23, 438);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(102, 35);
-            this.btnAgregar.TabIndex = 5;
-            this.btnAgregar.Text = "&Agregar";
-            this.btnAgregar.UseSelectable = true;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.Location = new System.Drawing.Point(131, 438);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(102, 35);
-            this.btnEditar.TabIndex = 5;
-            this.btnEditar.Text = "&Editar";
-            this.btnEditar.UseSelectable = true;
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.Location = new System.Drawing.Point(461, 438);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(102, 35);
-            this.btnSalir.TabIndex = 5;
-            this.btnSalir.Text = "&Salir";
-            this.btnSalir.UseSelectable = true;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
-            // 
             // IDALUMNO
             // 
             this.IDALUMNO.DataPropertyName = "IDALUMNO";
@@ -282,6 +230,54 @@
             this.edad.Name = "edad";
             this.edad.ReadOnly = true;
             // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Location = new System.Drawing.Point(23, 438);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(102, 35);
+            this.btnAgregar.TabIndex = 5;
+            this.btnAgregar.Text = "&Agregar";
+            this.btnAgregar.UseSelectable = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.Location = new System.Drawing.Point(131, 438);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(102, 35);
+            this.btnEditar.TabIndex = 5;
+            this.btnEditar.Text = "&Editar";
+            this.btnEditar.UseSelectable = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.Location = new System.Drawing.Point(461, 438);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(102, 35);
+            this.btnSalir.TabIndex = 5;
+            this.btnSalir.Text = "&Salir";
+            this.btnSalir.UseSelectable = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
+            // metroLabel1
+            // 
+            this.metroLabel1.AutoSize = true;
+            this.metroLabel1.Location = new System.Drawing.Point(95, 29);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(83, 19);
+            this.metroLabel1.TabIndex = 6;
+            this.metroLabel1.Text = "Buscar por  :";
+            // 
+            // metroLabel2
+            // 
+            this.metroLabel2.AutoSize = true;
+            this.metroLabel2.Location = new System.Drawing.Point(128, 58);
+            this.metroLabel2.Name = "metroLabel2";
+            this.metroLabel2.Size = new System.Drawing.Size(50, 19);
+            this.metroLabel2.TabIndex = 6;
+            this.metroLabel2.Text = "Filtro  :";
+            // 
             // frmBuscarAlumno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -300,6 +296,7 @@
             this.Text = "...:::Mantenimiento de Alumnos:::...";
             this.Load += new System.EventHandler(this.frmAlumno_Load);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).EndInit();
             this.ResumeLayout(false);
@@ -310,8 +307,6 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private MetroFramework.Controls.MetroTextBox txtFiltro;
-        private MetroFramework.Drawing.Html.HtmlLabel htmlLabel2;
-        private MetroFramework.Drawing.Html.HtmlLabel htmlLabel1;
         private System.Windows.Forms.GroupBox groupBox2;
         private MetroFramework.Controls.MetroGrid dgvAlumnos;
         private MetroFramework.Controls.MetroComboBox cboBuscar;
@@ -324,5 +319,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nombres;
         private System.Windows.Forms.DataGridViewTextBoxColumn FECHANAC;
         private System.Windows.Forms.DataGridViewTextBoxColumn edad;
+        private MetroFramework.Controls.MetroLabel metroLabel2;
+        private MetroFramework.Controls.MetroLabel metroLabel1;
     }
 }

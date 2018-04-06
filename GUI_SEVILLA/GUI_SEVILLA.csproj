@@ -52,150 +52,6 @@
     <ApplicationIcon>Resources\icons8_School.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Infragistics2.Documents.v9.1, Version=9.1.20091.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2009.1\Windows Forms\Bin\Infragistics2.Documents.v9.1.dll</HintPath>
-    </Reference>
-    <Reference Include="Infragistics2.Excel.v9.1, Version=9.1.20091.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2009.1\Windows Forms\Bin\Infragistics2.Excel.v9.1.dll</HintPath>
-    </Reference>
-    <Reference Include="Infragistics2.Shared.v9.1, Version=9.1.20091.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2009.1\Windows Forms\Bin\Infragistics2.Shared.v9.1.dll</HintPath>
-    </Reference>
-    <Reference Include="Infragistics2.Win.AppStylistSupport.v9.1, Version=9.1.20091.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2009.1\Windows Forms\Bin\Infragistics2.Win.AppStylistSupport.v9.1.dll</HintPath>
-    </Reference>
-    <Reference Include="Infragistics2.Win.Misc.v9.1, Version=9.1.20091.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2009.1\Windows Forms\Bin\Infragistics2.Win.Misc.v9.1.dll</HintPath>
-    </Reference>
-    <Reference Include="Infragistics2.Win.SupportDialogs.v9.1, Version=9.1.20091.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2009.1\Windows Forms\Bin\Infragistics2.Win.SupportDialogs.v9.1.dll</HintPath>
-    </Reference>
-    <Reference Include="Infragistics2.Win.UltraChart.v9.1.Design, Version=9.1.20091.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2009.1\Windows Forms\Bin\Infragistics2.Win.UltraChart.v9.1.Design.dll</HintPath>
-    </Reference>
-    <Reference Include="Infragistics2.Win.UltraGauge.v9.1.Design, Version=9.1.20091.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2009.1\Windows Forms\Bin\Infragistics2.Win.UltraGauge.v9.1.Design.dll</HintPath>
-    </Reference>
-    <Reference Include="Infragistics2.Win.UltraWinCalcManager.v9.1, Version=9.1.20091.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2009.1\Windows Forms\Bin\Infragistics2.Win.UltraWinCalcManager.v9.1.dll</HintPath>
-    </Reference>
-    <Reference Include="Infragistics2.Win.UltraWinCalcManager.v9.1.FormulaBuilder, Version=9.1.20091.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2009.1\Windows Forms\Bin\Infragistics2.Win.UltraWinCalcManager.v9.1.FormulaBuilder.dll</HintPath>
-    </Reference>
-    <Reference Include="Infragistics2.Win.UltraWinChart.v9.1, Version=9.1.20091.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2009.1\Windows Forms\Bin\Infragistics2.Win.UltraWinChart.v9.1.dll</HintPath>
-    </Reference>
-    <Reference Include="Infragistics2.Win.UltraWinDataSource.v9.1, Version=9.1.20091.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2009.1\Windows Forms\Bin\Infragistics2.Win.UltraWinDataSource.v9.1.dll</HintPath>
-    </Reference>
-    <Reference Include="Infragistics2.Win.UltraWinDock.v9.1, Version=9.1.20091.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2009.1\Windows Forms\Bin\Infragistics2.Win.UltraWinDock.v9.1.dll</HintPath>
-    </Reference>
-    <Reference Include="Infragistics2.Win.UltraWinEditors.v9.1, Version=9.1.20091.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2009.1\Windows Forms\Bin\Infragistics2.Win.UltraWinEditors.v9.1.dll</HintPath>
-    </Reference>
-    <Reference Include="Infragistics2.Win.UltraWinExplorerBar.v9.1, Version=9.1.20091.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2009.1\Windows Forms\Bin\Infragistics2.Win.UltraWinExplorerBar.v9.1.dll</HintPath>
-    </Reference>
-    <Reference Include="Infragistics2.Win.UltraWinGauge.v9.1, Version=9.1.20091.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2009.1\Windows Forms\Bin\Infragistics2.Win.UltraWinGauge.v9.1.dll</HintPath>
-    </Reference>
-    <Reference Include="Infragistics2.Win.UltraWinGrid.DocumentExport.v9.1, Version=9.1.20091.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2009.1\Windows Forms\Bin\Infragistics2.Win.UltraWinGrid.DocumentExport.v9.1.dll</HintPath>
-    </Reference>
-    <Reference Include="Infragistics2.Win.UltraWinGrid.ExcelExport.v9.1, Version=9.1.20091.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2009.1\Windows Forms\Bin\Infragistics2.Win.UltraWinGrid.ExcelExport.v9.1.dll</HintPath>
-    </Reference>
-    <Reference Include="Infragistics2.Win.UltraWinGrid.v9.1, Version=9.1.20091.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2009.1\Windows Forms\Bin\Infragistics2.Win.UltraWinGrid.v9.1.dll</HintPath>
-    </Reference>
-    <Reference Include="Infragistics2.Win.UltraWinInkProvider.Ink17.v9.1, Version=9.1.20091.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2009.1\Windows Forms\Bin\Infragistics2.Win.UltraWinInkProvider.Ink17.v9.1.dll</HintPath>
-    </Reference>
-    <Reference Include="Infragistics2.Win.UltraWinInkProvider.v9.1, Version=9.1.20091.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2009.1\Windows Forms\Bin\Infragistics2.Win.UltraWinInkProvider.v9.1.dll</HintPath>
-    </Reference>
-    <Reference Include="Infragistics2.Win.UltraWinListBar.v9.1, Version=9.1.20091.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2009.1\Windows Forms\Bin\Infragistics2.Win.UltraWinListBar.v9.1.dll</HintPath>
-    </Reference>
-    <Reference Include="Infragistics2.Win.UltraWinListView.v9.1, Version=9.1.20091.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2009.1\Windows Forms\Bin\Infragistics2.Win.UltraWinListView.v9.1.dll</HintPath>
-    </Reference>
-    <Reference Include="Infragistics2.Win.UltraWinMaskedEdit.v9.1, Version=9.1.20091.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2009.1\Windows Forms\Bin\Infragistics2.Win.UltraWinMaskedEdit.v9.1.dll</HintPath>
-    </Reference>
-    <Reference Include="Infragistics2.Win.UltraWinPrintPreviewDialog.v9.1, Version=9.1.20091.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2009.1\Windows Forms\Bin\Infragistics2.Win.UltraWinPrintPreviewDialog.v9.1.dll</HintPath>
-    </Reference>
-    <Reference Include="Infragistics2.Win.UltraWinSchedule.v9.1, Version=9.1.20091.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2009.1\Windows Forms\Bin\Infragistics2.Win.UltraWinSchedule.v9.1.dll</HintPath>
-    </Reference>
-    <Reference Include="Infragistics2.Win.UltraWinSpellChecker.v9.1, Version=9.1.20091.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2009.1\Windows Forms\Bin\Infragistics2.Win.UltraWinSpellChecker.v9.1.dll</HintPath>
-    </Reference>
-    <Reference Include="Infragistics2.Win.UltraWinStatusBar.v9.1, Version=9.1.20091.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2009.1\Windows Forms\Bin\Infragistics2.Win.UltraWinStatusBar.v9.1.dll</HintPath>
-    </Reference>
-    <Reference Include="Infragistics2.Win.UltraWinTabbedMdi.v9.1, Version=9.1.20091.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2009.1\Windows Forms\Bin\Infragistics2.Win.UltraWinTabbedMdi.v9.1.dll</HintPath>
-    </Reference>
-    <Reference Include="Infragistics2.Win.UltraWinTabControl.v9.1, Version=9.1.20091.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2009.1\Windows Forms\Bin\Infragistics2.Win.UltraWinTabControl.v9.1.dll</HintPath>
-    </Reference>
-    <Reference Include="Infragistics2.Win.UltraWinToolbars.v9.1, Version=9.1.20091.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2009.1\Windows Forms\Bin\Infragistics2.Win.UltraWinToolbars.v9.1.dll</HintPath>
-    </Reference>
-    <Reference Include="Infragistics2.Win.UltraWinTree.v9.1, Version=9.1.20091.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2009.1\Windows Forms\Bin\Infragistics2.Win.UltraWinTree.v9.1.dll</HintPath>
-    </Reference>
-    <Reference Include="Infragistics2.Win.v9.1, Version=9.1.20091.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2009.1\Windows Forms\Bin\Infragistics2.Win.v9.1.dll</HintPath>
-    </Reference>
-    <Reference Include="Infragistics2.Win.v9.1.Design, Version=9.1.20091.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2009.1\Windows Forms\Bin\Infragistics2.Win.v9.1.Design.dll</HintPath>
-    </Reference>
-    <Reference Include="Infragistics3.Excel.v9.1, Version=9.1.20091.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2009.1\Windows Forms\Bin\Infragistics3.Excel.v9.1.dll</HintPath>
-    </Reference>
-    <Reference Include="Infragistics3.Win.UltraWinGrid.ExcelExport.v9.1, Version=9.1.20091.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2009.1\Windows Forms\Bin\Infragistics3.Win.UltraWinGrid.ExcelExport.v9.1.dll</HintPath>
-    </Reference>
     <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
     </Reference>
@@ -214,7 +70,6 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
@@ -225,11 +80,11 @@
     <Compile Include="frmAlumnos.Designer.cs">
       <DependentUpon>frmAlumnos.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmAperturaAnio.cs">
+    <Compile Include="frmAperturaAnioEscolar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAperturaAnio.Designer.cs">
-      <DependentUpon>frmAperturaAnio.cs</DependentUpon>
+    <Compile Include="frmAperturaAnioEscolar.Designer.cs">
+      <DependentUpon>frmAperturaAnioEscolar.cs</DependentUpon>
     </Compile>
     <Compile Include="frmBuscarAlumno.cs">
       <SubType>Form</SubType>
@@ -237,17 +92,77 @@
     <Compile Include="frmBuscarAlumno.Designer.cs">
       <DependentUpon>frmBuscarAlumno.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmBuscaSeccion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBuscaSeccion.Designer.cs">
+      <DependentUpon>frmBuscaSeccion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEstadoCuenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEstadoCuenta.Designer.cs">
+      <DependentUpon>frmEstadoCuenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGeneraDeuda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGeneraDeuda.Designer.cs">
+      <DependentUpon>frmGeneraDeuda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListadoAlumnosMatriculados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListadoAlumnosMatriculados.Designer.cs">
+      <DependentUpon>frmListadoAlumnosMatriculados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListadoConceptos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListadoConceptos.Designer.cs">
+      <DependentUpon>frmListadoConceptos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListadoSeccion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListadoSeccion.Designer.cs">
+      <DependentUpon>frmListadoSeccion.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMdi.cs">
+    <Compile Include="frmMantenimientoConcepto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMdi.Designer.cs">
-      <DependentUpon>frmMdi.cs</DependentUpon>
+    <Compile Include="frmMantenimientoConcepto.Designer.cs">
+      <DependentUpon>frmMantenimientoConcepto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListadoGrado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListadoGrado.Designer.cs">
+      <DependentUpon>frmListadoGrado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMantenimientoGrado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMantenimientoGrado.Designer.cs">
+      <DependentUpon>frmMantenimientoGrado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMantenimientoSeccion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMantenimientoSeccion.Designer.cs">
+      <DependentUpon>frmMantenimientoSeccion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmFichaMatricula.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFichaMatricula.Designer.cs">
+      <DependentUpon>frmFichaMatricula.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMenu.cs">
       <SubType>Form</SubType>
@@ -273,6 +188,12 @@
     <Compile Include="frmUsuarioListado.designer.cs">
       <DependentUpon>frmUsuarioListado.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmVerificacionMatricula.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVerificacionMatricula.Designer.cs">
+      <DependentUpon>frmVerificacionMatricula.cs</DependentUpon>
+    </Compile>
     <Compile Include="MetodosGlobales.cs" />
     <Compile Include="MetodosGlobales2.cs" />
     <Compile Include="Program.cs" />
@@ -281,17 +202,47 @@
     <EmbeddedResource Include="frmAlumnos.resx">
       <DependentUpon>frmAlumnos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAperturaAnio.resx">
-      <DependentUpon>frmAperturaAnio.cs</DependentUpon>
+    <EmbeddedResource Include="frmAperturaAnioEscolar.resx">
+      <DependentUpon>frmAperturaAnioEscolar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmBuscarAlumno.resx">
       <DependentUpon>frmBuscarAlumno.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmBuscaSeccion.resx">
+      <DependentUpon>frmBuscaSeccion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEstadoCuenta.resx">
+      <DependentUpon>frmEstadoCuenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGeneraDeuda.resx">
+      <DependentUpon>frmGeneraDeuda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListadoAlumnosMatriculados.resx">
+      <DependentUpon>frmListadoAlumnosMatriculados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListadoConceptos.resx">
+      <DependentUpon>frmListadoConceptos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListadoSeccion.resx">
+      <DependentUpon>frmListadoSeccion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMdi.resx">
-      <DependentUpon>frmMdi.cs</DependentUpon>
+    <EmbeddedResource Include="frmMantenimientoConcepto.resx">
+      <DependentUpon>frmMantenimientoConcepto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListadoGrado.resx">
+      <DependentUpon>frmListadoGrado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMantenimientoGrado.resx">
+      <DependentUpon>frmMantenimientoGrado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMantenimientoSeccion.resx">
+      <DependentUpon>frmMantenimientoSeccion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFichaMatricula.resx">
+      <DependentUpon>frmFichaMatricula.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>
@@ -316,6 +267,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -331,6 +283,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\reggrados.png" />
     <None Include="Resources\programador.png" />
     <None Include="Resources\registrarUser.png" />
     <None Include="Resources\matricula.png" />
@@ -339,7 +292,6 @@
     <None Include="imagenes\Editar.png" />
     <None Include="imagenes\salir.png" />
     <None Include="imagenes\agregar.png" />
-    <Content Include="MetroFramework.txt" />
     <None Include="Resources\buscar.png" />
     <None Include="Resources\alumnos.png" />
     <None Include="Resources\anio.png" />
@@ -351,6 +303,7 @@
     <None Include="Resources\ctacorriente.png" />
     <None Include="Resources\cobrosInformacion.png" />
     <None Include="Resources\grados.png" />
+    <Content Include="MetroFramework.txt" />
     <Content Include="Resources\icons8_School.ico" />
     <None Include="Resources\Aula.jpg" />
   </ItemGroup>

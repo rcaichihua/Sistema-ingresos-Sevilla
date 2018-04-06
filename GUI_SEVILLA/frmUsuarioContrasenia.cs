@@ -47,6 +47,8 @@ namespace GUI_SEVILLA
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             byte[] pass = GetPasswordBytes();
+            txtContrasenia.Text = MetodosGlobales.QuitarCaracteres(txtContrasenia.Text) ;
+            txtContraseniaRepite.Text = MetodosGlobales.QuitarCaracteres(txtContraseniaRepite.Text);
 
             if (txtContrasenia.Text.Trim() == string.Empty)
             {

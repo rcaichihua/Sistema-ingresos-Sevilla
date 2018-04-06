@@ -158,10 +158,10 @@ namespace System.Windows.Forms
         #region "Declarations"
 
         private Brush textBrush = Brushes.Black;
-        private FontStyle usedFontStyle = FontStyle.Bold;
+        //private FontStyle usedFontStyle = FontStyle.Bold; //davy
 
-        private int m_fontSize = 10;
-        private bool normalToDisabled = false;
+        //private int m_fontSize = 10;
+        //private bool normalToDisabled = false;
         #endregion
 
         #region "Gripper"
@@ -240,7 +240,7 @@ namespace System.Windows.Forms
                 }
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             }
         }
@@ -640,7 +640,7 @@ namespace System.Windows.Forms
                 {
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             }
         }

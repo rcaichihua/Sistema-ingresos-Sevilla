@@ -42,18 +42,17 @@
             this.PASSWORDNOCADUCA = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.DESACTIVAR = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ADMIN = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.ultraGroupBox1 = new Infragistics.Win.Misc.UltraGroupBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.deshabilitarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.restablecerContraseñaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.propiedadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnCerrar = new Infragistics.Win.Misc.UltraButton();
+            this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraGroupBox1)).BeginInit();
-            this.ultraGroupBox1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvUsuarios
@@ -96,7 +95,7 @@
             this.dgvUsuarios.EnableHeadersVisualStyles = false;
             this.dgvUsuarios.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.dgvUsuarios.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dgvUsuarios.Location = new System.Drawing.Point(3, 0);
+            this.dgvUsuarios.Location = new System.Drawing.Point(3, 16);
             this.dgvUsuarios.Name = "dgvUsuarios";
             this.dgvUsuarios.ReadOnly = true;
             this.dgvUsuarios.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -111,7 +110,7 @@
             this.dgvUsuarios.RowHeadersWidth = 28;
             this.dgvUsuarios.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUsuarios.Size = new System.Drawing.Size(723, 453);
+            this.dgvUsuarios.Size = new System.Drawing.Size(742, 405);
             this.dgvUsuarios.TabIndex = 0;
             this.dgvUsuarios.Theme = MetroFramework.MetroThemeStyle.Light;
             this.dgvUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuarios_CellClick);
@@ -210,14 +209,6 @@
             this.ADMIN.ReadOnly = true;
             this.ADMIN.Width = 70;
             // 
-            // ultraGroupBox1
-            // 
-            this.ultraGroupBox1.Controls.Add(this.dgvUsuarios);
-            this.ultraGroupBox1.Location = new System.Drawing.Point(23, 63);
-            this.ultraGroupBox1.Name = "ultraGroupBox1";
-            this.ultraGroupBox1.Size = new System.Drawing.Size(729, 456);
-            this.ultraGroupBox1.TabIndex = 1;
-            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -262,23 +253,32 @@
             this.propiedadesToolStripMenuItem.Text = "&Propiedades";
             this.propiedadesToolStripMenuItem.Click += new System.EventHandler(this.propiedadesToolStripMenuItem_Click);
             // 
-            // btnCerrar
+            // metroButton1
             // 
-            this.btnCerrar.ButtonStyle = Infragistics.Win.UIElementButtonStyle.Button;
-            this.btnCerrar.Location = new System.Drawing.Point(650, 525);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(75, 23);
-            this.btnCerrar.TabIndex = 3;
-            this.btnCerrar.Text = "&Cerrar";
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            this.metroButton1.Location = new System.Drawing.Point(696, 493);
+            this.metroButton1.Name = "metroButton1";
+            this.metroButton1.Size = new System.Drawing.Size(75, 27);
+            this.metroButton1.TabIndex = 2;
+            this.metroButton1.Text = "&Cerrar";
+            this.metroButton1.UseSelectable = true;
+            this.metroButton1.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.dgvUsuarios);
+            this.groupBox1.Location = new System.Drawing.Point(23, 63);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(748, 424);
+            this.groupBox1.TabIndex = 3;
+            this.groupBox1.TabStop = false;
             // 
             // frmUsuarioListado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(771, 558);
-            this.Controls.Add(this.btnCerrar);
-            this.Controls.Add(this.ultraGroupBox1);
+            this.ClientSize = new System.Drawing.Size(794, 537);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.metroButton1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmUsuarioListado";
@@ -287,9 +287,8 @@
             this.Text = "...:::Listado de Usuarios:::...";
             this.Load += new System.EventHandler(this.frmUsuarioListado_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraGroupBox1)).EndInit();
-            this.ultraGroupBox1.ResumeLayout(false);
             this.contextMenuStrip1.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -297,14 +296,12 @@
         #endregion
 
         private MetroFramework.Controls.MetroGrid dgvUsuarios;
-        private Infragistics.Win.Misc.UltraGroupBox ultraGroupBox1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem deshabilitarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem restablecerContraseñaToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem propiedadesToolStripMenuItem;
-        private Infragistics.Win.Misc.UltraButton btnCerrar;
         private System.Windows.Forms.DataGridViewTextBoxColumn IDUSUARIO;
         private System.Windows.Forms.DataGridViewTextBoxColumn NOMBRECOMPLETO;
         private System.Windows.Forms.DataGridViewTextBoxColumn NRODOCUMENTO;
@@ -314,5 +311,7 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn PASSWORDNOCADUCA;
         private System.Windows.Forms.DataGridViewCheckBoxColumn DESACTIVAR;
         private System.Windows.Forms.DataGridViewCheckBoxColumn ADMIN;
+        private MetroFramework.Controls.MetroButton metroButton1;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

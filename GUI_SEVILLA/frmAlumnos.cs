@@ -150,7 +150,7 @@ namespace GUI_SEVILLA
                 this.cboProvLn.ValueMember = "CODPROV";
                 this.cboProvLn.Refresh();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
             }
@@ -229,20 +229,23 @@ namespace GUI_SEVILLA
         {
             try
             {
-                if (!VerificaDNI()) 
-                {
-                    MessageBox.Show("El DNI que intenta registrar ya existe.", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtDni.Focus();
-                    return;
-                }
-
                 if (Validar() == true) return;
 
                 if (TipoMantenimiento == "I")
                 {
+                    if (!VerificaDNI())
+                    {
+                        MessageBox.Show("El DNI que intenta registrar ya existe.", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtDni.Focus();
+                        return;
+                    }
+
+                    txtEdad.Text = Convert.ToInt32(calcularEdad(dtpFechaNac.Value.ToString("yyyyMMdd")).ToString()).ToString();
+
                     if (ActualizaInsertaAlumno("USP_ALUMNOInsert"))
                     {
                         MessageBox.Show("Datos de alumno Ingresado Correctamente", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
                     }
                     else
                     {
@@ -251,9 +254,23 @@ namespace GUI_SEVILLA
                 }
                 else if (TipoMantenimiento == "U")
                 {
+
+                    if (dtDatosAlumnos.Rows[0][1].ToString()!=txtDni.Text.Trim())
+                    {
+                        if (!VerificaDNI())
+                        {
+                            MessageBox.Show("El DNI que intenta registrar ya existe.", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            txtDni.Focus();
+                            return;
+                        }
+                    }
+
+                    txtEdad.Text = Convert.ToInt32(calcularEdad(dtpFechaNac.Value.ToString("yyyyMMdd")).ToString()).ToString();
+
                     if (ActualizaInsertaAlumno("USP_ALUMNOUpdate"))
                     {
                         MessageBox.Show("Datos de alumno actualizado Correctamente", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
                     }
                     else
                     {
@@ -289,7 +306,7 @@ namespace GUI_SEVILLA
 
         private Boolean VerificaDNI()
         {
-            return (cn.EjecutarSqlDTS("select COUNT(*) from ALUMNO where DNI = '"+txtDni.Text.Trim()+"'", conectar.conexionbdSevilla).Tables[0].Rows.Count == 0);
+            return (cn.EjecutarSqlDTS("select COUNT(*) from ALUMNO where DNI = '"+txtDni.Text.Trim()+"'", conectar.conexionbdSevilla).Tables[0].Rows[0][0].ToString() == "0");
         }
 
         private Boolean Validar()

@@ -38,6 +38,8 @@
             this.txtContrasenia = new MetroFramework.Controls.MetroTextBox();
             this.txtUsuario = new MetroFramework.Controls.MetroTextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.cboFase = new MetroFramework.Controls.MetroComboBox();
+            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -62,9 +64,9 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(154, 131);
+            this.btnSalir.Location = new System.Drawing.Point(158, 153);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(75, 46);
+            this.btnSalir.Size = new System.Drawing.Size(75, 32);
             this.btnSalir.TabIndex = 3;
             this.btnSalir.Text = "&Salir";
             this.btnSalir.UseSelectable = true;
@@ -72,9 +74,9 @@
             // 
             // btnIngresar
             // 
-            this.btnIngresar.Location = new System.Drawing.Point(73, 131);
+            this.btnIngresar.Location = new System.Drawing.Point(77, 153);
             this.btnIngresar.Name = "btnIngresar";
-            this.btnIngresar.Size = new System.Drawing.Size(75, 46);
+            this.btnIngresar.Size = new System.Drawing.Size(75, 32);
             this.btnIngresar.TabIndex = 2;
             this.btnIngresar.Text = "&Ingresar";
             this.btnIngresar.UseSelectable = true;
@@ -82,7 +84,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.metroLabel4);
             this.groupBox1.Controls.Add(this.metroLabel3);
+            this.groupBox1.Controls.Add(this.cboFase);
             this.groupBox1.Controls.Add(this.cboAnio);
             this.groupBox1.Controls.Add(this.txtContrasenia);
             this.groupBox1.Controls.Add(this.txtUsuario);
@@ -92,7 +96,7 @@
             this.groupBox1.Controls.Add(this.metroLabel1);
             this.groupBox1.Location = new System.Drawing.Point(313, 63);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(296, 191);
+            this.groupBox1.Size = new System.Drawing.Size(296, 201);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Inicio de Sesión";
@@ -115,6 +119,7 @@
             this.cboAnio.Size = new System.Drawing.Size(121, 29);
             this.cboAnio.TabIndex = 7;
             this.cboAnio.UseSelectable = true;
+            this.cboAnio.SelectedIndexChanged += new System.EventHandler(this.cboAnio_SelectedIndexChanged);
             // 
             // txtContrasenia
             // 
@@ -188,18 +193,37 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::GUI_SEVILLA.Properties.Resources.Aula;
-            this.pictureBox1.Location = new System.Drawing.Point(23, 63);
+            this.pictureBox1.Location = new System.Drawing.Point(23, 73);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(284, 191);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
+            // cboFase
+            // 
+            this.cboFase.FormattingEnabled = true;
+            this.cboFase.ItemHeight = 23;
+            this.cboFase.Location = new System.Drawing.Point(95, 112);
+            this.cboFase.Name = "cboFase";
+            this.cboFase.Size = new System.Drawing.Size(121, 29);
+            this.cboFase.TabIndex = 7;
+            this.cboFase.UseSelectable = true;
+            // 
+            // metroLabel4
+            // 
+            this.metroLabel4.AutoSize = true;
+            this.metroLabel4.Location = new System.Drawing.Point(55, 112);
+            this.metroLabel4.Name = "metroLabel4";
+            this.metroLabel4.Size = new System.Drawing.Size(34, 19);
+            this.metroLabel4.TabIndex = 8;
+            this.metroLabel4.Text = "Fase";
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(632, 284);
+            this.ClientSize = new System.Drawing.Size(632, 278);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBox1);
             this.MaximizeBox = false;
@@ -227,6 +251,8 @@
         private MetroFramework.Controls.MetroTextBox txtUsuario;
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private MetroFramework.Controls.MetroComboBox cboAnio;
+        private MetroFramework.Controls.MetroLabel metroLabel4;
+        private MetroFramework.Controls.MetroComboBox cboFase;
     }
 }
 

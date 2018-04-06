@@ -48,10 +48,19 @@
             this.rbCambiarContrasenia = new System.Windows.Forms.RibbonButton();
             this.ribbonTab2 = new System.Windows.Forms.RibbonTab();
             this.ribbonPanel6 = new System.Windows.Forms.RibbonPanel();
-            this.rbRegistroGrador = new System.Windows.Forms.RibbonButton();
+            this.rbRegistroGrado = new System.Windows.Forms.RibbonButton();
+            this.rbRegistroSeccion = new System.Windows.Forms.RibbonButton();
             this.ribbonPanel7 = new System.Windows.Forms.RibbonPanel();
             this.rbAperturaAnio = new System.Windows.Forms.RibbonButton();
             this.ribbonOrbMenuItem1 = new System.Windows.Forms.RibbonOrbMenuItem();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblUsuario = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblAnioEscolarLogueado = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblAnioEscolarAperturado = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // ribbon1
@@ -116,6 +125,7 @@
             this.rbConceptos.Image = global::GUI_SEVILLA.Properties.Resources.conceptos;
             this.rbConceptos.SmallImage = ((System.Drawing.Image)(resources.GetObject("rbConceptos.SmallImage")));
             this.rbConceptos.Text = "Conceptos";
+            this.rbConceptos.Click += new System.EventHandler(this.rbConceptos_Click);
             // 
             // ribbonPanel3
             // 
@@ -128,7 +138,7 @@
             // 
             this.rbCobros.Image = global::GUI_SEVILLA.Properties.Resources.cobros;
             this.rbCobros.SmallImage = ((System.Drawing.Image)(resources.GetObject("rbCobros.SmallImage")));
-            this.rbCobros.Text = "Pagos";
+            this.rbCobros.Text = "Genera Deuda";
             this.rbCobros.TextAlignment = System.Windows.Forms.RibbonItem.RibbonItemTextAlignment.Center;
             // 
             // rbMatricula
@@ -138,6 +148,7 @@
             this.rbMatricula.Text = "Matrícula";
             this.rbMatricula.TextAlignment = System.Windows.Forms.RibbonItem.RibbonItemTextAlignment.Center;
             this.rbMatricula.ToolTip = "";
+            this.rbMatricula.Click += new System.EventHandler(this.rbMatricula_Click);
             // 
             // rbGeneracionArchivo
             // 
@@ -155,8 +166,9 @@
             // 
             this.rbCtaCorreinte.Image = global::GUI_SEVILLA.Properties.Resources.ctacorriente;
             this.rbCtaCorreinte.SmallImage = ((System.Drawing.Image)(resources.GetObject("rbCtaCorreinte.SmallImage")));
-            this.rbCtaCorreinte.Text = "Cta Corriente";
+            this.rbCtaCorreinte.Text = "Estado de Cta";
             this.rbCtaCorreinte.TextAlignment = System.Windows.Forms.RibbonItem.RibbonItemTextAlignment.Center;
+            this.rbCtaCorreinte.Click += new System.EventHandler(this.rbCtaCorreinte_Click);
             // 
             // rbCobrosInforme
             // 
@@ -203,13 +215,23 @@
             // 
             // ribbonPanel6
             // 
-            this.ribbonPanel6.Items.Add(this.rbRegistroGrador);
-            this.ribbonPanel6.Text = "Registro de Grados";
+            this.ribbonPanel6.Items.Add(this.rbRegistroGrado);
+            this.ribbonPanel6.Items.Add(this.rbRegistroSeccion);
+            this.ribbonPanel6.Text = "Apertura grado sección";
             // 
-            // rbRegistroGrador
+            // rbRegistroGrado
             // 
-            this.rbRegistroGrador.Image = global::GUI_SEVILLA.Properties.Resources.anio;
-            this.rbRegistroGrador.SmallImage = ((System.Drawing.Image)(resources.GetObject("rbRegistroGrador.SmallImage")));
+            this.rbRegistroGrado.Image = global::GUI_SEVILLA.Properties.Resources.reggrados;
+            this.rbRegistroGrado.SmallImage = ((System.Drawing.Image)(resources.GetObject("rbRegistroGrado.SmallImage")));
+            this.rbRegistroGrado.Text = "Registrar Grado";
+            this.rbRegistroGrado.Click += new System.EventHandler(this.rbRegistroGrado_Click);
+            // 
+            // rbRegistroSeccion
+            // 
+            this.rbRegistroSeccion.Image = global::GUI_SEVILLA.Properties.Resources.anio;
+            this.rbRegistroSeccion.SmallImage = ((System.Drawing.Image)(resources.GetObject("rbRegistroSeccion.SmallImage")));
+            this.rbRegistroSeccion.Text = "Registrar Sección";
+            this.rbRegistroSeccion.Click += new System.EventHandler(this.rbRegistroSeccion_Click);
             // 
             // ribbonPanel7
             // 
@@ -220,6 +242,8 @@
             // 
             this.rbAperturaAnio.Image = global::GUI_SEVILLA.Properties.Resources.grados;
             this.rbAperturaAnio.SmallImage = ((System.Drawing.Image)(resources.GetObject("rbAperturaAnio.SmallImage")));
+            this.rbAperturaAnio.Text = "Apertura del año";
+            this.rbAperturaAnio.Click += new System.EventHandler(this.rbAperturaAnio_Click);
             // 
             // ribbonOrbMenuItem1
             // 
@@ -228,12 +252,74 @@
             this.ribbonOrbMenuItem1.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonOrbMenuItem1.SmallImage")));
             this.ribbonOrbMenuItem1.Text = "ribbonOrbMenuItem1";
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1,
+            this.lblUsuario,
+            this.toolStripStatusLabel2,
+            this.lblAnioEscolarLogueado,
+            this.toolStripStatusLabel3,
+            this.lblAnioEscolarAperturado});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 562);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.statusStrip1.Size = new System.Drawing.Size(948, 22);
+            this.statusStrip1.TabIndex = 3;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.toolStripStatusLabel1.Image = global::GUI_SEVILLA.Properties.Resources.programador;
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(83, 17);
+            this.toolStripStatusLabel1.Text = "USUARIO :";
+            // 
+            // lblUsuario
+            // 
+            this.lblUsuario.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(131, 17);
+            this.lblUsuario.Text = "toolStripStatusLabel2";
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.toolStripStatusLabel2.Image = global::GUI_SEVILLA.Properties.Resources.anio;
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(109, 17);
+            this.toolStripStatusLabel2.Text = "AÑO ESCOLAR :";
+            // 
+            // lblAnioEscolarLogueado
+            // 
+            this.lblAnioEscolarLogueado.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAnioEscolarLogueado.Name = "lblAnioEscolarLogueado";
+            this.lblAnioEscolarLogueado.Size = new System.Drawing.Size(131, 17);
+            this.lblAnioEscolarLogueado.Text = "toolStripStatusLabel3";
+            // 
+            // toolStripStatusLabel3
+            // 
+            this.toolStripStatusLabel3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabel3.Image = global::GUI_SEVILLA.Properties.Resources.cambiarcontrasenia;
+            this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(191, 17);
+            this.toolStripStatusLabel3.Text = "AÑO ESCOLAR APERTURADO :";
+            // 
+            // lblAnioEscolarAperturado
+            // 
+            this.lblAnioEscolarAperturado.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAnioEscolarAperturado.Name = "lblAnioEscolarAperturado";
+            this.lblAnioEscolarAperturado.Size = new System.Drawing.Size(131, 17);
+            this.lblAnioEscolarAperturado.Text = "toolStripStatusLabel4";
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.ClientSize = new System.Drawing.Size(948, 584);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.ribbon1);
             this.IsMdiContainer = true;
             this.Name = "frmMenu";
@@ -241,7 +327,11 @@
             this.Text = "...::: S I S T E M A  D E  M A T R I C U L A :::..";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMenu_FormClosing);
+            this.Load += new System.EventHandler(this.frmMenu_Load);
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -267,8 +357,16 @@
         private System.Windows.Forms.RibbonButton rbCambiarContrasenia;
         private System.Windows.Forms.RibbonTab ribbonTab2;
         private System.Windows.Forms.RibbonPanel ribbonPanel6;
-        private System.Windows.Forms.RibbonButton rbRegistroGrador;
+        private System.Windows.Forms.RibbonButton rbRegistroSeccion;
         private System.Windows.Forms.RibbonPanel ribbonPanel7;
         private System.Windows.Forms.RibbonButton rbAperturaAnio;
+        private System.Windows.Forms.RibbonButton rbRegistroGrado;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        internal System.Windows.Forms.ToolStripStatusLabel lblUsuario;
+        internal System.Windows.Forms.ToolStripStatusLabel lblAnioEscolarLogueado;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
+        internal System.Windows.Forms.ToolStripStatusLabel lblAnioEscolarAperturado;
     }
 }

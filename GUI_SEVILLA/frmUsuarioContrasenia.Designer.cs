@@ -28,34 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ultraGroupBox1 = new Infragistics.Win.Misc.UltraGroupBox();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.txtContraseniaRepite = new MetroFramework.Controls.MetroTextBox();
             this.txtContrasenia = new MetroFramework.Controls.MetroTextBox();
             this.btnSalir = new MetroFramework.Controls.MetroButton();
             this.btnActualizar = new MetroFramework.Controls.MetroButton();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraGroupBox1)).BeginInit();
-            this.ultraGroupBox1.SuspendLayout();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // ultraGroupBox1
-            // 
-            this.ultraGroupBox1.Controls.Add(this.metroLabel3);
-            this.ultraGroupBox1.Controls.Add(this.metroLabel2);
-            this.ultraGroupBox1.Controls.Add(this.txtContraseniaRepite);
-            this.ultraGroupBox1.Controls.Add(this.txtContrasenia);
-            this.ultraGroupBox1.Location = new System.Drawing.Point(23, 63);
-            this.ultraGroupBox1.Name = "ultraGroupBox1";
-            this.ultraGroupBox1.Size = new System.Drawing.Size(342, 102);
-            this.ultraGroupBox1.TabIndex = 0;
-            this.ultraGroupBox1.Text = "Inicio de Sesión";
-            this.ultraGroupBox1.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000;
             // 
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(17, 60);
+            this.metroLabel3.Location = new System.Drawing.Point(14, 61);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(116, 19);
             this.metroLabel3.TabIndex = 0;
@@ -64,7 +50,7 @@
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(58, 31);
+            this.metroLabel2.Location = new System.Drawing.Point(55, 32);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(75, 19);
             this.metroLabel2.TabIndex = 0;
@@ -85,11 +71,11 @@
             this.txtContraseniaRepite.CustomButton.UseSelectable = true;
             this.txtContraseniaRepite.CustomButton.Visible = false;
             this.txtContraseniaRepite.Lines = new string[0];
-            this.txtContraseniaRepite.Location = new System.Drawing.Point(139, 60);
+            this.txtContraseniaRepite.Location = new System.Drawing.Point(136, 61);
             this.txtContraseniaRepite.MaxLength = 32767;
             this.txtContraseniaRepite.Name = "txtContraseniaRepite";
             this.txtContraseniaRepite.PasswordChar = '*';
-            this.txtContraseniaRepite.PromptText = "Ingrese Contraseña Nuevamente";
+            this.txtContraseniaRepite.WaterMark = "Ingrese Contraseña Nuevamente";
             this.txtContraseniaRepite.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtContraseniaRepite.SelectedText = "";
             this.txtContraseniaRepite.SelectionLength = 0;
@@ -117,11 +103,11 @@
             this.txtContrasenia.CustomButton.UseSelectable = true;
             this.txtContrasenia.CustomButton.Visible = false;
             this.txtContrasenia.Lines = new string[0];
-            this.txtContrasenia.Location = new System.Drawing.Point(139, 31);
+            this.txtContrasenia.Location = new System.Drawing.Point(136, 32);
             this.txtContrasenia.MaxLength = 32767;
             this.txtContrasenia.Name = "txtContrasenia";
             this.txtContrasenia.PasswordChar = '*';
-            this.txtContrasenia.PromptText = "Ingrese Contraseña";
+            this.txtContrasenia.WaterMark = "Ingrese Contraseña";
             this.txtContrasenia.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtContrasenia.SelectedText = "";
             this.txtContrasenia.SelectionLength = 0;
@@ -136,7 +122,7 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(194, 171);
+            this.btnSalir.Location = new System.Drawing.Point(214, 188);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 2;
@@ -146,7 +132,7 @@
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(113, 171);
+            this.btnActualizar.Location = new System.Drawing.Point(133, 188);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(75, 23);
             this.btnActualizar.TabIndex = 1;
@@ -154,15 +140,28 @@
             this.btnActualizar.UseSelectable = true;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.metroLabel3);
+            this.groupBox1.Controls.Add(this.txtContrasenia);
+            this.groupBox1.Controls.Add(this.metroLabel2);
+            this.groupBox1.Controls.Add(this.txtContraseniaRepite);
+            this.groupBox1.Location = new System.Drawing.Point(23, 63);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(370, 119);
+            this.groupBox1.TabIndex = 3;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Inicio de Sesión";
+            // 
             // frmUsuarioContrasenia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = MetroFramework.Forms.MetroFormBorderStyle.FixedSingle;
-            this.ClientSize = new System.Drawing.Size(384, 207);
+            this.ClientSize = new System.Drawing.Size(419, 228);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnActualizar);
-            this.Controls.Add(this.ultraGroupBox1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmUsuarioContrasenia";
@@ -170,21 +169,19 @@
             this.Style = MetroFramework.MetroColorStyle.Purple;
             this.Text = "...:::Actualizar Contraseña:::...";
             this.Load += new System.EventHandler(this.frmUsuarioContrasenia_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.ultraGroupBox1)).EndInit();
-            this.ultraGroupBox1.ResumeLayout(false);
-            this.ultraGroupBox1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private Infragistics.Win.Misc.UltraGroupBox ultraGroupBox1;
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroTextBox txtContraseniaRepite;
         private MetroFramework.Controls.MetroTextBox txtContrasenia;
         private MetroFramework.Controls.MetroButton btnSalir;
         private MetroFramework.Controls.MetroButton btnActualizar;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Security;
 using System.Security.Cryptography;
 using System.Text;
+using System.Windows.Forms;
+using BL_SEVILLA;
+using DAO_SEVILLA;
 
 namespace GUI_SEVILLA
 {
@@ -84,6 +88,70 @@ namespace GUI_SEVILLA
             }
 
             return encryptedBytes;
+        }
+
+        public static bool VerificaAnioEscolar(CNegocio cNegocio)
+        {
+            bool respta = true;
+
+            DataTable dtAnioValido = new DataTable();
+            dtAnioValido = cNegocio.EjecutarSqlDTS("select count(*) as cantidad from ANIOESCOLAR A INNER JOIN APERTURAANIOESCOLAR B ON A.IDANIO=B.IDANIO INNER JOIN FASE C ON C.IDFASE=B.IDFASE WHERE b.ESTADO=1 AND A.ANIO=" + VariablesGlobales.AnioEscolarLogueado + " AND C.DESCRIPCIONFASE='" + VariablesGlobales.AnioFaseEscolarLogueado + "'", conectar.conexionbdSevilla).Tables[0];
+               
+            if (dtAnioValido.Rows[0][0].ToString() == "0")
+            {
+                MessageBox.Show("No se puede agregar ni modificar los años escolares ya cerrados.", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                respta = false;
+            }
+            return respta;
+        }
+
+        public static string QuitarCaracteres(string cadena)
+        {
+            string lineaNueva = "";
+            string lineaNueva2 = "";
+            int tamanoLinea = 0;
+            string[] ESPACIO = new string[37] { "\"\"", ";", ",", "+", "!", "#", "$", "%", "/", "(", "\\", "¡", "¿", "'", "`", "~", "[", "}", "]", "<", ">", "_", ")", "{", "^", ":", "|", "¬", "=", "?", "°", "º", "´", "&", "º", "-" ,"*"};
+
+            tamanoLinea = cadena.Length;
+
+            for (int i = 0; i < tamanoLinea; i++)
+            {
+                lineaNueva = cadena.Substring(i, 1);
+                for (int espa_ = 0; espa_ < ESPACIO.Length; espa_++)
+                {
+                    if (ESPACIO[espa_].ToString() == lineaNueva)
+                    {
+                        lineaNueva = @"";
+                    }
+                }
+                lineaNueva2 = lineaNueva2 + lineaNueva;
+            }
+            return lineaNueva2;
+        }
+
+        public static string NombreMes(int mes)
+        {
+            string mesNombre;
+
+            switch (mes)
+            {
+                case 1 : mesNombre = "Enero"; break;
+                case 2: mesNombre = "Febrero"; break;
+                case 3: mesNombre = "Marzo"; break;
+                case 4: mesNombre = "Abril"; break;
+                case 5: mesNombre = "Mayo"; break;
+                case 6: mesNombre = "Junio"; break;
+                case 7: mesNombre = "Julio"; break;
+                case 8: mesNombre = "Agosto"; break;
+                case 9: mesNombre = "Setiembre"; break;
+                case 10: mesNombre = "Octubre"; break;
+                case 11: mesNombre = "Noviembre"; break;
+                case 12: mesNombre = "Diciembre"; break;
+
+                default: mesNombre = "No definido";
+                    break;
+            }
+            return mesNombre;
         }
     }
 }

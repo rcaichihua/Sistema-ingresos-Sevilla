@@ -68,6 +68,7 @@ namespace GUI_SEVILLA
                 cn.TraerServidorSevilla();
 
                 LlenarAnio();
+                CargarFase();
             }
             catch (Exception ex)
             {
@@ -91,18 +92,31 @@ namespace GUI_SEVILLA
             }                   
         }
 
+        private void CargarFase()
+        {
+            try
+            {
+                cboFase.DataSource = cn.EjecutarSqlDTS("select A.IDFASE,B.DESCRIPCIONFASE from APERTURAANIOESCOLAR A INNER JOIN FASE B ON A.IDFASE=B.IDFASE where A.IDANIO=" + cboAnio.SelectedValue+"", conectar.conexionbdSevilla).Tables[0];
+                cboFase.DisplayMember = "DESCRIPCIONFASE";
+                cboFase.ValueMember = "IDFASE";
+            }
+            catch (Exception)
+            {
+
+            }
+
+        }
+
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             DataSet dtsDatosUsuario = new DataSet();
+            DataTable dtAnios = new DataTable();
             VariablesGlobales.NombreMensajes = "...::: SISTEMA SEVILLA :::...";
 
             string clave_user = null;
 
             try
             {
-                //txtUsuario.Text = "RCAICHIHUA";
-                //txtContrasenia.Text = "123";
-
                 if (string.IsNullOrEmpty(txtUsuario.Text))
                 {
                     MessageBox.Show("Ingrese su nombre de Usuario !!!", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Exclamation,
@@ -123,18 +137,12 @@ namespace GUI_SEVILLA
                 bool FLG_ACTIVO = false;
 
                 VariablesGlobales.FechaActual = cn.EjecutarSqlDTS("select CONVERT(VARCHAR(8),getdate(),112)", conectar.conexionbdSevilla).Tables[0].Rows[0][0].ToString();
-
-                VariablesGlobales.AnioFiscal = Convert.ToInt32(VariablesGlobales.FechaActual.Substring(1, 4));
+                clave_user = dtsDatosUsuario.Tables[0].Rows[0]["PASSWORD"].ToString();
+                FLG_ACTIVO = Convert.ToBoolean(dtsDatosUsuario.Tables[0].Rows[0]["DESACTIVAR"]);
+                VariablesGlobales.AnioFiscal = Convert.ToInt32(VariablesGlobales.FechaActual.Substring(0, 4));
 
                 if (dtsDatosUsuario.Tables[0].Rows.Count > 0)
                 {
-                    VariablesGlobales.NombreCompletoUsuario = dtsDatosUsuario.Tables[0].Rows[0]["NOMBRECOMPLETO"].ToString();
-                    VariablesGlobales.NombreUsuario = dtsDatosUsuario.Tables[0].Rows[0]["NOMBREUSUARIO"].ToString();
-                    VariablesGlobales.AnioEscolar = Convert.ToInt32(cboAnio.SelectedValue);
-                    clave_user = dtsDatosUsuario.Tables[0].Rows[0]["PASSWORD"].ToString();
-                    FLG_ACTIVO = Convert.ToBoolean(dtsDatosUsuario.Tables[0].Rows[0]["DESACTIVAR"]);
-                    VariablesGlobales.admin = Convert.ToBoolean(dtsDatosUsuario.Tables[0].Rows[0]["administrador"]);
-
                     byte[] passwordBytes = GetPasswordBytes();
 
                     if (VariablesGlobales.llave_publica == devuelveLlavePublica(clave_user, passwordBytes))
@@ -147,9 +155,23 @@ namespace GUI_SEVILLA
                         }
                         else
                         {
+                            dtAnios = cn.EjecutarSqlDTS("select ANIO,DESCRIPANIO,B.IDFASE,C.DESCRIPCIONFASE from ANIOESCOLAR A INNER JOIN APERTURAANIOESCOLAR B ON A.IDANIO=B.IDANIO INNER JOIN  FASE C ON B.IDFASE=C.IDFASE WHERE ESTADO=1", conectar.conexionbdSevilla).Tables[0];
+
+                            VariablesGlobales.NombreCompletoUsuario = dtsDatosUsuario.Tables[0].Rows[0]["NOMBRECOMPLETO"].ToString();
+                            VariablesGlobales.NombreUsuario = dtsDatosUsuario.Tables[0].Rows[0]["NOMBREUSUARIO"].ToString();
+                            VariablesGlobales.AnioEscolarLogueado = Convert.ToInt32(cboAnio.Text);
+                            VariablesGlobales.AnioFaseEscolarLogueado = cboFase.Text;
+                            VariablesGlobales.admin = Convert.ToBoolean(dtsDatosUsuario.Tables[0].Rows[0]["administrador"]);
+                            VariablesGlobales.AnioEscolarAperturado = Convert.ToInt32(dtAnios.Rows[0][0]);
+                            VariablesGlobales.AnioFaseEscolarAperturado = dtAnios.Rows[0][3].ToString();
+                            VariablesGlobales.NombreAnioActual = dtAnios.Rows[0][1].ToString();
+
                             this.Height = 435;
                             this.Hide();
                             frmMenu menu = new frmMenu();
+                            menu.lblUsuario.Text = VariablesGlobales.NombreCompletoUsuario;
+                            menu.lblAnioEscolarLogueado.Text = cboAnio.Text +"-"+ cboFase.Text;
+                            menu.lblAnioEscolarAperturado.Text = VariablesGlobales.AnioEscolarAperturado.ToString()+"-"+VariablesGlobales.AnioFaseEscolarAperturado;
                             menu.Show();
                         }
                     }
@@ -224,6 +246,11 @@ namespace GUI_SEVILLA
                 }
             }
             return System.Security.Cryptography.SHA256.Create().ComputeHash(ba);
+        }
+
+        private void cboAnio_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CargarFase();
         }
     }
 }

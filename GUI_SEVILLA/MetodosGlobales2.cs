@@ -130,6 +130,6 @@ namespace GUI_SEVILLA
             byte[] ba = new byte[length];
             RNGCryptoServiceProvider.Create().GetBytes(ba);
             return ba;
-        }
+        }      
     }
 }

@@ -28,6 +28,11 @@ namespace GUI_SEVILLA
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             string cambioClave = "NO";
+            txtApellidosNombres.Text = MetodosGlobales.QuitarCaracteres(txtApellidosNombres.Text);
+            txtDocIdentidad.Text = MetodosGlobales.QuitarCaracteres(txtDocIdentidad.Text);
+            txtNombreUsuario.Text = MetodosGlobales.QuitarCaracteres(txtNombreUsuario.Text);
+            txtConfirmaContrasenia.Text = MetodosGlobales.QuitarCaracteres(txtConfirmaContrasenia.Text);
+            txtContrasenia.Text = MetodosGlobales.QuitarCaracteres(txtContrasenia.Text);
             try
             {
                 if (txtApellidosNombres.Text.Trim()==String.Empty)
