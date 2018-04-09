@@ -86,6 +86,12 @@
     <Compile Include="frmAperturaAnioEscolar.Designer.cs">
       <DependentUpon>frmAperturaAnioEscolar.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmBajaMatricula.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBajaMatricula.Designer.cs">
+      <DependentUpon>frmBajaMatricula.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmBuscarAlumno.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -188,12 +194,6 @@
     <Compile Include="frmUsuarioListado.designer.cs">
       <DependentUpon>frmUsuarioListado.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmVerificacionMatricula.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmVerificacionMatricula.Designer.cs">
-      <DependentUpon>frmVerificacionMatricula.cs</DependentUpon>
-    </Compile>
     <Compile Include="MetodosGlobales.cs" />
     <Compile Include="MetodosGlobales2.cs" />
     <Compile Include="Program.cs" />
@@ -204,6 +204,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAperturaAnioEscolar.resx">
       <DependentUpon>frmAperturaAnioEscolar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBajaMatricula.resx">
+      <DependentUpon>frmBajaMatricula.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmBuscarAlumno.resx">
       <DependentUpon>frmBuscarAlumno.cs</DependentUpon>

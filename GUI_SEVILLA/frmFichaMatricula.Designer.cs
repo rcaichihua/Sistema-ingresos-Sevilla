@@ -30,6 +30,7 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.lblIdSeccion = new MetroFramework.Controls.MetroLabel();
             this.dtpFechaIngreso = new MetroFramework.Controls.MetroDateTime();
             this.txtNivel = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
@@ -53,6 +54,7 @@
             this.cboSituacion = new MetroFramework.Controls.MetroComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lblIdAlumno = new MetroFramework.Controls.MetroLabel();
             this.dtpFechaNacimiento = new MetroFramework.Controls.MetroDateTime();
             this.txtEdad = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
@@ -74,8 +76,6 @@
             this.btnSalir = new MetroFramework.Controls.MetroButton();
             this.btnGuardar = new MetroFramework.Controls.MetroButton();
             this.lblEncabezado = new MetroFramework.Controls.MetroLabel();
-            this.lblIdAlumno = new MetroFramework.Controls.MetroLabel();
-            this.lblIdSeccion = new MetroFramework.Controls.MetroLabel();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -125,6 +125,16 @@
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Datos de la matrícula";
+            // 
+            // lblIdSeccion
+            // 
+            this.lblIdSeccion.AutoSize = true;
+            this.lblIdSeccion.Location = new System.Drawing.Point(248, 250);
+            this.lblIdSeccion.Name = "lblIdSeccion";
+            this.lblIdSeccion.Size = new System.Drawing.Size(16, 19);
+            this.lblIdSeccion.TabIndex = 6;
+            this.lblIdSeccion.Text = "0";
+            this.lblIdSeccion.Visible = false;
             // 
             // dtpFechaIngreso
             // 
@@ -371,7 +381,7 @@
             this.txtObservacionesMatricula.Name = "txtObservacionesMatricula";
             this.txtObservacionesMatricula.PasswordChar = '\0';
             this.txtObservacionesMatricula.PromptText = "Observaciones adicionales de la matrícula";
-            this.txtObservacionesMatricula.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtObservacionesMatricula.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtObservacionesMatricula.SelectedText = "";
             this.txtObservacionesMatricula.SelectionLength = 0;
             this.txtObservacionesMatricula.SelectionStart = 0;
@@ -553,6 +563,16 @@
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Datos del alumno";
+            // 
+            // lblIdAlumno
+            // 
+            this.lblIdAlumno.AutoSize = true;
+            this.lblIdAlumno.Location = new System.Drawing.Point(262, 16);
+            this.lblIdAlumno.Name = "lblIdAlumno";
+            this.lblIdAlumno.Size = new System.Drawing.Size(16, 19);
+            this.lblIdAlumno.TabIndex = 6;
+            this.lblIdAlumno.Text = "0";
+            this.lblIdAlumno.Visible = false;
             // 
             // dtpFechaNacimiento
             // 
@@ -946,26 +966,6 @@
             this.lblEncabezado.Size = new System.Drawing.Size(740, 31);
             this.lblEncabezado.TabIndex = 15;
             this.lblEncabezado.Text = "metroLabel1";
-            // 
-            // lblIdAlumno
-            // 
-            this.lblIdAlumno.AutoSize = true;
-            this.lblIdAlumno.Location = new System.Drawing.Point(262, 16);
-            this.lblIdAlumno.Name = "lblIdAlumno";
-            this.lblIdAlumno.Size = new System.Drawing.Size(16, 19);
-            this.lblIdAlumno.TabIndex = 6;
-            this.lblIdAlumno.Text = "0";
-            this.lblIdAlumno.Visible = false;
-            // 
-            // lblIdSeccion
-            // 
-            this.lblIdSeccion.AutoSize = true;
-            this.lblIdSeccion.Location = new System.Drawing.Point(248, 250);
-            this.lblIdSeccion.Name = "lblIdSeccion";
-            this.lblIdSeccion.Size = new System.Drawing.Size(16, 19);
-            this.lblIdSeccion.TabIndex = 6;
-            this.lblIdSeccion.Text = "0";
-            this.lblIdSeccion.Visible = false;
             // 
             // frmFichaMatricula
             // 

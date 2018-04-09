@@ -6,11 +6,14 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using BL_SEVILLA;
 
 namespace GUI_SEVILLA
 {
     public partial class frmMenu : Form
     {
+        CNegocio cn = new CNegocio();
+
         public frmMenu()
         {
             InitializeComponent();
@@ -190,5 +193,20 @@ namespace GUI_SEVILLA
             winfrmEstadoCuenta.MdiParent = this;
             winfrmEstadoCuenta.Show();
         }
+
+        private void rbCobros_Click(object sender, EventArgs e)
+        {
+            if (MetodosGlobales.VerificaAnioEscolar(cn))
+            {
+                if (FormIsOpen("frmGeneraDeuda"))
+
+                {
+                    return;
+                }
+                frmGeneraDeuda winfrmGeneraDeuda = new frmGeneraDeuda();
+                winfrmGeneraDeuda.MdiParent = this;
+                winfrmGeneraDeuda.Show();
+            }
+        }           
     }
 }

@@ -99,7 +99,9 @@ namespace GUI_SEVILLA
                
             if (dtAnioValido.Rows[0][0].ToString() == "0")
             {
-                MessageBox.Show("No se puede agregar ni modificar los años escolares ya cerrados.", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No se puede realizar esta acción" + Environment.NewLine + 
+                    "debido a que el año y fase escolar con el que" + Environment.NewLine +
+                    "se ha logueado se encuentran cerrados.", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 respta = false;
             }
             return respta;

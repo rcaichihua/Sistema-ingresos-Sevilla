@@ -140,6 +140,7 @@
             this.rbCobros.SmallImage = ((System.Drawing.Image)(resources.GetObject("rbCobros.SmallImage")));
             this.rbCobros.Text = "Genera Deuda";
             this.rbCobros.TextAlignment = System.Windows.Forms.RibbonItem.RibbonItemTextAlignment.Center;
+            this.rbCobros.Click += new System.EventHandler(this.rbCobros_Click);
             // 
             // rbMatricula
             // 
@@ -288,8 +289,8 @@
             this.toolStripStatusLabel2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.toolStripStatusLabel2.Image = global::GUI_SEVILLA.Properties.Resources.anio;
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(109, 17);
-            this.toolStripStatusLabel2.Text = "AÑO ESCOLAR :";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(194, 17);
+            this.toolStripStatusLabel2.Text = "INICIO SESION AÑO ESCOLAR :";
             // 
             // lblAnioEscolarLogueado
             // 

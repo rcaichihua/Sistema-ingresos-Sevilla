@@ -58,6 +58,7 @@
             this.FECHAINGRESO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FECHAREGISTRO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.USUARIOCREADOR = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ESTADO = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnosMatriculados)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -101,7 +102,8 @@
             this.LETRASECCION,
             this.FECHAINGRESO,
             this.FECHAREGISTRO,
-            this.USUARIOCREADOR});
+            this.USUARIOCREADOR,
+            this.ESTADO});
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -164,6 +166,7 @@
             this.rbInactivos.TabIndex = 0;
             this.rbInactivos.Text = "Inactivos";
             this.rbInactivos.UseSelectable = true;
+            this.rbInactivos.CheckedChanged += new System.EventHandler(this.rbInactivos_CheckedChanged);
             // 
             // rbActivos
             // 
@@ -176,6 +179,7 @@
             this.rbActivos.TabStop = true;
             this.rbActivos.Text = "Activos";
             this.rbActivos.UseSelectable = true;
+            this.rbActivos.CheckedChanged += new System.EventHandler(this.rbActivos_CheckedChanged);
             // 
             // txtFiltro
             // 
@@ -246,6 +250,7 @@
             // 
             // btnActivar
             // 
+            this.btnActivar.Enabled = false;
             this.btnActivar.Location = new System.Drawing.Point(101, 61);
             this.btnActivar.Name = "btnActivar";
             this.btnActivar.Size = new System.Drawing.Size(75, 39);
@@ -379,6 +384,17 @@
             this.USUARIOCREADOR.ReadOnly = true;
             this.USUARIOCREADOR.Width = 80;
             // 
+            // ESTADO
+            // 
+            this.ESTADO.DataPropertyName = "ESTADO";
+            this.ESTADO.FalseValue = "0";
+            this.ESTADO.HeaderText = "ESTADO";
+            this.ESTADO.IndeterminateValue = "0";
+            this.ESTADO.Name = "ESTADO";
+            this.ESTADO.ReadOnly = true;
+            this.ESTADO.TrueValue = "1";
+            this.ESTADO.Visible = false;
+            // 
             // frmListadoAlumnosMatriculados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -433,5 +449,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn FECHAINGRESO;
         private System.Windows.Forms.DataGridViewTextBoxColumn FECHAREGISTRO;
         private System.Windows.Forms.DataGridViewTextBoxColumn USUARIOCREADOR;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn ESTADO;
     }
 }

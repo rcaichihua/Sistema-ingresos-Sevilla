@@ -49,18 +49,18 @@
             this.txtMotivoBaja = new MetroFramework.Controls.MetroTextBox();
             this.cboProvDd = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -84,7 +84,7 @@
             this.txtNombres.MaxLength = 32767;
             this.txtNombres.Name = "txtNombres";
             this.txtNombres.PasswordChar = '\0';
-            this.txtNombres.WaterMark = "Ingrese los Nombres";
+            this.txtNombres.PromptText = "Ingrese los Nombres";
             this.txtNombres.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtNombres.SelectedText = "";
             this.txtNombres.SelectionLength = 0;
@@ -137,7 +137,7 @@
             this.txtApeMat.MaxLength = 32767;
             this.txtApeMat.Name = "txtApeMat";
             this.txtApeMat.PasswordChar = '\0';
-            this.txtApeMat.WaterMark = "Ingrese Apellido Materno";
+            this.txtApeMat.PromptText = "Ingrese Apellido Materno";
             this.txtApeMat.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtApeMat.SelectedText = "";
             this.txtApeMat.SelectionLength = 0;
@@ -170,7 +170,7 @@
             this.txtDni.MaxLength = 8;
             this.txtDni.Name = "txtDni";
             this.txtDni.PasswordChar = '\0';
-            this.txtDni.WaterMark = "Ingrese el DNI";
+            this.txtDni.PromptText = "Ingrese el DNI";
             this.txtDni.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtDni.SelectedText = "";
             this.txtDni.SelectionLength = 0;
@@ -205,8 +205,8 @@
             this.txtObservaciones.Multiline = true;
             this.txtObservaciones.Name = "txtObservaciones";
             this.txtObservaciones.PasswordChar = '\0';
-            this.txtObservaciones.WaterMark = "Ingrese algunas observaciones adicionales";
-            this.txtObservaciones.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtObservaciones.PromptText = "Ingrese algunas observaciones adicionales";
+            this.txtObservaciones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtObservaciones.SelectedText = "";
             this.txtObservaciones.SelectionLength = 0;
             this.txtObservaciones.SelectionStart = 0;
@@ -271,8 +271,8 @@
             this.txtDireccion.Multiline = true;
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.PasswordChar = '\0';
-            this.txtDireccion.WaterMark = "Ingrese Dirección";
-            this.txtDireccion.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtDireccion.PromptText = "Ingrese Dirección";
+            this.txtDireccion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtDireccion.SelectedText = "";
             this.txtDireccion.SelectionLength = 0;
             this.txtDireccion.SelectionStart = 0;
@@ -304,7 +304,7 @@
             this.txtEdad.MaxLength = 32767;
             this.txtEdad.Name = "txtEdad";
             this.txtEdad.PasswordChar = '\0';
-            this.txtEdad.WaterMark = "Edad";
+            this.txtEdad.PromptText = "Edad";
             this.txtEdad.ReadOnly = true;
             this.txtEdad.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtEdad.SelectedText = "";
@@ -365,7 +365,7 @@
             this.txtTelefono.MaxLength = 32767;
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.PasswordChar = '\0';
-            this.txtTelefono.WaterMark = "Ingrese Teléfono";
+            this.txtTelefono.PromptText = "Ingrese Teléfono";
             this.txtTelefono.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtTelefono.SelectedText = "";
             this.txtTelefono.SelectionLength = 0;
@@ -417,7 +417,7 @@
             this.txtApePat.MaxLength = 32767;
             this.txtApePat.Name = "txtApePat";
             this.txtApePat.PasswordChar = '\0';
-            this.txtApePat.WaterMark = "Ingrese Apellido Paterno";
+            this.txtApePat.PromptText = "Ingrese Apellido Paterno";
             this.txtApePat.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtApePat.SelectedText = "";
             this.txtApePat.SelectionLength = 0;
@@ -450,7 +450,7 @@
             this.txtMotivoBaja.MaxLength = 32767;
             this.txtMotivoBaja.Name = "txtMotivoBaja";
             this.txtMotivoBaja.PasswordChar = '\0';
-            this.txtMotivoBaja.WaterMark = "Ingrese el motivo de Baja";
+            this.txtMotivoBaja.PromptText = "Ingrese el motivo de Baja";
             this.txtMotivoBaja.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtMotivoBaja.SelectedText = "";
             this.txtMotivoBaja.SelectionLength = 0;
@@ -511,95 +511,14 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
-            // metroLabel1
+            // metroLabel12
             // 
-            this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(100, 23);
-            this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(42, 19);
-            this.metroLabel1.TabIndex = 2;
-            this.metroLabel1.Text = "DNI  :";
-            // 
-            // metroLabel2
-            // 
-            this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(24, 52);
-            this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(118, 19);
-            this.metroLabel2.TabIndex = 2;
-            this.metroLabel2.Text = "Apellido Paterno  :";
-            // 
-            // metroLabel3
-            // 
-            this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(23, 81);
-            this.metroLabel3.Name = "metroLabel3";
-            this.metroLabel3.Size = new System.Drawing.Size(119, 19);
-            this.metroLabel3.TabIndex = 2;
-            this.metroLabel3.Text = "Apellido Materno :";
-            // 
-            // metroLabel4
-            // 
-            this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(67, 110);
-            this.metroLabel4.Name = "metroLabel4";
-            this.metroLabel4.Size = new System.Drawing.Size(75, 19);
-            this.metroLabel4.TabIndex = 2;
-            this.metroLabel4.Text = "Nombres  :";
-            // 
-            // metroLabel5
-            // 
-            this.metroLabel5.AutoSize = true;
-            this.metroLabel5.Location = new System.Drawing.Point(58, 136);
-            this.metroLabel5.Name = "metroLabel5";
-            this.metroLabel5.Size = new System.Drawing.Size(84, 19);
-            this.metroLabel5.TabIndex = 2;
-            this.metroLabel5.Text = "Fecha Nac.  :";
-            // 
-            // metroLabel6
-            // 
-            this.metroLabel6.AutoSize = true;
-            this.metroLabel6.Location = new System.Drawing.Point(59, 163);
-            this.metroLabel6.Name = "metroLabel6";
-            this.metroLabel6.Size = new System.Drawing.Size(83, 19);
-            this.metroLabel6.TabIndex = 2;
-            this.metroLabel6.Text = "Lugar Nac.  :";
-            // 
-            // metroLabel7
-            // 
-            this.metroLabel7.AutoSize = true;
-            this.metroLabel7.Location = new System.Drawing.Point(92, 192);
-            this.metroLabel7.Name = "metroLabel7";
-            this.metroLabel7.Size = new System.Drawing.Size(50, 19);
-            this.metroLabel7.TabIndex = 2;
-            this.metroLabel7.Text = "Edad  :";
-            // 
-            // metroLabel8
-            // 
-            this.metroLabel8.AutoSize = true;
-            this.metroLabel8.Location = new System.Drawing.Point(67, 226);
-            this.metroLabel8.Name = "metroLabel8";
-            this.metroLabel8.Size = new System.Drawing.Size(74, 19);
-            this.metroLabel8.TabIndex = 2;
-            this.metroLabel8.Text = "Dirección  :";
-            // 
-            // metroLabel9
-            // 
-            this.metroLabel9.AutoSize = true;
-            this.metroLabel9.Location = new System.Drawing.Point(23, 265);
-            this.metroLabel9.Name = "metroLabel9";
-            this.metroLabel9.Size = new System.Drawing.Size(119, 19);
-            this.metroLabel9.TabIndex = 2;
-            this.metroLabel9.Text = "Distrito Dirección  :";
-            // 
-            // metroLabel10
-            // 
-            this.metroLabel10.AutoSize = true;
-            this.metroLabel10.Location = new System.Drawing.Point(73, 294);
-            this.metroLabel10.Name = "metroLabel10";
-            this.metroLabel10.Size = new System.Drawing.Size(69, 19);
-            this.metroLabel10.TabIndex = 2;
-            this.metroLabel10.Text = "Teléfono  :";
+            this.metroLabel12.AutoSize = true;
+            this.metroLabel12.Location = new System.Drawing.Point(36, 375);
+            this.metroLabel12.Name = "metroLabel12";
+            this.metroLabel12.Size = new System.Drawing.Size(106, 19);
+            this.metroLabel12.TabIndex = 2;
+            this.metroLabel12.Text = "Observaciones  :";
             // 
             // metroLabel11
             // 
@@ -610,14 +529,95 @@
             this.metroLabel11.TabIndex = 2;
             this.metroLabel11.Text = "Seguro  :";
             // 
-            // metroLabel12
+            // metroLabel10
             // 
-            this.metroLabel12.AutoSize = true;
-            this.metroLabel12.Location = new System.Drawing.Point(36, 375);
-            this.metroLabel12.Name = "metroLabel12";
-            this.metroLabel12.Size = new System.Drawing.Size(106, 19);
-            this.metroLabel12.TabIndex = 2;
-            this.metroLabel12.Text = "Observaciones  :";
+            this.metroLabel10.AutoSize = true;
+            this.metroLabel10.Location = new System.Drawing.Point(73, 294);
+            this.metroLabel10.Name = "metroLabel10";
+            this.metroLabel10.Size = new System.Drawing.Size(69, 19);
+            this.metroLabel10.TabIndex = 2;
+            this.metroLabel10.Text = "Teléfono  :";
+            // 
+            // metroLabel9
+            // 
+            this.metroLabel9.AutoSize = true;
+            this.metroLabel9.Location = new System.Drawing.Point(23, 265);
+            this.metroLabel9.Name = "metroLabel9";
+            this.metroLabel9.Size = new System.Drawing.Size(119, 19);
+            this.metroLabel9.TabIndex = 2;
+            this.metroLabel9.Text = "Distrito Dirección  :";
+            // 
+            // metroLabel8
+            // 
+            this.metroLabel8.AutoSize = true;
+            this.metroLabel8.Location = new System.Drawing.Point(67, 226);
+            this.metroLabel8.Name = "metroLabel8";
+            this.metroLabel8.Size = new System.Drawing.Size(74, 19);
+            this.metroLabel8.TabIndex = 2;
+            this.metroLabel8.Text = "Dirección  :";
+            // 
+            // metroLabel7
+            // 
+            this.metroLabel7.AutoSize = true;
+            this.metroLabel7.Location = new System.Drawing.Point(92, 192);
+            this.metroLabel7.Name = "metroLabel7";
+            this.metroLabel7.Size = new System.Drawing.Size(50, 19);
+            this.metroLabel7.TabIndex = 2;
+            this.metroLabel7.Text = "Edad  :";
+            // 
+            // metroLabel6
+            // 
+            this.metroLabel6.AutoSize = true;
+            this.metroLabel6.Location = new System.Drawing.Point(59, 163);
+            this.metroLabel6.Name = "metroLabel6";
+            this.metroLabel6.Size = new System.Drawing.Size(83, 19);
+            this.metroLabel6.TabIndex = 2;
+            this.metroLabel6.Text = "Lugar Nac.  :";
+            // 
+            // metroLabel5
+            // 
+            this.metroLabel5.AutoSize = true;
+            this.metroLabel5.Location = new System.Drawing.Point(58, 136);
+            this.metroLabel5.Name = "metroLabel5";
+            this.metroLabel5.Size = new System.Drawing.Size(84, 19);
+            this.metroLabel5.TabIndex = 2;
+            this.metroLabel5.Text = "Fecha Nac.  :";
+            // 
+            // metroLabel4
+            // 
+            this.metroLabel4.AutoSize = true;
+            this.metroLabel4.Location = new System.Drawing.Point(67, 110);
+            this.metroLabel4.Name = "metroLabel4";
+            this.metroLabel4.Size = new System.Drawing.Size(75, 19);
+            this.metroLabel4.TabIndex = 2;
+            this.metroLabel4.Text = "Nombres  :";
+            // 
+            // metroLabel3
+            // 
+            this.metroLabel3.AutoSize = true;
+            this.metroLabel3.Location = new System.Drawing.Point(23, 81);
+            this.metroLabel3.Name = "metroLabel3";
+            this.metroLabel3.Size = new System.Drawing.Size(119, 19);
+            this.metroLabel3.TabIndex = 2;
+            this.metroLabel3.Text = "Apellido Materno :";
+            // 
+            // metroLabel2
+            // 
+            this.metroLabel2.AutoSize = true;
+            this.metroLabel2.Location = new System.Drawing.Point(24, 52);
+            this.metroLabel2.Name = "metroLabel2";
+            this.metroLabel2.Size = new System.Drawing.Size(118, 19);
+            this.metroLabel2.TabIndex = 2;
+            this.metroLabel2.Text = "Apellido Paterno  :";
+            // 
+            // metroLabel1
+            // 
+            this.metroLabel1.AutoSize = true;
+            this.metroLabel1.Location = new System.Drawing.Point(100, 23);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(42, 19);
+            this.metroLabel1.TabIndex = 2;
+            this.metroLabel1.Text = "DNI  :";
             // 
             // frmAlumnos
             // 

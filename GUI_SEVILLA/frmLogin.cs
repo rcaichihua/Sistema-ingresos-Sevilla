@@ -170,8 +170,8 @@ namespace GUI_SEVILLA
                             this.Hide();
                             frmMenu menu = new frmMenu();
                             menu.lblUsuario.Text = VariablesGlobales.NombreCompletoUsuario;
-                            menu.lblAnioEscolarLogueado.Text = cboAnio.Text +"-"+ cboFase.Text;
-                            menu.lblAnioEscolarAperturado.Text = VariablesGlobales.AnioEscolarAperturado.ToString()+"-"+VariablesGlobales.AnioFaseEscolarAperturado;
+                            menu.lblAnioEscolarLogueado.Text = cboAnio.Text +" - FASE "+ cboFase.Text;
+                            menu.lblAnioEscolarAperturado.Text = VariablesGlobales.AnioEscolarAperturado.ToString()+" - FASE "+VariablesGlobales.AnioFaseEscolarAperturado;
                             menu.Show();
                         }
                     }

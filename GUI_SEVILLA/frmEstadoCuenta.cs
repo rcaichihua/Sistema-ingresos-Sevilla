@@ -43,7 +43,8 @@ namespace GUI_SEVILLA
 
             if (txtFiltro.Text.Trim()!="")
             {
-                dtDatosAlumno = cn.TraerDataset("USP_ALUMNOSearch", conectar.conexionbdSevilla, txtFiltro.Text.Trim()).Tables[0];
+                dtDatosAlumno = cn.TraerDataset("USP_ALUMNOSearch", conectar.conexionbdSevilla, txtFiltro.Text.Trim(),VariablesGlobales.AnioEscolarLogueado,
+                    VariablesGlobales.AnioFaseEscolarLogueado,chkBaja.Checked ? false:true).Tables[0];
 
                 if (dtDatosAlumno.Rows.Count<=0)
                 {
@@ -65,7 +66,9 @@ namespace GUI_SEVILLA
 
         private void LlenarGrilla(int idAlumno)
         {
-            this.dgvEstadoCuenta.DataSource = cn.TraerDataset("USP_MATRICULAAlumnoSearch", conectar.conexionbdSevilla, idAlumno,rbPendiente.Checked ? "P": (rbCancelado.Checked ? "C" : (rbAnulado.Checked ? "A" : (rbAcuenta.Checked ? "E" : "T")))).Tables[0];
+            this.dgvEstadoCuenta.DataSource = cn.TraerDataset("USP_MATRICULAAlumnoSearch", conectar.conexionbdSevilla, 
+                idAlumno,rbPendiente.Checked ? "P": (rbCancelado.Checked ? "C" : (rbAnulado.Checked ? "A" : 
+                (rbAcuenta.Checked ? "E" : "T"))),VariablesGlobales.AnioEscolarLogueado,VariablesGlobales.AnioFaseEscolarLogueado).Tables[0];
             this.dgvEstadoCuenta.Refresh();
         }
 

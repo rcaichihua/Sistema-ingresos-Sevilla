@@ -53,10 +53,6 @@ namespace BL_SEVILLA
             catch (Exception ex) { throw ex; }
         }
 
-
-
-
-
         public int EjecutarSP(string ProcedimientoAlmacenado,string BD, params object[] Argumentos)
         {
             try
