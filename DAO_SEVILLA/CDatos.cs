@@ -10,21 +10,9 @@ namespace DAO_SEVILLA
 {
     public class CDatos
     {
-        public string TraerServidorSGI()
+        public string TraerServidorSevilla(string srv,string bd,string us,string pw)
         {
-            return conectar.conexionSisinmueble = ConfigurationManager.ConnectionStrings["sisinmueble"].ConnectionString;
-        }
-        public string TraerServidorSunatFE()
-        {
-            return conectar.conexionSUNATFE = ConfigurationManager.ConnectionStrings["SUNATFE"].ConnectionString;
-        }
-        public string TraerServidorTesoreria()
-        {
-            return conectar.conexionbdtesoreria = ConfigurationManager.ConnectionStrings["bdtesoreria"].ConnectionString;
-        }
-        public string TraerServidorSevilla()
-        {
-            return conectar.conexionbdSevilla = ConfigurationManager.ConnectionStrings["BDSEVILLA"].ConnectionString;
+            return conectar.conexionbdSevilla = "Data Source="+srv+ ",1433;Network Library=DBMSSOCN" + ";Initial Catalog="+bd+";User ID="+us+";Password="+pw+"";
         }
 
         protected IDbCommand Comando(string ProcedimientoAlmacenado,string conexion)
@@ -268,7 +256,8 @@ namespace DAO_SEVILLA
             }
         }
         
-        public DataSet IngresaRecibo(string ProcedimientoAlmacenado, bool estado, DataTable dtCabecera, DataTable dtCabeceraDetalle,string conexion)
+        public DataSet IngresaRecibo(string ProcedimientoAlmacenado, DataTable dtCabecera, DataTable dtCabeceraDetalle,int anio,string fase
+            ,string conexion)
         {
             using (var cn = new SqlConnection(conexion))
             {
@@ -278,13 +267,15 @@ namespace DAO_SEVILLA
                     cn.Open();
                     mComando.CommandType = CommandType.StoredProcedure;
 
-                    SqlParameter tvpParam2 = mComando.Parameters.AddWithValue("@estadoMov", estado);
-
                     SqlParameter tvpParam1 = mComando.Parameters.AddWithValue("@TablaCabeceraTmp", dtCabecera);
                     tvpParam1.SqlDbType = SqlDbType.Structured;
 
-                    SqlParameter tvpParam3 = mComando.Parameters.AddWithValue("@TablaCabeceraDetalleTmp", dtCabeceraDetalle);
-                    tvpParam3.SqlDbType = SqlDbType.Structured;
+                    SqlParameter tvpParam2 = mComando.Parameters.AddWithValue("@TablaCabeceraDetalleTmp", dtCabeceraDetalle);
+                    tvpParam2.SqlDbType = SqlDbType.Structured;
+
+                    SqlParameter tvpParam3 = mComando.Parameters.AddWithValue("@FASE",fase );
+                    SqlParameter tvpParam4 = mComando.Parameters.AddWithValue("@ANIO", anio);
+
 
                     new SqlDataAdapter(mComando).Fill(mDataset);
 

@@ -46,6 +46,8 @@
             this.chkAdmin = new MetroFramework.Controls.MetroCheckBox();
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.metroButton2 = new MetroFramework.Controls.MetroButton();
+            this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -335,30 +337,54 @@
             // 
             // metroButton1
             // 
-            this.metroButton1.Location = new System.Drawing.Point(190, 362);
+            this.metroButton1.BackgroundImage = global::GUI_SEVILLA.Properties.Resources.guardar;
+            this.metroButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.metroButton1.Location = new System.Drawing.Point(183, 362);
             this.metroButton1.Name = "metroButton1";
-            this.metroButton1.Size = new System.Drawing.Size(75, 38);
+            this.metroButton1.Size = new System.Drawing.Size(84, 38);
             this.metroButton1.TabIndex = 5;
-            this.metroButton1.Text = "&Aceptar";
             this.metroButton1.UseSelectable = true;
             this.metroButton1.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // metroButton2
             // 
-            this.metroButton2.Location = new System.Drawing.Point(271, 362);
+            this.metroButton2.BackgroundImage = global::GUI_SEVILLA.Properties.Resources.salirsistema;
+            this.metroButton2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.metroButton2.Location = new System.Drawing.Point(273, 362);
             this.metroButton2.Name = "metroButton2";
-            this.metroButton2.Size = new System.Drawing.Size(75, 38);
+            this.metroButton2.Size = new System.Drawing.Size(84, 38);
             this.metroButton2.TabIndex = 5;
-            this.metroButton2.Text = "&Cancelar";
             this.metroButton2.UseSelectable = true;
             this.metroButton2.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // metroLabel6
+            // 
+            this.metroLabel6.AutoSize = true;
+            this.metroLabel6.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.metroLabel6.Location = new System.Drawing.Point(300, 403);
+            this.metroLabel6.Name = "metroLabel6";
+            this.metroLabel6.Size = new System.Drawing.Size(27, 15);
+            this.metroLabel6.TabIndex = 8;
+            this.metroLabel6.Text = "Salir";
+            // 
+            // metroLabel7
+            // 
+            this.metroLabel7.AutoSize = true;
+            this.metroLabel7.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.metroLabel7.Location = new System.Drawing.Point(200, 403);
+            this.metroLabel7.Name = "metroLabel7";
+            this.metroLabel7.Size = new System.Drawing.Size(48, 15);
+            this.metroLabel7.TabIndex = 8;
+            this.metroLabel7.Text = "Guardar";
             // 
             // frmUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = MetroFramework.Forms.MetroFormBorderStyle.FixedSingle;
-            this.ClientSize = new System.Drawing.Size(546, 423);
+            this.ClientSize = new System.Drawing.Size(546, 425);
+            this.Controls.Add(this.metroLabel7);
+            this.Controls.Add(this.metroLabel6);
             this.Controls.Add(this.metroButton2);
             this.Controls.Add(this.metroButton1);
             this.Controls.Add(this.groupBox1);
@@ -372,6 +398,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -394,5 +421,7 @@
         private MetroFramework.Controls.MetroCheckBox chkAdmin;
         private MetroFramework.Controls.MetroButton metroButton1;
         private MetroFramework.Controls.MetroButton metroButton2;
+        private MetroFramework.Controls.MetroLabel metroLabel6;
+        private MetroFramework.Controls.MetroLabel metroLabel7;
     }
 }

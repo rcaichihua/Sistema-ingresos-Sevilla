@@ -16,6 +16,8 @@ namespace GUI_SEVILLA
         public frmAlumnos()
         {
             InitializeComponent();
+            this.ttMensaje.SetToolTip(this.btnSalir, "Salir del formulario");
+            this.ttMensaje.SetToolTip(this.btnGuardar, "Guardar los datos ingresados");
         }
         public string TipoMantenimiento { get; set; }
         public int IdAlumno { get; set; }
@@ -41,8 +43,11 @@ namespace GUI_SEVILLA
 
         private void frmAlumno_Load(object sender, EventArgs e)
         {
+            CargaTipoDoc();
+            CargarPais();
             CargarUbigeos();
             CargarSeguros();
+            cboPais.SelectedValue = 81;
 
             if (TipoMantenimiento == "U")
             {
@@ -52,32 +57,91 @@ namespace GUI_SEVILLA
 
                 if (dtDatosAlumnos.Rows.Count > 0)
                 {
-                    dtResultadoCombos = cn.EjecutarSqlDTS("SELECT DEPA,PROV,DIST FROM UBIGEO WHERE UBIGEO='"+ dtDatosAlumnos.Rows[0][6].ToString() + "' AND DIST<>'DIST'", conectar.conexionbdSevilla).Tables[0];
+                    dtResultadoCombos = cn.EjecutarSqlDTS("SELECT DEPA,PROV,DIST FROM UBIGEO WHERE UBIGEO='" + dtDatosAlumnos.Rows[0][6].ToString() + "' AND DIST<>'DIST'", conectar.conexionbdSevilla).Tables[0];
                     txtDni.Text = dtDatosAlumnos.Rows[0][1].ToString();
                     txtApePat.Text = dtDatosAlumnos.Rows[0][2].ToString();
                     txtApeMat.Text = dtDatosAlumnos.Rows[0][3].ToString();
                     txtNombres.Text = dtDatosAlumnos.Rows[0][4].ToString();
-                    dtpFechaNac.Value = Convert.ToDateTime(dtDatosAlumnos.Rows[0][5]);
-                    cboDepaLn.Text = dtResultadoCombos.Rows[0][0].ToString();
-                    cboProvLn.Text = dtResultadoCombos.Rows[0][1].ToString();
-                    cboDistLn.Text = dtResultadoCombos.Rows[0][2].ToString();
-                    txtEdad.Text = dtDatosAlumnos.Rows[0][7].ToString();
+                    DateTime fechaNAc = new DateTime();
+                    if (DateTime.TryParse(dtDatosAlumnos.Rows[0][5].ToString(), out fechaNAc))
+                    {
+                        dtpFechaNac.Value = fechaNAc;
+                    }
+                    else
+                    {
+                        dtpFechaNac.Value = DateTime.Now;
+                        dtpFechaNac.Enabled = false;
+                        chkFecha.Checked = true;
+                    }
+                    //dtpFechaNac.Value = Convert.ToDateTime();
+                    if (dtResultadoCombos.Rows.Count > 0)
+                    {
+                        cboDepaLn.Text = dtResultadoCombos.Rows[0][0].ToString();
+                        cboProvLn.Text = dtResultadoCombos.Rows[0][1].ToString();
+                        cboDistLn.Text = dtResultadoCombos.Rows[0][2].ToString();
+                    }
+
+                    if (dtDatosAlumnos.Rows[0][7].ToString() != "")
+                    {
+                        txtEdad.Text = Convert.ToInt32(calcularEdad(dtpFechaNac.Value.ToString("yyyyMMdd")).ToString()).ToString();
+                    }
+
+                    //txtEdad.Text = dtDatosAlumnos.Rows[0][7].ToString();
                     txtDireccion.Text = dtDatosAlumnos.Rows[0][8].ToString();
                     dtResultadoCombos = cn.EjecutarSqlDTS("SELECT DEPA,PROV,DIST FROM UBIGEO WHERE UBIGEO='" + dtDatosAlumnos.Rows[0][9].ToString() + "' AND DIST<>'DIST'", conectar.conexionbdSevilla).Tables[0];
-                    cboDepaDd.Text = dtResultadoCombos.Rows[0][0].ToString();
-                    cboProvDd.Text = dtResultadoCombos.Rows[0][1].ToString();
-                    cboDistDd.Text = dtResultadoCombos.Rows[0][2].ToString();
+
+                    if (dtResultadoCombos.Rows.Count > 0)
+                    {
+                        cboDepaDd.Text = dtResultadoCombos.Rows[0][0].ToString();
+                        cboProvDd.Text = dtResultadoCombos.Rows[0][1].ToString();
+                        cboDistDd.Text = dtResultadoCombos.Rows[0][2].ToString();
+                    }
+
                     txtTelefono.Text = dtDatosAlumnos.Rows[0][10].ToString();
                     cboSeguro.SelectedValue = dtDatosAlumnos.Rows[0][11];
                     chkActivo.Checked = Convert.ToBoolean(dtDatosAlumnos.Rows[0][12]);
                     txtMotivoBaja.Text = dtDatosAlumnos.Rows[0][13].ToString();
                     txtObservaciones.Text = dtDatosAlumnos.Rows[0][14].ToString();
+                    if (dtDatosAlumnos.Rows[0][21].ToString() != "")
+                    {
+                        cboPais.SelectedValue = dtDatosAlumnos.Rows[0][21].ToString();
+                    }
+                    cboTipoDoc.SelectedValue = dtDatosAlumnos.Rows[0][22].ToString();
                 }
                 else
                 {
                     MessageBox.Show("No se pudo recuperar datos para la edición del alumno, vuelva a intentarlo.", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void CargaTipoDoc()
+        {
+            cboTipoDoc.DataSource = cn.EjecutarSqlDTS("select IDTIPODOC,ABREVDOC from TIPODOCUMENTO", conectar.conexionbdSevilla).Tables[0];
+            cboTipoDoc.DisplayMember = "ABREVDOC";
+            cboTipoDoc.ValueMember = "IDTIPODOC";
+
+        }
+
+        private void CargarPais()
+        {
+            DataTable ListaCtaContable = new DataTable();
+
+            ListaCtaContable = cn.EjecutarSqlDTS("select IDPAIS,NOMBREPAIS from PAIS ORDER BY NOMBREPAIS", conectar.conexionbdSevilla).Tables[0];
+
+            List<string> list = new List<string>();
+            foreach (DataRow row in ListaCtaContable.Rows)
+            {
+                list.Add(row.Field<string>("NOMBREPAIS"));
+            }
+
+            cboPais.DataSource = ListaCtaContable;
+            cboPais.DisplayMember = "NOMBREPAIS";
+            cboPais.ValueMember = "IDPAIS";
+
+            cboPais.AutoCompleteCustomSource.AddRange(list.ToArray());
+            cboPais.AutoCompleteMode = AutoCompleteMode.Suggest;
+            cboPais.AutoCompleteSource = AutoCompleteSource.CustomSource;
         }
 
         private void CargarSeguros()
@@ -235,7 +299,7 @@ namespace GUI_SEVILLA
                 {
                     if (!VerificaDNI())
                     {
-                        MessageBox.Show("El DNI que intenta registrar ya existe.", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("El Nº de documento que intenta registrar ya existe.", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Error);
                         txtDni.Focus();
                         return;
                     }
@@ -255,11 +319,11 @@ namespace GUI_SEVILLA
                 else if (TipoMantenimiento == "U")
                 {
 
-                    if (dtDatosAlumnos.Rows[0][1].ToString()!=txtDni.Text.Trim())
+                    if (dtDatosAlumnos.Rows[0][1].ToString() != txtDni.Text.Trim())
                     {
                         if (!VerificaDNI())
                         {
-                            MessageBox.Show("El DNI que intenta registrar ya existe.", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("El Nº de documento que intenta registrar ya existe.", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Error);
                             txtDni.Focus();
                             return;
                         }
@@ -284,29 +348,29 @@ namespace GUI_SEVILLA
             }
         }
 
-        private Boolean  ActualizaInsertaAlumno(string procedimiento)
+        private Boolean ActualizaInsertaAlumno(string procedimiento)
         {
             Boolean resultado;
             resultado = false;
 
             if (cn.EjecutarSP(procedimiento, conectar.conexionbdSevilla, txtDni.Text.Trim(), txtApePat.Text.Trim(),
-                       txtApeMat.Text.Trim(), txtNombres.Text.Trim(), dtpFechaNac.Value.ToString("dd/MM/yyyy").ToString(),
+                       txtApeMat.Text.Trim(), txtNombres.Text.Trim(), chkFecha.Checked ? null : dtpFechaNac.Value.ToString("dd/MM/yyyy").ToString(),
                        cboDepaLn.SelectedValue.ToString() + cboProvLn.SelectedValue.ToString() + cboDistLn.SelectedValue.ToString(),
                        Convert.ToInt32(calcularEdad(dtpFechaNac.Value.ToString("yyyyMMdd")).ToString()).ToString(), txtDireccion.Text.Trim(), cboDepaDd.SelectedValue.ToString() + cboProvDd.SelectedValue.ToString() + cboDistDd.SelectedValue.ToString(),
                        txtTelefono.Text.Trim(), cboSeguro.SelectedValue.ToString(), chkActivo.Checked,
                        txtMotivoBaja.Text.Trim(), txtObservaciones.Text.Trim(), VariablesGlobales.NombreUsuario,
-                       VariablesGlobales.UserHostIp, IdAlumno) > 0)
+                       VariablesGlobales.UserHostIp, IdAlumno, cboTipoDoc.SelectedValue) > 0)
             {
                 resultado = true;
             }
             return resultado;
-                //MessageBox.Show("Error al ingresar, intente de nuevo.", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //MessageBox.Show("Error al ingresar, intente de nuevo.", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Error);
 
         }
 
         private Boolean VerificaDNI()
         {
-            return (cn.EjecutarSqlDTS("select COUNT(*) from ALUMNO where DNI = '"+txtDni.Text.Trim()+"'", conectar.conexionbdSevilla).Tables[0].Rows[0][0].ToString() == "0");
+            return (cn.EjecutarSqlDTS("select COUNT(*) from ALUMNO where DNI = '" + txtDni.Text.Trim() + "'", conectar.conexionbdSevilla).Tables[0].Rows[0][0].ToString() == "0");
         }
 
         private Boolean Validar()
@@ -321,7 +385,7 @@ namespace GUI_SEVILLA
                     {
                         if (txtNombres.Text.Trim() != string.Empty)
                         {
-                            if (cboDistLn.SelectedValue.ToString() != "00")
+                            if (cboPais.Text != "PERÚ" | cboDistLn.SelectedValue.ToString() != "00")
                             {
                                 if (cboDistDd.SelectedValue.ToString() != "00")
                                 {
@@ -329,15 +393,15 @@ namespace GUI_SEVILLA
                                     {
                                         if (txtDireccion.Text.Trim() != string.Empty)
                                         {
-                                            if (Convert.ToInt32(calcularEdad(dtpFechaNac.Value.ToString("yyyyMMdd")).ToString())>5 && Convert.ToInt32(calcularEdad(dtpFechaNac.Value.ToString("yyyyMMdd")).ToString()) < 19)
+                                            if (chkFecha.Checked ? true : (Convert.ToInt32(calcularEdad(dtpFechaNac.Value.ToString("yyyyMMdd")).ToString()) > 4 && Convert.ToInt32(calcularEdad(dtpFechaNac.Value.ToString("yyyyMMdd")).ToString()) < 19))
                                             {
-                                                if (txtDni.Text.Trim().Length == 8)
+                                                if (txtDni.Text.Trim().Length >= 8)
                                                 {
                                                     flag = false;
                                                 }
                                                 else
                                                 {
-                                                    MessageBox.Show("Ingrese un Nº de DNI válido.", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                                    MessageBox.Show("Ingrese un Nº de documento válido.", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                                     txtDni.Focus();
                                                     flag = true;
                                                 }
@@ -400,7 +464,7 @@ namespace GUI_SEVILLA
             }
             else
             {
-                MessageBox.Show("Ingrese el DNI", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ingrese el Nº de documento", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 txtDni.Focus();
                 flag = true;
             }
@@ -417,7 +481,8 @@ namespace GUI_SEVILLA
 
         private decimal calcularEdad(string fecha)
         {
-            return Math.Floor(Convert.ToDecimal((Convert.ToInt32(VariablesGlobales.FechaActual) - Convert.ToInt32(fecha)) / 10000));
+            return Math.Floor(Convert.ToDecimal(cn.EjecutarSqlDTS("select dbo.fn_CalcularEdad('" + dtpFechaNac.Value.ToString("dd/MM/yyyy") + "')", conectar.conexionbdSevilla).Tables[0].Rows[0][0]));
+            //return Math.Floor(Convert.ToDecimal((Convert.ToInt32(VariablesGlobales.FechaActual) - Convert.ToInt32(fecha)) / 10000));
         }
 
         private void txtDni_KeyPress(object sender, KeyPressEventArgs e)
@@ -435,6 +500,49 @@ namespace GUI_SEVILLA
             {
                 //el resto de teclas pulsadas se desactivan 
                 e.Handled = true;
+            }
+        }
+
+        private void chkFecha_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkFecha.Checked)
+            {
+                dtpFechaNac.Value = DateTime.Now;
+                dtpFechaNac.Enabled = false;
+                txtEdad.Clear();
+                txtEdad.Enabled = false;
+            }
+            else
+            {
+                dtpFechaNac.Enabled = true;
+                txtEdad.Enabled = true;
+            }
+        }
+
+        private void cboPais_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Convert.ToInt32(cboPais.SelectedValue) != 81)
+                {
+                    cboDepaLn.Enabled = false;
+                    cboProvLn.Enabled = false;
+                    cboDistLn.Enabled = false;
+
+                    cboDepaLn.SelectedIndex = 0;
+                    cboProvLn.SelectedIndex = 0;
+                    cboDistLn.SelectedIndex = 0;
+                }
+                else
+                {
+                    cboDepaLn.Enabled = true;
+                    cboProvLn.Enabled = true;
+                    cboDistLn.Enabled = true;
+                }
+            }
+            catch (Exception)
+            {
+
             }
         }
     }

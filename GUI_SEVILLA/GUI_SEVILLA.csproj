@@ -12,20 +12,24 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
-    <PublishUrl>publish\</PublishUrl>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>\\192.168.1.8\sistemasevilla\</PublishUrl>
     <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
+    <InstallFrom>Unc</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
     <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
+    <UpdateUrl>\\192.168.1.8\sistemasevilla\</UpdateUrl>
+    <ProductName>Sistema de Matrícula Instituto Sevilla</ProductName>
+    <ApplicationRevision>54</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -38,6 +42,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -47,11 +52,36 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resources\icons8_School.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\colegio.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>6A566B4B5A26118F1FF4369D71EB0640A349E072</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>GUI_SEVILLA_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
     </Reference>
@@ -62,8 +92,11 @@
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -74,6 +107,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DatabasePicker.cs" />
     <Compile Include="frmAlumnos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +149,12 @@
     </Compile>
     <Compile Include="frmGeneraDeuda.Designer.cs">
       <DependentUpon>frmGeneraDeuda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmImpresion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmImpresion.Designer.cs">
+      <DependentUpon>frmImpresion.cs</DependentUpon>
     </Compile>
     <Compile Include="frmListadoAlumnosMatriculados.cs">
       <SubType>Form</SubType>
@@ -176,6 +216,24 @@
     <Compile Include="frmMenu.Designer.cs">
       <DependentUpon>frmMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmMotivoAnulacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMotivoAnulacion.designer.cs">
+      <DependentUpon>frmMotivoAnulacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPagos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPagos.Designer.cs">
+      <DependentUpon>frmPagos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPagosListado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPagosListado.Designer.cs">
+      <DependentUpon>frmPagosListado.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -198,6 +256,45 @@
     <Compile Include="MetodosGlobales2.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProtegerConfig.cs" />
+    <Compile Include="Reportes\rptAlumnosTotales.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptAlumnosTotales.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\rptDeudaTotalAlumnos.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptDeudaTotalAlumnos.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\rptEstadoCuentaPersonal.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptEstadoCuentaPersonal.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\rptListadoAlumnosMatriculados.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptListadoAlumnosMatriculados.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\rptReciboCaja.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptReciboCaja.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SevillaDatos.cs">
+      <DependentUpon>SevillaDatos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SevillaDatos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SevillaDatos.xsd</DependentUpon>
+    </Compile>
     <Compile Include="VariablesGlobales.cs" />
     <EmbeddedResource Include="frmAlumnos.resx">
       <DependentUpon>frmAlumnos.cs</DependentUpon>
@@ -220,8 +317,12 @@
     <EmbeddedResource Include="frmGeneraDeuda.resx">
       <DependentUpon>frmGeneraDeuda.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmImpresion.resx">
+      <DependentUpon>frmImpresion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmListadoAlumnosMatriculados.resx">
       <DependentUpon>frmListadoAlumnosMatriculados.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmListadoConceptos.resx">
       <DependentUpon>frmListadoConceptos.cs</DependentUpon>
@@ -250,6 +351,15 @@
     <EmbeddedResource Include="frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmMotivoAnulacion.resx">
+      <DependentUpon>frmMotivoAnulacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPagos.resx">
+      <DependentUpon>frmPagos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPagosListado.resx">
+      <DependentUpon>frmPagosListado.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmUsuario.resx">
       <DependentUpon>frmUsuario.cs</DependentUpon>
     </EmbeddedResource>
@@ -270,8 +380,30 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reportes\rptAlumnosTotales.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptAlumnosTotales.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptDeudaTotalAlumnos.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptDeudaTotalAlumnos.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptEstadoCuentaPersonal.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptEstadoCuentaPersonal.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptListadoAlumnosMatriculados.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptListadoAlumnosMatriculados.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptReciboCaja.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptReciboCaja.cs</LastGenOutput>
+    </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
+    <None Include="GUI_SEVILLA_TemporaryKey.pfx" />
     <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -281,32 +413,90 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="SevillaDatos.xsc">
+      <DependentUpon>SevillaDatos.xsd</DependentUpon>
+    </None>
+    <None Include="SevillaDatos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SevillaDatos.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="SevillaDatos.xss">
+      <DependentUpon>SevillaDatos.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\perfil.png" />
+    <None Include="Resources\procesar.png" />
+    <None Include="Resources\logincolegio.jpg" />
+    <None Include="Resources\ingresar.png" />
+    <None Include="Resources\listadoMatricula.png" />
+    <None Include="Resources\nuevo1_.png" />
+    <None Include="Resources\quitar.png" />
+    <None Include="Resources\limpiar.png" />
+    <None Include="Resources\reporteindi.png" />
+    <None Include="Resources\verdetalle.png" />
+    <None Include="Resources\verrecibo.png" />
+    <None Include="Resources\salir.png" />
+    <None Include="Resources\salirsistema.png" />
+    <None Include="Resources\icon_colegio_sevilla_16.png" />
+    <None Include="Resources\icon_colegio_sevilla_32.png" />
+    <None Include="Resources\registroseccion.png" />
+    <None Include="Resources\registrogrado.png" />
+    <None Include="Resources\listadoPagos.png" />
+    <None Include="Resources\registropagos.png" />
+    <None Include="Resources\matricula.png" />
+    <None Include="Resources\listaPagos.png" />
+    <None Include="Resources\School_Building.ico" />
     <None Include="Resources\reggrados.png" />
     <None Include="Resources\programador.png" />
     <None Include="Resources\registrarUser.png" />
-    <None Include="Resources\matricula.png" />
     <None Include="imagenes\borrar.png" />
     <None Include="imagenes\buscar.png" />
     <None Include="imagenes\Editar.png" />
     <None Include="imagenes\salir.png" />
     <None Include="imagenes\agregar.png" />
-    <None Include="Resources\buscar.png" />
     <None Include="Resources\alumnos.png" />
     <None Include="Resources\anio.png" />
     <None Include="Resources\conceptos.png" />
     <None Include="Resources\cobros.png" />
     <None Include="Resources\archivo.png" />
     <None Include="Resources\actualizarUser.png" />
-    <None Include="Resources\cambiarcontrasenia.png" />
     <None Include="Resources\ctacorriente.png" />
     <None Include="Resources\cobrosInformacion.png" />
     <None Include="Resources\grados.png" />
+    <Content Include="icon colegio sevilla.ico" />
+    <Content Include="icons colegio sevilla.ico" />
+    <Content Include="llave\DBSevillaKey.txt" />
     <Content Include="MetroFramework.txt" />
+    <None Include="Resources\alumnas.png" />
+    <None Include="Resources\conceptas.png" />
+    <None Include="Resources\generaDeuda.png" />
+    <None Include="Resources\archivoBanco.png" />
+    <None Include="Resources\EstadoCta.png" />
+    <None Include="Resources\crearusuario.png" />
+    <None Include="Resources\cambiarcontrasenia.png" />
+    <None Include="Resources\actualizarusuario.png" />
+    <None Include="Resources\aperturaanioescolar.png" />
+    <None Include="Resources\icon colegio sevilla.ico" />
+    <None Include="Resources\buscar.png" />
+    <None Include="Resources\anular.png" />
+    <None Include="Resources\buscar2.png" />
+    <None Include="Resources\deudaTotal.png" />
+    <None Include="Resources\guardar.png" />
+    <None Include="Resources\asiganarGrado.png" />
+    <None Include="Resources\agregar_.png" />
+    <None Include="Resources\editar2.png" />
+    <None Include="Resources\activar.png" />
+    <None Include="Resources\agregaralumnos.png" />
+    <None Include="Resources\cancelar.png" />
+    <None Include="Resources\colegio.ico" />
+    <None Include="Resources\acceso.png" />
     <Content Include="Resources\icons8_School.ico" />
     <None Include="Resources\Aula.jpg" />
   </ItemGroup>
@@ -331,5 +521,9 @@
       <Name>System.Windows.Forms.Ribbon35</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

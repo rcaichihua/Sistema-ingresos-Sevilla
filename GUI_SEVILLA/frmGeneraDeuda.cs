@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using BL_SEVILLA;
+using System.Reflection;
+using System.Resources;
 
 namespace GUI_SEVILLA
 {
@@ -15,7 +17,7 @@ namespace GUI_SEVILLA
     {
         CNegocio cn = new CNegocio();
         public int IdAlumno { get; set; }
-        public int IdMatricula { get; set; }
+        public int? IdMatricula { get; set; }
 
         public frmGeneraDeuda()
         {
@@ -29,12 +31,14 @@ namespace GUI_SEVILLA
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            if (btnNuevo.Text == "&Nuevo")
+            if (lblNuevo.Text == "Nuevo")
             {
-                Limpiar("&Cancelar", true);
+                Limpiar("Cancelar", true);
                 btnGuardar.Enabled = true;
+
+                btnNuevo.BackgroundImage = Properties.Resources.cancelar;
             }
-            else if (btnNuevo.Text == "&Cancelar")
+            else if (lblNuevo.Text == "Cancelar")
             {
                 string message = "Esta seguro de cancelar?" + Environment.NewLine +
                     "Si hay datos ingresados se van a perder.";
@@ -46,15 +50,16 @@ namespace GUI_SEVILLA
 
                 if (result == System.Windows.Forms.DialogResult.Yes)
                 {
-                    Limpiar("&Nuevo", false);
+                    Limpiar("Nuevo", false);
                     btnGuardar.Enabled = false;
                 }
+                btnNuevo.BackgroundImage = Properties.Resources.nuevo1_;
             }
         }
 
         private void Limpiar(string NombreBoton, bool estado)
         {
-            btnNuevo.Text = NombreBoton;
+            lblNuevo.Text = NombreBoton;
             this.gbBuscarAlumno.Enabled = estado;
             this.gbCabeceraAlumno.Enabled = estado;
             this.dgvDetalle.Rows.Clear();
@@ -72,6 +77,9 @@ namespace GUI_SEVILLA
         private void frmGeneraDeuda_Load(object sender, EventArgs e)
         {
             LlenarConceptos();
+            this.ttMensaje.SetToolTip(this.btnAgregar, "Agrega un registro");
+            this.ttMensaje.SetToolTip(this.btnLimpiar, "Eliminar todos los registros agregados");
+            this.ttMensaje.SetToolTip(this.btnQuitar, "Eliminar un registro seleccionado");
         }
 
         private void LlenarConceptos()
@@ -93,30 +101,44 @@ namespace GUI_SEVILLA
             {
                 if (txtFiltro.Text.Trim() != "")
                 {
-                    dtDatosAlumno = cn.TraerDataset("USP_ALUMNOSearch", conectar.conexionbdSevilla, txtFiltro.Text.Trim(),
-                        VariablesGlobales.AnioEscolarLogueado,VariablesGlobales.AnioFaseEscolarLogueado,true).Tables[0];
+                    dtDatosAlumno = cn.TraerDataset("USP_ALUMNOSearchMatriculados", conectar.conexionbdSevilla, txtFiltro.Text.Trim(),
+                        VariablesGlobales.AnioEscolarLogueado,VariablesGlobales.AnioFaseEscolarLogueado,true,chkConceptosOtrosAnios.Checked).Tables[0];
 
-                    if (dtDatosAlumno.Rows.Count <= 0)
+                    if (chkConceptosOtrosAnios.Checked)
                     {
-                        MessageBox.Show("El dni ingresado no existe o no tiene asignado una matrícula.", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        txtNombres.Clear();
-                        IdAlumno = 0;
-                        //this.dgvDetalle.Rows.Clear();
-                        //this.dgvDetalle.Refresh();
-                        //txtCantidad.Text = "1";
-                        //txtPrecio.Text = "0.00";
-                        //cboConcepto.SelectedIndex = 0;
-                        //txtFiltro.Clear();
-                        //txtFiltro.Focus();
-                        return;
+                        if (dtDatosAlumno.Rows.Count <= 0) { MessageBox.Show("El documento ingresado no existe.", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Exclamation); return; }
+                        
+                        dtDatosAlumno = cn.TraerDataset("USP_ALUMNOSearch", conectar.conexionbdSevilla, txtFiltro.Text.Trim(),
+                        VariablesGlobales.AnioEscolarLogueado, VariablesGlobales.AnioFaseEscolarLogueado, true).Tables[0];
+
+                        if (dtDatosAlumno.Rows.Count <= 0)
+                        {
+                            MessageBox.Show("El documento ingresado no se encuentra asignado a ningun alumno.", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            txtFiltro.Focus();
+                            IdAlumno = 0;
+                            return;
+                        }
+                        txtNombres.Text = dtDatosAlumno.Rows[0][1].ToString();
+                        IdAlumno = Convert.ToInt32(dtDatosAlumno.Rows[0][0]);
+                        IdMatricula = 0;
                     }
-                    txtNombres.Text = dtDatosAlumno.Rows[0][1].ToString();
-                    IdAlumno = Convert.ToInt32(dtDatosAlumno.Rows[0][0]);
-                    IdMatricula = Convert.ToInt32(dtDatosAlumno.Rows[0][2]);
+                    else
+                    {
+                        if (dtDatosAlumno.Rows.Count <= 0)
+                        {
+                            MessageBox.Show("El documento ingresado no existe o no tiene asignado una matrícula.", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            txtNombres.Clear();
+                            IdAlumno = 0;
+                            return;
+                        }
+                        txtNombres.Text = dtDatosAlumno.Rows[0][2].ToString();
+                        IdAlumno = Convert.ToInt32(dtDatosAlumno.Rows[0][1]);
+                        IdMatricula = Convert.ToInt32(dtDatosAlumno.Rows[0][0]);
+                    }                  
                 }
                 else
                 {
-                    MessageBox.Show("Ingrese el DNI para la búsqueda.", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Ingrese el Nº de documento para la búsqueda.", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     txtFiltro.Focus();
                 }
             }
@@ -207,7 +229,7 @@ namespace GUI_SEVILLA
                         {
                             string message = "Esta seguro de guardar la deuda?" + Environment.NewLine +
                               "Alumno : " + txtNombres.Text + Environment.NewLine +
-                              "DNI : " + txtFiltro.Text;
+                              "Nº de documento : " + txtFiltro.Text;
                             string caption = VariablesGlobales.NombreMensajes;
                             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
                             DialogResult result;
@@ -217,9 +239,11 @@ namespace GUI_SEVILLA
                             if (result == System.Windows.Forms.DialogResult.Yes)
                             {
                                 //VERIFICA SI EL CONCEPTO YA ESTA INGRESADO EN LA CUENTA CORRIENTE
+                                //VERIFICAR EN EL CASO DE PAGO DE EXAMENES SI SE PUEDNE REPETIR EL CONCEPTO POR AÑO, EN ESE CASO PONER EL SP
+                                //QUE SOLO VERIFIQUE OTROS CONCEPTOS.
                                 foreach (DataGridViewRow item in dgvDetalle.Rows)
                                 {
-                                    if (cn.TraerDataset("USP_CUENTACORREINTEVerificaDuplicidadConcepto",conectar.conexionbdSevilla,IdMatricula,
+                                    if (cn.TraerDataset("USP_CUENTACORRIENTEVerificaDuplicidadConcepto",conectar.conexionbdSevilla,IdMatricula,
                                         Convert.ToInt32(item.Cells["IDCONCEPTO"].Value)).Tables[0].Rows.Count>0)
                                     {
                                         MessageBox.Show("El concepto " + item.Cells["CONCEPTO"].Value + " ya se encuentra registrado en el estado de deuda."  , VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -228,9 +252,10 @@ namespace GUI_SEVILLA
                                 }
                                 foreach (DataGridViewRow item in dgvDetalle.Rows)
                                 {
-                                    cn.EjecutarSP("USP_CUENTACORRIENTEDeudaManual", conectar.conexionbdSevilla, IdMatricula,
+                                    cn.EjecutarSP("USP_CUENTACORRIENTEDeudaManual", conectar.conexionbdSevilla, IdMatricula==0 ? null:IdMatricula,
                                         Convert.ToInt32(item.Cells["IDCONCEPTO"].Value),txtPrecio.Text,dtpFechaRegistro.Value,VariablesGlobales.NombreUsuario,
-                                        VariablesGlobales.UserHostIp);                                   
+                                        VariablesGlobales.UserHostIp,VariablesGlobales.AnioEscolarLogueado.ToString(),
+                                        VariablesGlobales.AnioFaseEscolarLogueado,IdAlumno);                                   
                                 }
                                 MessageBox.Show("Concepto(s) registrado(s) correctamente.", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 this.Close();

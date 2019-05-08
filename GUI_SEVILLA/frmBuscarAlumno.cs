@@ -31,6 +31,7 @@ namespace GUI_SEVILLA
         public frmBuscarAlumno()
         {
             InitializeComponent();
+            this.ttMensaje.SetToolTip(this.btnBuscar,"Permite buscar segun el filtro ingresado");
         }
         CNegocio cn = new CNegocio();
 
@@ -52,7 +53,7 @@ namespace GUI_SEVILLA
             try
             {
                 DataTable dtAlumnos = new DataTable();
-                dtAlumnos = cn.TraerDataset("USP_ALUMNOSelectByFilter", conectar.conexionbdSevilla, cboBuscar.Text, txtFiltro.Text.Trim()).Tables[0];
+                dtAlumnos = cn.TraerDataset("USP_ALUMNOSelectByFilter", conectar.conexionbdSevilla, cboBuscar.Text== "Nº DOC" ? "dni": cboBuscar.Text, txtFiltro.Text.Trim()).Tables[0];
                 dgvAlumnos.DataSource = dtAlumnos;
                 dgvAlumnos.Refresh();
             }
@@ -78,12 +79,17 @@ namespace GUI_SEVILLA
                 DataTable dtAlumno = new DataTable();
                 int indexAlumno_ = 0;
                 indexAlumno_ = this.dgvAlumnos.CurrentRow.Index;
-                
+
+                if (!Convert.ToBoolean(this.dgvAlumnos.Rows[indexAlumno_].Cells["ESTADO"].Value)) {
+                    MessageBox.Show("No se puede generar matricula, el estado del registro es anulado.", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 dtAlumno = cn.TraerDataset("USP_ALUMNO_MATRICULASearch", conectar.conexionbdSevilla, Convert.ToInt32(this.dgvAlumnos.Rows[indexAlumno_].Cells["IDALUMNO"].Value)).Tables[0];
                 idAlumno_ = Convert.ToInt32(dtAlumno.Rows[0][0]);
                 dni_ = dtAlumno.Rows[0][1].ToString();
                 nombreAlumno_ = dtAlumno.Rows[0][2].ToString();
-                fechaNac_ = Convert.ToDateTime(dtAlumno.Rows[0][3]);
+                fechaNac_ = dtAlumno.Rows[0][3].ToString().Trim()=="" ? DateTime.Now : Convert.ToDateTime(dtAlumno.Rows[0][3]);
                 edad_ = Convert.ToInt32(calcularEdad(fechaNac_.ToString("yyyyMMdd")).ToString().ToString());
                 ubigeoDirec_ = dtAlumno.Rows[0][4].ToString();
                 direccion_ = dtAlumno.Rows[0][5].ToString();
@@ -126,13 +132,13 @@ namespace GUI_SEVILLA
             txtFiltro.Text = MetodosGlobales.QuitarCaracteres(txtFiltro.Text.Trim());
 
             AnularAutocompletadoColumnas();
-            if (cboBuscar.Text=="DNI")
+            if (cboBuscar.Text=="Nº DOC")
             {
-                int dniAlumno = 0;
+                Int64 dniAlumno = 0;
 
-                if (!int.TryParse(txtFiltro.Text.Trim(),out dniAlumno))
+                if (!Int64.TryParse(txtFiltro.Text.Trim(),out dniAlumno))
                 {
-                    MessageBox.Show("En el caso de busqueda por DNI, favor de ingresar datos correctos..", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("En el caso de busqueda por Nº de documento, favor de ingresar datos correctos..", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtFiltro.Focus();
                     return;
                 }
@@ -169,6 +175,19 @@ namespace GUI_SEVILLA
             {
                 e.Handled = true;
             }
+        }
+
+        private void btnListadoAlumnos_Click(object sender, EventArgs e)
+        {
+            frmImpresion winImpre = new frmImpresion();
+            winImpre.TipoReporte = 2;
+            winImpre.MiTabla = cn.TraerDataset("USP_ALUMNOSelectAll", conectar.conexionbdSevilla,1).Tables[0];
+            winImpre.ShowDialog();
+        }
+
+        private void metroLabel5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -31,32 +31,36 @@
             this.btnGuardar = new MetroFramework.Controls.MetroButton();
             this.btnSalir = new MetroFramework.Controls.MetroButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblIdAnio = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.txtNombreGrado = new MetroFramework.Controls.MetroTextBox();
             this.txtObservaciones = new MetroFramework.Controls.MetroTextBox();
             this.chkActivo = new MetroFramework.Controls.MetroCheckBox();
-            this.lblIdAnio = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnGuardar
             // 
+            this.btnGuardar.BackgroundImage = global::GUI_SEVILLA.Properties.Resources.guardar;
+            this.btnGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnGuardar.Location = new System.Drawing.Point(190, 194);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(102, 35);
             this.btnGuardar.TabIndex = 4;
-            this.btnGuardar.Text = "&Guardar";
             this.btnGuardar.UseSelectable = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnSalir
             // 
+            this.btnSalir.BackgroundImage = global::GUI_SEVILLA.Properties.Resources.salirsistema;
+            this.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnSalir.Location = new System.Drawing.Point(298, 194);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(102, 35);
             this.btnSalir.TabIndex = 5;
-            this.btnSalir.Text = "&Salir";
             this.btnSalir.UseSelectable = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
@@ -73,6 +77,16 @@
             this.groupBox1.Size = new System.Drawing.Size(541, 125);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
+            // 
+            // lblIdAnio
+            // 
+            this.lblIdAnio.AutoSize = true;
+            this.lblIdAnio.Location = new System.Drawing.Point(386, 19);
+            this.lblIdAnio.Name = "lblIdAnio";
+            this.lblIdAnio.Size = new System.Drawing.Size(83, 19);
+            this.lblIdAnio.TabIndex = 32;
+            this.lblIdAnio.Text = "metroLabel3";
+            this.lblIdAnio.Visible = false;
             // 
             // metroLabel2
             // 
@@ -171,21 +185,33 @@
             this.chkActivo.Text = "Activo";
             this.chkActivo.UseSelectable = true;
             // 
-            // lblIdAnio
+            // metroLabel3
             // 
-            this.lblIdAnio.AutoSize = true;
-            this.lblIdAnio.Location = new System.Drawing.Point(386, 19);
-            this.lblIdAnio.Name = "lblIdAnio";
-            this.lblIdAnio.Size = new System.Drawing.Size(83, 19);
-            this.lblIdAnio.TabIndex = 32;
-            this.lblIdAnio.Text = "metroLabel3";
-            this.lblIdAnio.Visible = false;
+            this.metroLabel3.AutoSize = true;
+            this.metroLabel3.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.metroLabel3.Location = new System.Drawing.Point(332, 234);
+            this.metroLabel3.Name = "metroLabel3";
+            this.metroLabel3.Size = new System.Drawing.Size(27, 15);
+            this.metroLabel3.TabIndex = 19;
+            this.metroLabel3.Text = "Salir";
+            // 
+            // metroLabel4
+            // 
+            this.metroLabel4.AutoSize = true;
+            this.metroLabel4.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.metroLabel4.Location = new System.Drawing.Point(217, 234);
+            this.metroLabel4.Name = "metroLabel4";
+            this.metroLabel4.Size = new System.Drawing.Size(48, 15);
+            this.metroLabel4.TabIndex = 19;
+            this.metroLabel4.Text = "Guardar";
             // 
             // frmMantenimientoGrado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(585, 249);
+            this.ClientSize = new System.Drawing.Size(585, 259);
+            this.Controls.Add(this.metroLabel4);
+            this.Controls.Add(this.metroLabel3);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.groupBox1);
@@ -197,6 +223,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -211,5 +238,7 @@
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroLabel lblIdAnio;
+        private MetroFramework.Controls.MetroLabel metroLabel3;
+        private MetroFramework.Controls.MetroLabel metroLabel4;
     }
 }

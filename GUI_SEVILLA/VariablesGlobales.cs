@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -21,6 +22,8 @@ namespace GUI_SEVILLA
         public static string NombreUsuario { get; set; }
         public static Boolean admin { get; set; }
         public static string UserHostIp { get; set; }
-        public static readonly string llave_publica = "b6n6f1c6nc15";
+        public static readonly string configuracion = "this.MySettings";
+        
+        //Public PATH As String = My.Application.Info.DirectoryPath
     }
 }

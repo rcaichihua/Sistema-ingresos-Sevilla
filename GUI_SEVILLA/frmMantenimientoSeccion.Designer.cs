@@ -29,13 +29,16 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblIdSeccion = new MetroFramework.Controls.MetroLabel();
             this.txtCodigoAula = new MetroFramework.Controls.MetroTextBox();
+            this.txtFase = new MetroFramework.Controls.MetroTextBox();
             this.txtNumeroVacantes = new MetroFramework.Controls.MetroTextBox();
             this.txtAnioEscolar = new MetroFramework.Controls.MetroTextBox();
             this.txtNombreSeccion = new MetroFramework.Controls.MetroTextBox();
             this.cboTurno = new MetroFramework.Controls.MetroComboBox();
             this.cboNivel = new MetroFramework.Controls.MetroComboBox();
             this.cboGrado = new MetroFramework.Controls.MetroComboBox();
+            this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
@@ -45,9 +48,8 @@
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.btnGuardar = new MetroFramework.Controls.MetroButton();
             this.btnSalir = new MetroFramework.Controls.MetroButton();
-            this.lblIdSeccion = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
-            this.txtFase = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,6 +77,16 @@
             this.groupBox1.Size = new System.Drawing.Size(322, 286);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
+            // 
+            // lblIdSeccion
+            // 
+            this.lblIdSeccion.AutoSize = true;
+            this.lblIdSeccion.Location = new System.Drawing.Point(7, 126);
+            this.lblIdSeccion.Name = "lblIdSeccion";
+            this.lblIdSeccion.Size = new System.Drawing.Size(83, 19);
+            this.lblIdSeccion.TabIndex = 7;
+            this.lblIdSeccion.Text = "metroLabel8";
+            this.lblIdSeccion.Visible = false;
             // 
             // txtCodigoAula
             // 
@@ -107,6 +119,38 @@
             this.txtCodigoAula.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtCodigoAula.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.txtCodigoAula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigoAula_KeyPress);
+            // 
+            // txtFase
+            // 
+            // 
+            // 
+            // 
+            this.txtFase.CustomButton.Image = null;
+            this.txtFase.CustomButton.Location = new System.Drawing.Point(133, 1);
+            this.txtFase.CustomButton.Name = "";
+            this.txtFase.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtFase.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtFase.CustomButton.TabIndex = 1;
+            this.txtFase.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtFase.CustomButton.UseSelectable = true;
+            this.txtFase.CustomButton.Visible = false;
+            this.txtFase.Lines = new string[0];
+            this.txtFase.Location = new System.Drawing.Point(149, 249);
+            this.txtFase.MaxLength = 10;
+            this.txtFase.Name = "txtFase";
+            this.txtFase.PasswordChar = '\0';
+            this.txtFase.ReadOnly = true;
+            this.txtFase.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtFase.SelectedText = "";
+            this.txtFase.SelectionLength = 0;
+            this.txtFase.SelectionStart = 0;
+            this.txtFase.ShortcutsEnabled = true;
+            this.txtFase.Size = new System.Drawing.Size(155, 23);
+            this.txtFase.TabIndex = 6;
+            this.txtFase.UseSelectable = true;
+            this.txtFase.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtFase.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtFase.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumeroVacantes_KeyPress);
             // 
             // txtNumeroVacantes
             // 
@@ -238,6 +282,15 @@
             this.cboGrado.TabIndex = 0;
             this.cboGrado.UseSelectable = true;
             // 
+            // metroLabel8
+            // 
+            this.metroLabel8.AutoSize = true;
+            this.metroLabel8.Location = new System.Drawing.Point(109, 249);
+            this.metroLabel8.Name = "metroLabel8";
+            this.metroLabel8.Size = new System.Drawing.Size(34, 19);
+            this.metroLabel8.TabIndex = 0;
+            this.metroLabel8.Text = "Fase";
+            // 
             // metroLabel6
             // 
             this.metroLabel6.AutoSize = true;
@@ -303,80 +356,53 @@
             // 
             // btnGuardar
             // 
+            this.btnGuardar.BackgroundImage = global::GUI_SEVILLA.Properties.Resources.guardar;
+            this.btnGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnGuardar.Location = new System.Drawing.Point(76, 355);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(113, 35);
             this.btnGuardar.TabIndex = 2;
-            this.btnGuardar.Text = "&Guardar";
             this.btnGuardar.UseSelectable = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnSalir
             // 
+            this.btnSalir.BackgroundImage = global::GUI_SEVILLA.Properties.Resources.salirsistema;
+            this.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnSalir.Location = new System.Drawing.Point(195, 355);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(113, 35);
             this.btnSalir.TabIndex = 0;
-            this.btnSalir.Text = "&Salir";
             this.btnSalir.UseSelectable = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // lblIdSeccion
+            // metroLabel9
             // 
-            this.lblIdSeccion.AutoSize = true;
-            this.lblIdSeccion.Location = new System.Drawing.Point(7, 126);
-            this.lblIdSeccion.Name = "lblIdSeccion";
-            this.lblIdSeccion.Size = new System.Drawing.Size(83, 19);
-            this.lblIdSeccion.TabIndex = 7;
-            this.lblIdSeccion.Text = "metroLabel8";
-            this.lblIdSeccion.Visible = false;
+            this.metroLabel9.AutoSize = true;
+            this.metroLabel9.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.metroLabel9.Location = new System.Drawing.Point(236, 395);
+            this.metroLabel9.Name = "metroLabel9";
+            this.metroLabel9.Size = new System.Drawing.Size(27, 15);
+            this.metroLabel9.TabIndex = 19;
+            this.metroLabel9.Text = "Salir";
             // 
-            // metroLabel8
+            // metroLabel10
             // 
-            this.metroLabel8.AutoSize = true;
-            this.metroLabel8.Location = new System.Drawing.Point(109, 249);
-            this.metroLabel8.Name = "metroLabel8";
-            this.metroLabel8.Size = new System.Drawing.Size(34, 19);
-            this.metroLabel8.TabIndex = 0;
-            this.metroLabel8.Text = "Fase";
-            // 
-            // txtFase
-            // 
-            // 
-            // 
-            // 
-            this.txtFase.CustomButton.Image = null;
-            this.txtFase.CustomButton.Location = new System.Drawing.Point(133, 1);
-            this.txtFase.CustomButton.Name = "";
-            this.txtFase.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtFase.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtFase.CustomButton.TabIndex = 1;
-            this.txtFase.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtFase.CustomButton.UseSelectable = true;
-            this.txtFase.CustomButton.Visible = false;
-            this.txtFase.Lines = new string[0];
-            this.txtFase.Location = new System.Drawing.Point(149, 249);
-            this.txtFase.MaxLength = 10;
-            this.txtFase.Name = "txtFase";
-            this.txtFase.PasswordChar = '\0';
-            this.txtFase.ReadOnly = true;
-            this.txtFase.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtFase.SelectedText = "";
-            this.txtFase.SelectionLength = 0;
-            this.txtFase.SelectionStart = 0;
-            this.txtFase.ShortcutsEnabled = true;
-            this.txtFase.Size = new System.Drawing.Size(155, 23);
-            this.txtFase.TabIndex = 6;
-            this.txtFase.UseSelectable = true;
-            this.txtFase.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtFase.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.txtFase.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumeroVacantes_KeyPress);
+            this.metroLabel10.AutoSize = true;
+            this.metroLabel10.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.metroLabel10.Location = new System.Drawing.Point(108, 393);
+            this.metroLabel10.Name = "metroLabel10";
+            this.metroLabel10.Size = new System.Drawing.Size(48, 15);
+            this.metroLabel10.TabIndex = 19;
+            this.metroLabel10.Text = "Guardar";
             // 
             // frmMantenimientoSeccion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(378, 409);
+            this.ClientSize = new System.Drawing.Size(378, 421);
+            this.Controls.Add(this.metroLabel10);
+            this.Controls.Add(this.metroLabel9);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.groupBox1);
@@ -390,6 +416,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -415,5 +442,7 @@
         private MetroFramework.Controls.MetroLabel lblIdSeccion;
         private MetroFramework.Controls.MetroTextBox txtFase;
         private MetroFramework.Controls.MetroLabel metroLabel8;
+        private MetroFramework.Controls.MetroLabel metroLabel9;
+        private MetroFramework.Controls.MetroLabel metroLabel10;
     }
 }

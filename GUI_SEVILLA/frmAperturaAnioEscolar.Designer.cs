@@ -33,35 +33,39 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.cboFase = new MetroFramework.Controls.MetroComboBox();
+            this.cboFinMes = new MetroFramework.Controls.MetroComboBox();
+            this.cboInicioMes = new MetroFramework.Controls.MetroComboBox();
             this.cboAnio = new MetroFramework.Controls.MetroComboBox();
             this.txtObservaciones = new MetroFramework.Controls.MetroTextBox();
             this.chkAperturar = new MetroFramework.Controls.MetroCheckBox();
-            this.cboInicioMes = new MetroFramework.Controls.MetroComboBox();
-            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
-            this.cboFinMes = new MetroFramework.Controls.MetroComboBox();
+            this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnGenerar
             // 
-            this.btnGenerar.Location = new System.Drawing.Point(150, 229);
+            this.btnGenerar.BackgroundImage = global::GUI_SEVILLA.Properties.Resources.procesar;
+            this.btnGenerar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnGenerar.Location = new System.Drawing.Point(172, 229);
             this.btnGenerar.Name = "btnGenerar";
-            this.btnGenerar.Size = new System.Drawing.Size(124, 35);
+            this.btnGenerar.Size = new System.Drawing.Size(102, 35);
             this.btnGenerar.TabIndex = 4;
-            this.btnGenerar.Text = "&Generar Apertura";
             this.btnGenerar.UseSelectable = true;
             this.btnGenerar.Click += new System.EventHandler(this.btnGenerar_Click);
             // 
             // btnSalir
             // 
+            this.btnSalir.BackgroundImage = global::GUI_SEVILLA.Properties.Resources.salirsistema;
+            this.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnSalir.Location = new System.Drawing.Point(280, 229);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(102, 35);
             this.btnSalir.TabIndex = 5;
-            this.btnSalir.Text = "&Salir";
             this.btnSalir.UseSelectable = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
@@ -102,6 +106,24 @@
             this.metroLabel3.TabIndex = 32;
             this.metroLabel3.Text = "Fase :";
             // 
+            // metroLabel5
+            // 
+            this.metroLabel5.AutoSize = true;
+            this.metroLabel5.Location = new System.Drawing.Point(287, 74);
+            this.metroLabel5.Name = "metroLabel5";
+            this.metroLabel5.Size = new System.Drawing.Size(41, 19);
+            this.metroLabel5.TabIndex = 32;
+            this.metroLabel5.Text = "Hasta";
+            // 
+            // metroLabel4
+            // 
+            this.metroLabel4.AutoSize = true;
+            this.metroLabel4.Location = new System.Drawing.Point(66, 74);
+            this.metroLabel4.Name = "metroLabel4";
+            this.metroLabel4.Size = new System.Drawing.Size(45, 19);
+            this.metroLabel4.TabIndex = 32;
+            this.metroLabel4.Text = "Desde";
+            // 
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
@@ -120,6 +142,52 @@
             this.cboFase.Size = new System.Drawing.Size(158, 29);
             this.cboFase.TabIndex = 31;
             this.cboFase.UseSelectable = true;
+            // 
+            // cboFinMes
+            // 
+            this.cboFinMes.FormattingEnabled = true;
+            this.cboFinMes.ItemHeight = 23;
+            this.cboFinMes.Items.AddRange(new object[] {
+            "1 .-ENERO",
+            "2 .-FEBRERO",
+            "3 .-MARZO",
+            "4 .-ABRIL",
+            "5 .-MAYO",
+            "6 .-JUNIO",
+            "7 .-JULIO",
+            "8 .-AGOSTO",
+            "9 .-NOVIEMBRE",
+            "10.-OCTUBRE",
+            "11.-NOVIEMBRE",
+            "12.-DICIEMBRE"});
+            this.cboFinMes.Location = new System.Drawing.Point(334, 74);
+            this.cboFinMes.Name = "cboFinMes";
+            this.cboFinMes.Size = new System.Drawing.Size(130, 29);
+            this.cboFinMes.TabIndex = 31;
+            this.cboFinMes.UseSelectable = true;
+            // 
+            // cboInicioMes
+            // 
+            this.cboInicioMes.FormattingEnabled = true;
+            this.cboInicioMes.ItemHeight = 23;
+            this.cboInicioMes.Items.AddRange(new object[] {
+            "1 .-ENERO",
+            "2 .-FEBRERO",
+            "3 .-MARZO",
+            "4 .-ABRIL",
+            "5 .-MAYO",
+            "6 .-JUNIO",
+            "7 .-JULIO",
+            "8 .-AGOSTO",
+            "9 .-NOVIEMBRE",
+            "10.-OCTUBRE",
+            "11.-NOVIEMBRE",
+            "12.-DICIEMBRE"});
+            this.cboInicioMes.Location = new System.Drawing.Point(117, 74);
+            this.cboInicioMes.Name = "cboInicioMes";
+            this.cboInicioMes.Size = new System.Drawing.Size(130, 29);
+            this.cboInicioMes.TabIndex = 31;
+            this.cboInicioMes.UseSelectable = true;
             // 
             // cboAnio
             // 
@@ -152,7 +220,7 @@
             this.txtObservaciones.Multiline = true;
             this.txtObservaciones.Name = "txtObservaciones";
             this.txtObservaciones.PasswordChar = '\0';
-            this.txtObservaciones.PromptText = "Ingrese algunas observaciones adicionales";
+            this.txtObservaciones.WaterMark = "Ingrese algunas observaciones adicionales";
             this.txtObservaciones.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtObservaciones.SelectedText = "";
             this.txtObservaciones.SelectionLength = 0;
@@ -178,78 +246,36 @@
             this.chkAperturar.Text = "Aperturar";
             this.chkAperturar.UseSelectable = true;
             // 
-            // cboInicioMes
+            // metroLabel6
             // 
-            this.cboInicioMes.FormattingEnabled = true;
-            this.cboInicioMes.ItemHeight = 23;
-            this.cboInicioMes.Items.AddRange(new object[] {
-            "1 .-ENERO",
-            "2 .-FEBRERO",
-            "3 .-MARZO",
-            "4 .-ABRIL",
-            "5 .-MAYO",
-            "6 .-JUNIO",
-            "7 .-JULIO",
-            "8 .-AGOSTO",
-            "9 .-NOVIEMBRE",
-            "10.-OCTUBRE",
-            "11.-NOVIEMBRE",
-            "12.-DICIEMBRE"});
-            this.cboInicioMes.Location = new System.Drawing.Point(117, 74);
-            this.cboInicioMes.Name = "cboInicioMes";
-            this.cboInicioMes.Size = new System.Drawing.Size(130, 29);
-            this.cboInicioMes.TabIndex = 31;
-            this.cboInicioMes.UseSelectable = true;
+            this.metroLabel6.AutoSize = true;
+            this.metroLabel6.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.metroLabel6.Location = new System.Drawing.Point(174, 267);
+            this.metroLabel6.Name = "metroLabel6";
+            this.metroLabel6.Size = new System.Drawing.Size(96, 15);
+            this.metroLabel6.TabIndex = 32;
+            this.metroLabel6.Text = "Generar Apertura";
             // 
-            // metroLabel4
+            // metroLabel7
             // 
-            this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(66, 74);
-            this.metroLabel4.Name = "metroLabel4";
-            this.metroLabel4.Size = new System.Drawing.Size(45, 19);
-            this.metroLabel4.TabIndex = 32;
-            this.metroLabel4.Text = "Desde";
-            // 
-            // metroLabel5
-            // 
-            this.metroLabel5.AutoSize = true;
-            this.metroLabel5.Location = new System.Drawing.Point(287, 74);
-            this.metroLabel5.Name = "metroLabel5";
-            this.metroLabel5.Size = new System.Drawing.Size(41, 19);
-            this.metroLabel5.TabIndex = 32;
-            this.metroLabel5.Text = "Hasta";
-            // 
-            // cboFinMes
-            // 
-            this.cboFinMes.FormattingEnabled = true;
-            this.cboFinMes.ItemHeight = 23;
-            this.cboFinMes.Items.AddRange(new object[] {
-            "1 .-ENERO",
-            "2 .-FEBRERO",
-            "3 .-MARZO",
-            "4 .-ABRIL",
-            "5 .-MAYO",
-            "6 .-JUNIO",
-            "7 .-JULIO",
-            "8 .-AGOSTO",
-            "9 .-NOVIEMBRE",
-            "10.-OCTUBRE",
-            "11.-NOVIEMBRE",
-            "12.-DICIEMBRE"});
-            this.cboFinMes.Location = new System.Drawing.Point(334, 74);
-            this.cboFinMes.Name = "cboFinMes";
-            this.cboFinMes.Size = new System.Drawing.Size(130, 29);
-            this.cboFinMes.TabIndex = 31;
-            this.cboFinMes.UseSelectable = true;
+            this.metroLabel7.AutoSize = true;
+            this.metroLabel7.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.metroLabel7.Location = new System.Drawing.Point(316, 267);
+            this.metroLabel7.Name = "metroLabel7";
+            this.metroLabel7.Size = new System.Drawing.Size(27, 15);
+            this.metroLabel7.TabIndex = 32;
+            this.metroLabel7.Text = "Salir";
             // 
             // frmAperturaAnioEscolar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(549, 280);
+            this.ClientSize = new System.Drawing.Size(549, 292);
             this.Controls.Add(this.btnGenerar);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.metroLabel7);
+            this.Controls.Add(this.metroLabel6);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmAperturaAnioEscolar";
@@ -260,6 +286,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -279,5 +306,7 @@
         private MetroFramework.Controls.MetroLabel metroLabel4;
         private MetroFramework.Controls.MetroComboBox cboFinMes;
         private MetroFramework.Controls.MetroComboBox cboInicioMes;
+        private MetroFramework.Controls.MetroLabel metroLabel6;
+        private MetroFramework.Controls.MetroLabel metroLabel7;
     }
 }

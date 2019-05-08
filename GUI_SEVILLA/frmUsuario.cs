@@ -22,6 +22,7 @@ namespace GUI_SEVILLA
         public bool UsuNuncaCaduca { get; set; }
         public bool UsuUsuDeshabilita { get; set; }
         public bool Admin { get; set; }
+        public string pass { get; set; }
 
         CNegocio cn = new CNegocio();
 
@@ -69,7 +70,7 @@ namespace GUI_SEVILLA
 
                 byte[] pass = GetPasswordBytes();
 
-                if (txtContrasenia.Text.Trim() != VariablesGlobales.llave_publica)
+                if (txtContrasenia.Text.Trim() != VariablesGlobales.configuracion)
                 {
                     cambioClave = "SI";
                 }
@@ -88,7 +89,7 @@ namespace GUI_SEVILLA
                                 MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes))
                     {
                         cn.EjecutarSP("USP_USUARIOInsert", conectar.conexionbdSevilla, txtApellidosNombres.Text.Trim(), txtDocIdentidad.Text.Trim(),
-                            txtNombreUsuario.Text.Trim(), MetodosGlobales2.Encrypt(VariablesGlobales.llave_publica, pass), chkCambiarContraseniaInicioSesion.Checked,
+                            txtNombreUsuario.Text.Trim(), MetodosGlobales2.Encrypt(txtConfirmaContrasenia.Text ,pass), chkCambiarContraseniaInicioSesion.Checked,
                             chkUsuarioNoCambiaContrasenia.Checked, chkContraseniaCaduca.Checked, chkDeshabilitausuario.Checked, DateTime.Now,
                             DateTime.Now, DateTime.Now, cambioClave,chkAdmin.Checked);
 
@@ -107,7 +108,7 @@ namespace GUI_SEVILLA
                                 MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes))
                     {
                         cn.TraerDataset("USP_USUARIOUpdate", conectar.conexionbdSevilla, txtApellidosNombres.Text.Trim(), txtDocIdentidad.Text.Trim() ,
-                            txtNombreUsuario.Text.Trim() , MetodosGlobales2.Encrypt(VariablesGlobales.llave_publica, pass) , 
+                            txtNombreUsuario.Text.Trim() , MetodosGlobales2.Encrypt(txtConfirmaContrasenia.Text, pass) , 
                             chkCambiarContraseniaInicioSesion.Checked ,chkUsuarioNoCambiaContrasenia.Checked,
                             chkContraseniaCaduca.Checked, chkDeshabilitausuario.Checked, DateTime.Now ,
                             DateTime.Now, DateTime.Now , cambioClave, chkAdmin.Checked);
@@ -148,11 +149,11 @@ namespace GUI_SEVILLA
         {
             byte[] ba = null;
 
-            if (txtContrasenia.Text.Length == 0)
+            if (VariablesGlobales.configuracion.Length == 0)
                 ba = new byte[] { 1, 2, 3, 4, 5, 6, 7, 8 };
             else
             {
-                IntPtr unmanagedBytes = Marshal.SecureStringToGlobalAllocAnsi(MetodosGlobales.ConvertToSecureString(txtContrasenia.Text));
+                IntPtr unmanagedBytes = Marshal.SecureStringToGlobalAllocAnsi(MetodosGlobales.ConvertToSecureString(VariablesGlobales.configuracion));
                 try
                 {
                     unsafe
@@ -188,17 +189,17 @@ namespace GUI_SEVILLA
 
         private void frmUsuario_Load(object sender, EventArgs e)
         {
-            cn.TraerServidorSevilla();
+            cn.TraerServidorSevilla(Program.Server, Program.database, Program.dbUsername, Program.dbPassword);
             txtApellidosNombres.Focus();
 
             if (mantenimiento==true)
             {
                 txtNombreUsuario.ReadOnly = true;
                 txtApellidosNombres.Text = NombresCompletos;
-                txtDocIdentidad.Text = NroDoc;
+                txtDocIdentidad.Text = NroDoc; 
                 txtNombreUsuario.Text = NombreUsuario;
-                txtContrasenia.Text = VariablesGlobales.llave_publica;
-                txtConfirmaContrasenia.Text = VariablesGlobales.llave_publica;
+                txtContrasenia.Text = MetodosGlobales2.Decrypt(pass, GetPasswordBytes());
+                txtConfirmaContrasenia.Text = MetodosGlobales2.Decrypt(pass, GetPasswordBytes());
                 chkCambiarContraseniaInicioSesion.Checked = UsuDebeCambiarContrasenia;
                 chkUsuarioNoCambiaContrasenia.Checked = UsuNocamnbiaContrasenia;
                 chkContraseniaCaduca.Checked = UsuNuncaCaduca;
@@ -206,5 +207,6 @@ namespace GUI_SEVILLA
                 chkAdmin.Checked = Admin;
             }
         }
+
     }
 }

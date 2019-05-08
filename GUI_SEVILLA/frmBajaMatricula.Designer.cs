@@ -34,15 +34,17 @@
             this.dtpFechaRegistro = new MetroFramework.Controls.MetroDateTime();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.gbBuscarAlumno = new System.Windows.Forms.GroupBox();
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.btnBaja = new MetroFramework.Controls.MetroButton();
-            this.txtObservaciones = new MetroFramework.Controls.MetroTextBox();
-            this.btnSalir = new MetroFramework.Controls.MetroButton();
-            this.rbTodos = new MetroFramework.Controls.MetroRadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rbPensiones = new MetroFramework.Controls.MetroRadioButton();
             this.rbOtros = new MetroFramework.Controls.MetroRadioButton();
+            this.rbPensiones = new MetroFramework.Controls.MetroRadioButton();
+            this.rbTodos = new MetroFramework.Controls.MetroRadioButton();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.txtObservaciones = new MetroFramework.Controls.MetroTextBox();
+            this.btnBaja = new MetroFramework.Controls.MetroButton();
+            this.btnSalir = new MetroFramework.Controls.MetroButton();
+            this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.gbBuscarAlumno.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -100,6 +102,59 @@
             this.gbBuscarAlumno.TabIndex = 10;
             this.gbBuscarAlumno.TabStop = false;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.rbOtros);
+            this.groupBox1.Controls.Add(this.rbPensiones);
+            this.groupBox1.Controls.Add(this.rbTodos);
+            this.groupBox1.Location = new System.Drawing.Point(14, 73);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(398, 70);
+            this.groupBox1.TabIndex = 20;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Seleccione el tipo de anulación";
+            // 
+            // rbOtros
+            // 
+            this.rbOtros.AutoSize = true;
+            this.rbOtros.Location = new System.Drawing.Point(245, 29);
+            this.rbOtros.Name = "rbOtros";
+            this.rbOtros.Size = new System.Drawing.Size(110, 15);
+            this.rbOtros.TabIndex = 19;
+            this.rbOtros.Text = "Otros conceptos";
+            this.rbOtros.UseSelectable = true;
+            // 
+            // rbPensiones
+            // 
+            this.rbPensiones.AutoSize = true;
+            this.rbPensiones.Location = new System.Drawing.Point(102, 29);
+            this.rbPensiones.Name = "rbPensiones";
+            this.rbPensiones.Size = new System.Drawing.Size(102, 15);
+            this.rbPensiones.TabIndex = 19;
+            this.rbPensiones.Text = "Solo Pensiones";
+            this.rbPensiones.UseSelectable = true;
+            // 
+            // rbTodos
+            // 
+            this.rbTodos.AutoSize = true;
+            this.rbTodos.Checked = true;
+            this.rbTodos.Location = new System.Drawing.Point(6, 29);
+            this.rbTodos.Name = "rbTodos";
+            this.rbTodos.Size = new System.Drawing.Size(55, 15);
+            this.rbTodos.TabIndex = 19;
+            this.rbTodos.TabStop = true;
+            this.rbTodos.Text = "Todos";
+            this.rbTodos.UseSelectable = true;
+            // 
+            // metroLabel3
+            // 
+            this.metroLabel3.Location = new System.Drawing.Point(14, 229);
+            this.metroLabel3.Name = "metroLabel3";
+            this.metroLabel3.Size = new System.Drawing.Size(398, 83);
+            this.metroLabel3.TabIndex = 6;
+            this.metroLabel3.Text = resources.GetString("metroLabel3.Text");
+            this.metroLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
@@ -108,16 +163,6 @@
             this.metroLabel1.Size = new System.Drawing.Size(191, 19);
             this.metroLabel1.TabIndex = 6;
             this.metroLabel1.Text = "Descripción del motivo de baja";
-            // 
-            // btnBaja
-            // 
-            this.btnBaja.Location = new System.Drawing.Point(151, 392);
-            this.btnBaja.Name = "btnBaja";
-            this.btnBaja.Size = new System.Drawing.Size(90, 35);
-            this.btnBaja.TabIndex = 1;
-            this.btnBaja.Text = "&Dar de baja";
-            this.btnBaja.UseSelectable = true;
-            this.btnBaja.Click += new System.EventHandler(this.btnBaja_Click);
             // 
             // txtObservaciones
             // 
@@ -140,7 +185,7 @@
             this.txtObservaciones.Multiline = true;
             this.txtObservaciones.Name = "txtObservaciones";
             this.txtObservaciones.PasswordChar = '\0';
-            this.txtObservaciones.PromptText = "Detalle el motivo de baja si es necesario";
+            this.txtObservaciones.WaterMark = "Detalle el motivo de baja si es necesario";
             this.txtObservaciones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtObservaciones.SelectedText = "";
             this.txtObservaciones.SelectionLength = 0;
@@ -153,74 +198,55 @@
             this.txtObservaciones.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtObservaciones.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
+            // btnBaja
+            // 
+            this.btnBaja.BackgroundImage = global::GUI_SEVILLA.Properties.Resources.quitar;
+            this.btnBaja.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnBaja.Location = new System.Drawing.Point(151, 392);
+            this.btnBaja.Name = "btnBaja";
+            this.btnBaja.Size = new System.Drawing.Size(90, 35);
+            this.btnBaja.TabIndex = 1;
+            this.btnBaja.UseSelectable = true;
+            this.btnBaja.Click += new System.EventHandler(this.btnBaja_Click);
+            // 
             // btnSalir
             // 
+            this.btnSalir.BackgroundImage = global::GUI_SEVILLA.Properties.Resources.salirsistema;
+            this.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnSalir.Location = new System.Drawing.Point(247, 392);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(90, 35);
             this.btnSalir.TabIndex = 1;
-            this.btnSalir.Text = "&Salir";
             this.btnSalir.UseSelectable = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // rbTodos
+            // metroLabel7
             // 
-            this.rbTodos.AutoSize = true;
-            this.rbTodos.Checked = true;
-            this.rbTodos.Location = new System.Drawing.Point(6, 29);
-            this.rbTodos.Name = "rbTodos";
-            this.rbTodos.Size = new System.Drawing.Size(55, 15);
-            this.rbTodos.TabIndex = 19;
-            this.rbTodos.TabStop = true;
-            this.rbTodos.Text = "Todos";
-            this.rbTodos.UseSelectable = true;
+            this.metroLabel7.AutoSize = true;
+            this.metroLabel7.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.metroLabel7.Location = new System.Drawing.Point(277, 430);
+            this.metroLabel7.Name = "metroLabel7";
+            this.metroLabel7.Size = new System.Drawing.Size(27, 15);
+            this.metroLabel7.TabIndex = 33;
+            this.metroLabel7.Text = "Salir";
             // 
-            // groupBox1
+            // metroLabel4
             // 
-            this.groupBox1.Controls.Add(this.rbOtros);
-            this.groupBox1.Controls.Add(this.rbPensiones);
-            this.groupBox1.Controls.Add(this.rbTodos);
-            this.groupBox1.Location = new System.Drawing.Point(14, 73);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(398, 70);
-            this.groupBox1.TabIndex = 20;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Seleccione el tipo de anulación";
-            // 
-            // rbPensiones
-            // 
-            this.rbPensiones.AutoSize = true;
-            this.rbPensiones.Location = new System.Drawing.Point(102, 29);
-            this.rbPensiones.Name = "rbPensiones";
-            this.rbPensiones.Size = new System.Drawing.Size(102, 15);
-            this.rbPensiones.TabIndex = 19;
-            this.rbPensiones.Text = "Solo Pensiones";
-            this.rbPensiones.UseSelectable = true;
-            // 
-            // rbOtros
-            // 
-            this.rbOtros.AutoSize = true;
-            this.rbOtros.Location = new System.Drawing.Point(245, 29);
-            this.rbOtros.Name = "rbOtros";
-            this.rbOtros.Size = new System.Drawing.Size(110, 15);
-            this.rbOtros.TabIndex = 19;
-            this.rbOtros.Text = "Otros conceptos";
-            this.rbOtros.UseSelectable = true;
-            // 
-            // metroLabel3
-            // 
-            this.metroLabel3.Location = new System.Drawing.Point(14, 229);
-            this.metroLabel3.Name = "metroLabel3";
-            this.metroLabel3.Size = new System.Drawing.Size(398, 83);
-            this.metroLabel3.TabIndex = 6;
-            this.metroLabel3.Text = resources.GetString("metroLabel3.Text");
-            this.metroLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroLabel4.AutoSize = true;
+            this.metroLabel4.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.metroLabel4.Location = new System.Drawing.Point(163, 430);
+            this.metroLabel4.Name = "metroLabel4";
+            this.metroLabel4.Size = new System.Drawing.Size(65, 15);
+            this.metroLabel4.TabIndex = 33;
+            this.metroLabel4.Text = "Dar de baja";
             // 
             // frmBajaMatricula
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(493, 441);
+            this.ClientSize = new System.Drawing.Size(493, 468);
+            this.Controls.Add(this.metroLabel4);
+            this.Controls.Add(this.metroLabel7);
             this.Controls.Add(this.gbBuscarAlumno);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnBaja);
@@ -236,6 +262,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -255,5 +282,7 @@
         private MetroFramework.Controls.MetroRadioButton rbPensiones;
         private MetroFramework.Controls.MetroRadioButton rbTodos;
         private MetroFramework.Controls.MetroLabel metroLabel3;
+        private MetroFramework.Controls.MetroLabel metroLabel7;
+        private MetroFramework.Controls.MetroLabel metroLabel4;
     }
 }

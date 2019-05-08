@@ -33,11 +33,13 @@ namespace GUI_SEVILLA
             if (TipoMantenimiento == "U")
             {
                 DataTable dtAlumSecc = new DataTable();
-                this.btnAsignarSeccion.Enabled = false;
+                //this.btnAsignarSeccion.Enabled = false;
                 this.btnBuscar.Enabled = false;
                 cboSituacion.Enabled = false;
                 dtpFechaIngreso.Enabled = false;
                 txtNombres.ReadOnly = true;
+                //chkBecado.Enabled = false;
+                //nudPorcentaje.Enabled = false;
 
                 dtAlumSecc = cn.TraerDataset("USP_MATRICULASearchAlumnoSeccion", conectar.conexionbdSevilla, IdMatricula).Tables[0];
 
@@ -46,9 +48,19 @@ namespace GUI_SEVILLA
                 cboSituacion.SelectedValue = dtAlumSecc.Rows[0][2].ToString();
                 txtObservacionesMatricula.Text = dtAlumSecc.Rows[0][3].ToString();
                 dtpFechaIngreso.Value = Convert.ToDateTime(dtAlumSecc.Rows[0][4]);
+                chkBecado.Checked = Convert.ToBoolean(dtAlumSecc.Rows[0][5]);
+                nudPorcentaje.Value = Convert.ToInt32(dtAlumSecc.Rows[0][6]);
                 LlenaDatosAlumno();
                 LlenaDatosSeccion();
                 txtObservacionesMatricula.Focus();
+            }
+            if (chkBecado.Checked)
+            {
+                nudPorcentaje.Enabled = true;
+            }
+            else
+            {
+                nudPorcentaje.Enabled = false;
             }
         }
 
@@ -59,7 +71,14 @@ namespace GUI_SEVILLA
             dtAlumno = cn.TraerDataset("USP_ALUMNO_MATRICULASearch", conectar.conexionbdSevilla, lblIdAlumno.Text).Tables[0];
             txtDni.Text = dtAlumno.Rows[0][1].ToString();
             txtNombres.Text = dtAlumno.Rows[0][2].ToString();
-            dtpFechaNacimiento.Value = Convert.ToDateTime(dtAlumno.Rows[0][3]);
+            if (dtAlumno.Rows[0][3].ToString()=="")
+            {
+                dtpFechaNacimiento.Value = DateTime.Now;
+            }
+            else
+            {
+                dtpFechaNacimiento.Value = Convert.ToDateTime(dtAlumno.Rows[0][3]);
+            }
             txtEdad.Text = Convert.ToInt32(calcularEdad(dtpFechaNacimiento.Value.ToString("yyyyMMdd")).ToString()).ToString();
             txtUbigeoDireccion.Text = dtAlumno.Rows[0][4].ToString();
             txtDIreccion.Text = dtAlumno.Rows[0][5].ToString();
@@ -171,9 +190,19 @@ namespace GUI_SEVILLA
                         {
                             if (!Validar()) return;
 
+                            if (chkBecado.Checked)
+                            {
+                                if (nudPorcentaje.Value==0)
+                                {
+                                    MessageBox.Show("El procentaje de matricula debe ser mayor a cero.", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                    nudPorcentaje.Focus();
+                                    return;
+                                }
+                            }
+
                             if (cn.TraerDataset("USP_MATRICULARegistro", conectar.conexionbdSevilla, lblIdSeccion.Text, lblIdAlumno.Text,
                             cboSituacion.SelectedValue, dtpFechaIngreso.Value, txtObservacionesMatricula.Text, VariablesGlobales.NombreUsuario, VariablesGlobales.UserHostIp,
-                            VariablesGlobales.AnioEscolarLogueado, VariablesGlobales.AnioFaseEscolarLogueado).Tables[0].Rows[0][0].ToString() != "0")
+                            VariablesGlobales.AnioEscolarLogueado, VariablesGlobales.AnioFaseEscolarLogueado,chkBecado.Checked,chkBecado.Checked ? nudPorcentaje.Value : 0).Tables[0].Rows[0][0].ToString() != "0")
                             {
                                 MessageBox.Show("La matrícula fue registrada con exito.", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 this.Close();
@@ -192,7 +221,22 @@ namespace GUI_SEVILLA
             }
             else
             {
-                string message2 = "Esta seguro de actualizar las observaciones de la Matrícula?";
+                string message2;
+
+                if (cn.TraerDataset("USP_MATRICULASearchBecado", conectar.conexionbdSevilla, IdMatricula,chkBecado.Checked,
+                    nudPorcentaje.Value).Tables[0].Rows[0][0].ToString()=="S")
+                {
+                    message2 = "A modificado el estado de la beca, " + Environment.NewLine + 
+                                "esto realizara cambios en el estado de cuenta del alumno." + Environment.NewLine +
+                                Environment.NewLine +
+                                "Esta seguro de continuar?";
+                }
+                else
+                {
+                    message2 = "Esta seguro de realizar los cambios en la matricula?";
+                }
+
+                //string message2 = "Esta seguro de actualizar las observaciones de la Matrícula?";
                 string caption2 = VariablesGlobales.NombreMensajes;
                 MessageBoxButtons buttons2 = MessageBoxButtons.YesNo;
                 DialogResult result2;
@@ -201,7 +245,8 @@ namespace GUI_SEVILLA
 
                 if (result2 == System.Windows.Forms.DialogResult.Yes)
                 {
-                    if (cn.EjecutarSP("USP_MATRICULAUpdateObservaciones", conectar.conexionbdSevilla, IdMatricula, txtObservacionesMatricula.Text,
+                    if (cn.EjecutarSP("USP_MATRICULAUpdate", conectar.conexionbdSevilla, IdMatricula, Convert.ToInt32(lblIdSeccion.Text),
+                        chkBecado.Checked,nudPorcentaje.Value,txtObservacionesMatricula.Text,
                         VariablesGlobales.NombreUsuario, VariablesGlobales.UserHostIp) > 0)
                     {
                         MessageBox.Show("La matrícula se actualizo correctamente.", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -219,8 +264,7 @@ namespace GUI_SEVILLA
         {
             return (Convert.ToInt32(cn.TraerDataset("USP_MATRICULAVerificaVacantes", conectar.conexionbdSevilla, lblIdSeccion.Text).Tables[0].Rows[0][1]) >= 0);
         }
-
-
+        
         private bool VerificaAlumno()
         {
             return (cn.TraerDataset("USP_MATRICULAVerificaAlumno", conectar.conexionbdSevilla, VariablesGlobales.AnioEscolarLogueado, VariablesGlobales.AnioFaseEscolarLogueado, lblIdAlumno.Text).Tables[0].Rows[0][0].ToString() == "0");
@@ -259,6 +303,20 @@ namespace GUI_SEVILLA
                 rspta = false;
             }
             return rspta;
+        }
+
+        private void chkBecado_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkBecado.Checked)
+            {
+                nudPorcentaje.Enabled = true;
+                nudPorcentaje.Value = 100;
+            }
+            else
+            {
+                nudPorcentaje.Enabled = false;
+                nudPorcentaje.Value = 100;
+            }
         }
     }
 }

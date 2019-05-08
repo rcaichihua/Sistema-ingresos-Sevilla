@@ -71,7 +71,7 @@ namespace GUI_SEVILLA
             if ((MessageBox.Show("¿Esta seguro de cambiar la contraseña.?", VariablesGlobales.NombreMensajes,
                                 MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes))
             {
-                cn.EjecutarSqlDTS("UPDATE USUARIO SET CAMBIAPASSWORD=0 ,[PASSWORD]='" + MetodosGlobales2.Encrypt(VariablesGlobales.llave_publica, pass) + 
+                cn.EjecutarSqlDTS("UPDATE USUARIO SET CAMBIAPASSWORD=0 ,[PASSWORD]='" + MetodosGlobales2.Encrypt(txtContrasenia.Text, pass) + 
                     "' WHERE NOMBREUSUARIO='" + NombreUSuario + "'",conectar.conexionbdSevilla);
 
                 MessageBox.Show("La contraseña ha sido cambiada exitosamente.", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK,
@@ -89,11 +89,11 @@ namespace GUI_SEVILLA
         {
             byte[] ba = null;
 
-            if (txtContrasenia.Text.Length == 0)
+            if (VariablesGlobales.configuracion.Length == 0)
                 ba = new byte[] { 1, 2, 3, 4, 5, 6, 7, 8 };
             else
             {
-                IntPtr unmanagedBytes = Marshal.SecureStringToGlobalAllocAnsi(MetodosGlobales.ConvertToSecureString(txtContrasenia.Text));
+                IntPtr unmanagedBytes = Marshal.SecureStringToGlobalAllocAnsi(MetodosGlobales.ConvertToSecureString(VariablesGlobales.configuracion));
                 try
                 {
                     unsafe

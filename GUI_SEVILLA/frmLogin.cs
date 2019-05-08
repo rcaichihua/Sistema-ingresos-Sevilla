@@ -6,6 +6,9 @@ using BL_SEVILLA;
 using DAO_SEVILLA;
 using System.Data;
 using System.Runtime.InteropServices;
+using System.Drawing;
+using System.Data.SqlClient;
+using System.Text;
 
 namespace GUI_SEVILLA
 {
@@ -14,6 +17,8 @@ namespace GUI_SEVILLA
         public frmLogin()
         {
             InitializeComponent();
+            this.ttMensaje.SetToolTip(this.btnIngresar, "Ingresar al sistema");
+            this.ttMensaje.SetToolTip(this.btnSalir, "Cerrar la ventana");
         }
         CNegocio cn = new CNegocio();
         private int intentos;
@@ -25,7 +30,7 @@ namespace GUI_SEVILLA
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
-            string con_are = "SBLMLAN";
+            string con_are = "sblmlan";
             int sblmLan = 0;
             try
             {
@@ -61,12 +66,13 @@ namespace GUI_SEVILLA
 
                 VariablesGlobales.UserHostIp = HostUser + "/" + Ip;
 
-                cn.TraerServidorSGI();
-                cn.TraerServidorSUNATFE();
-                cn.TraerServidorTesoreria();
-                cn.TraerServidorTesoreria();
-                cn.TraerServidorSevilla();
-
+                //cn.TraerServidorSGI();
+                //cn.TraerServidorSUNATFE();
+                //cn.TraerServidorTesoreria();
+                //cn.TraerServidorTesoreria();
+                //string srv, string bd, string us, string pw
+                //MessageBox.Show(Program.Server+" / "+ Program.database +" / "+ Program.dbUsername+"/"+Program.dbPassword);
+                cn.TraerServidorSevilla(Program.Server, Program.database, Program.dbUsername, Program.dbPassword);
                 LlenarAnio();
                 CargarFase();
             }
@@ -80,16 +86,25 @@ namespace GUI_SEVILLA
 
         private void LlenarAnio()
         {
+            StringBuilder errorMessages = new StringBuilder();
             try
             {
-                cboAnio.DataSource = cn.TraerDataset("USP_ANIOESCOLARSelectAll", conectar.conexionbdSevilla).Tables[0];
+                cboAnio.DataSource = cn.EjecutarSqlDTS("exec USP_ANIOESCOLARSelectAll", conectar.conexionbdSevilla).Tables[0];
                 cboAnio.DisplayMember = "ANIO";
                 cboAnio.ValueMember = "IDANIO";
             }
-            catch (Exception)
+            catch (SqlException ex)
             {
-
-            }                   
+                for (int i = 0; i < ex.Errors.Count; i++)
+                {
+                    errorMessages.Append("Index #" + i + "\n" +
+                        "Message: " + ex.Errors[i].Message + "\n" +
+                        "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                        "Source: " + ex.Errors[i].Source + "\n" +
+                        "Procedure: " + ex.Errors[i].Procedure + "\n");
+                }
+                MessageBox.Show(errorMessages.ToString());
+            }
         }
 
         private void CargarFase()
@@ -104,7 +119,6 @@ namespace GUI_SEVILLA
             {
 
             }
-
         }
 
         private void btnIngresar_Click(object sender, EventArgs e)
@@ -136,16 +150,16 @@ namespace GUI_SEVILLA
 
                 bool FLG_ACTIVO = false;
 
-                VariablesGlobales.FechaActual = cn.EjecutarSqlDTS("select CONVERT(VARCHAR(8),getdate(),112)", conectar.conexionbdSevilla).Tables[0].Rows[0][0].ToString();
-                clave_user = dtsDatosUsuario.Tables[0].Rows[0]["PASSWORD"].ToString();
-                FLG_ACTIVO = Convert.ToBoolean(dtsDatosUsuario.Tables[0].Rows[0]["DESACTIVAR"]);
-                VariablesGlobales.AnioFiscal = Convert.ToInt32(VariablesGlobales.FechaActual.Substring(0, 4));
-
                 if (dtsDatosUsuario.Tables[0].Rows.Count > 0)
                 {
                     byte[] passwordBytes = GetPasswordBytes();
 
-                    if (VariablesGlobales.llave_publica == devuelveLlavePublica(clave_user, passwordBytes))
+                    VariablesGlobales.FechaActual = cn.EjecutarSqlDTS("select CONVERT(VARCHAR(8),getdate(),112)", conectar.conexionbdSevilla).Tables[0].Rows[0][0].ToString();
+                    clave_user = dtsDatosUsuario.Tables[0].Rows[0]["PASSWORD"].ToString();
+                    FLG_ACTIVO = Convert.ToBoolean(dtsDatosUsuario.Tables[0].Rows[0]["DESACTIVAR"]);
+                    VariablesGlobales.AnioFiscal = Convert.ToInt32(VariablesGlobales.FechaActual.Substring(0, 4));
+
+                    if (txtContrasenia.Text == MetodosGlobales2.Decrypt(clave_user, passwordBytes))
                     {
                         if (FLG_ACTIVO != false)
                         {
@@ -177,6 +191,7 @@ namespace GUI_SEVILLA
                     }
                     else
                     {
+                        MessageBox.Show("Usuario y/o Contraseña incorrectos, verifique !!!", ":: :: ACCESO AL SISTEMA :: ::", MessageBoxButtons.OK, MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1);
                         intentos += 1;
                         if (intentos == 3)
                         {
@@ -193,7 +208,7 @@ namespace GUI_SEVILLA
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error en el logueo: " + ex.ToString() + "", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1);
+                MessageBox.Show("Error. "+ex.Message, VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1);
             }
         }
 
@@ -215,11 +230,11 @@ namespace GUI_SEVILLA
         {
             byte[] ba = null;
 
-            if (txtContrasenia.Text.Length == 0)
+            if (VariablesGlobales.configuracion.Length == 0)
                 ba = new byte[] { 1, 2, 3, 4, 5, 6, 7, 8 };
             else
             {
-                IntPtr unmanagedBytes = Marshal.SecureStringToGlobalAllocAnsi(MetodosGlobales.ConvertToSecureString(txtContrasenia.Text));
+                IntPtr unmanagedBytes = Marshal.SecureStringToGlobalAllocAnsi(MetodosGlobales.ConvertToSecureString(VariablesGlobales.configuracion));
                 try
                 {
                     unsafe
@@ -251,6 +266,27 @@ namespace GUI_SEVILLA
         private void cboAnio_SelectedIndexChanged(object sender, EventArgs e)
         {
             CargarFase();
+        }
+
+        private void txtContrasenia_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == (char)Keys.Enter)
+            {
+                btnIngresar_Click(sender, e);
+            }
+        }
+
+        private void txtUsuario_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == (char)Keys.Enter)
+            {
+                txtContrasenia.Focus();
+            }
+        }
+
+        private void btnSalir_MouseLeave(object sender, EventArgs e)
+        {
+            this.btnSalir.ForeColor = Color.Purple;
         }
     }
 }

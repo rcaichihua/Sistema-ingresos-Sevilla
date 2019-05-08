@@ -14,6 +14,8 @@ namespace GUI_SEVILLA
     public partial class frmEstadoCuenta : MetroFramework.Forms.MetroForm
     {
         CNegocio cn = new CNegocio();
+        DataTable dtDatosAlumno = new DataTable();
+
         public frmEstadoCuenta()
         {
             InitializeComponent();
@@ -22,7 +24,7 @@ namespace GUI_SEVILLA
         private void frmEstadoCuenta_Load(object sender, EventArgs e)
         {
             AnularAutocompletadoColumnas();
-            lblEncabezado.Text = "Estado de cuenta - Pago de pensiones - año escolar " + VariablesGlobales.AnioEscolarLogueado + "-" + VariablesGlobales.AnioFaseEscolarLogueado;
+            lblEncabezado.Text = "Estado de cuenta - Pago de pensiones y otros - año escolar " + VariablesGlobales.AnioEscolarLogueado + "-" + VariablesGlobales.AnioFaseEscolarLogueado;
         }
 
         private void AnularAutocompletadoColumnas()
@@ -39,37 +41,50 @@ namespace GUI_SEVILLA
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            DataTable dtDatosAlumno = new DataTable();
-
             if (txtFiltro.Text.Trim()!="")
             {
-                dtDatosAlumno = cn.TraerDataset("USP_ALUMNOSearch", conectar.conexionbdSevilla, txtFiltro.Text.Trim(),VariablesGlobales.AnioEscolarLogueado,
-                    VariablesGlobales.AnioFaseEscolarLogueado,chkBaja.Checked ? false:true).Tables[0];
+                dtDatosAlumno = cn.TraerDataset("USP_ALUMNOSearchMatriculados", conectar.conexionbdSevilla, txtFiltro.Text.Trim(),VariablesGlobales.AnioEscolarLogueado,
+                    VariablesGlobales.AnioFaseEscolarLogueado,rbMatriculaBaja.Checked ? false:true,rbOtrasDeudas.Checked).Tables[0];
 
                 if (dtDatosAlumno.Rows.Count<=0)
                 {
                     MessageBox.Show("El dni ingresado no existe o no tiene asignado una matrícula.", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     txtNombres.Clear();
-                    LlenarGrilla(0);
+                    LlenarGrilla(0,0);
                     return;
                 }
-                txtNombres.Text = dtDatosAlumno.Rows[0][1].ToString();
+                txtNombres.Text = dtDatosAlumno.Rows[0][2].ToString();
 
-                LlenarGrilla(Convert.ToInt32(dtDatosAlumno.Rows[0][0]));
+                LlenarGrilla(Convert.ToInt32(dtDatosAlumno.Rows[0][0]),Convert.ToInt32(dtDatosAlumno.Rows[0][1]));
+
+                foreach (DataGridViewRow item in dgvEstadoCuenta.Rows)
+                {
+                    item.Cells["MONTODEUDA"].Value = Convert.ToDecimal(item.Cells["IMPORTE"].Value) - Convert.ToDecimal(item.Cells["MONTOPAGADO"].Value);
+                }
             }
             else
             {
-                MessageBox.Show("Ingrese el DNI para la búsqueda.", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ingrese el Nº de documento para la búsqueda.", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 txtFiltro.Focus();
             }          
         }
 
-        private void LlenarGrilla(int idAlumno)
+        private void LlenarGrilla(int IdMatricula,int idAlumno)
         {
-            this.dgvEstadoCuenta.DataSource = cn.TraerDataset("USP_MATRICULAAlumnoSearch", conectar.conexionbdSevilla, 
-                idAlumno,rbPendiente.Checked ? "P": (rbCancelado.Checked ? "C" : (rbAnulado.Checked ? "A" : 
-                (rbAcuenta.Checked ? "E" : "T"))),VariablesGlobales.AnioEscolarLogueado,VariablesGlobales.AnioFaseEscolarLogueado).Tables[0];
-            this.dgvEstadoCuenta.Refresh();
+            if (!rbOtrasDeudas.Checked)
+            {
+                this.dgvEstadoCuenta.DataSource = cn.TraerDataset("USP_MATRICULAAlumnoSearch", conectar.conexionbdSevilla,
+                    idAlumno, rbPendiente.Checked ? "P" : (rbCancelado.Checked ? "C" : (rbAnulado.Checked ? "A" :
+                    (rbAcuenta.Checked ? "E" : "T"))), VariablesGlobales.AnioEscolarLogueado, VariablesGlobales.AnioFaseEscolarLogueado, IdMatricula).Tables[0];
+                this.dgvEstadoCuenta.Refresh();
+            }
+            else
+            {
+                this.dgvEstadoCuenta.DataSource = cn.TraerDataset("USP_OTRASDEUDASSelect", conectar.conexionbdSevilla,
+                    idAlumno, rbPendiente.Checked ? "P" : (rbCancelado.Checked ? "C" : (rbAnulado.Checked ? "A" :
+                    (rbAcuenta.Checked ? "E" : "T"))), VariablesGlobales.AnioEscolarLogueado, IdMatricula).Tables[0];
+                this.dgvEstadoCuenta.Refresh();              
+            }
         }
 
         private void txtFiltro_KeyPress(object sender, KeyPressEventArgs e)
@@ -114,6 +129,70 @@ namespace GUI_SEVILLA
         private void rbTodos_CheckedChanged(object sender, EventArgs e)
         {
             btnBuscar_Click(sender, e);
+        }
+
+        private void chkBaja_CheckedChanged(object sender, EventArgs e)
+        {
+            btnBuscar_Click(sender, e);
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            //if (this.dgvEstadoCuenta.Rows.Count <= 0) return;
+            //frmImpresion winImpre = new frmImpresion();
+            //winImpre.TipoReporte = 1;
+            //winImpre.MiTabla = cn.TraerDataset("USP_MATRICULAAlumnoSearch", conectar.conexionbdSevilla,
+            //    Convert.ToInt32(dtDatosAlumno.Rows[0][1]), rbPendiente.Checked ? "P" : (rbCancelado.Checked ? "C" : (rbAnulado.Checked ? "A" :
+            //    (rbAcuenta.Checked ? "E" : "T"))), VariablesGlobales.AnioEscolarLogueado, VariablesGlobales.AnioFaseEscolarLogueado, Convert.ToInt32(dtDatosAlumno.Rows[0][0])).Tables[0];
+            //winImpre.ShowDialog();
+
+            if (this.dgvEstadoCuenta.Rows.Count <= 0) return;
+            frmImpresion winImpre = new frmImpresion();
+            winImpre.TipoReporte = 1;
+
+            if (!rbOtrasDeudas.Checked)
+            {
+                winImpre.MiTabla = cn.TraerDataset("USP_MATRICULAAlumnoSearch", conectar.conexionbdSevilla,
+                 Convert.ToInt32(dtDatosAlumno.Rows[0][1]), rbPendiente.Checked ? "P" : (rbCancelado.Checked ? "C" : (rbAnulado.Checked ? "A" :
+                 (rbAcuenta.Checked ? "E" : "T"))), VariablesGlobales.AnioEscolarLogueado, VariablesGlobales.AnioFaseEscolarLogueado, Convert.ToInt32(dtDatosAlumno.Rows[0][0])).Tables[0];
+                winImpre.ShowDialog();
+            }
+            else
+            {
+                winImpre.MiTabla = cn.TraerDataset("USP_OTRASDEUDASSelect", conectar.conexionbdSevilla,
+                Convert.ToInt32(dtDatosAlumno.Rows[0][1]), rbPendiente.Checked ? "P" : (rbCancelado.Checked ? "C" : (rbAnulado.Checked ? "A" :
+                (rbAcuenta.Checked ? "E" : "T"))), VariablesGlobales.AnioEscolarLogueado, Convert.ToInt32(dtDatosAlumno.Rows[0][0])).Tables[0];
+                winImpre.ShowDialog();
+            }
+        }
+
+        private void btnImprimirTotal_Click(object sender, EventArgs e)
+        {
+            frmImpresion winImpre = new frmImpresion();
+            winImpre.TipoReporte = 4;
+            winImpre.MiTabla = cn.TraerDataset("USP_CUENTACORRIENTEDeudaTotalPorAlumno", conectar.conexionbdSevilla,
+                VariablesGlobales.AnioEscolarLogueado, VariablesGlobales.AnioFaseEscolarLogueado).Tables[0];
+            winImpre.ShowDialog();
+        }
+
+        private void rbMatriculaBaja_CheckedChanged(object sender, EventArgs e)
+        {
+            //btnBuscar_Click(sender, e);
+        }
+
+        private void rbOtrasDeudas_CheckedChanged(object sender, EventArgs e)
+        {
+            //btnBuscar_Click(sender, e);
+        }
+
+        private void rbMatriculaActiva_CheckedChanged(object sender, EventArgs e)
+        {
+            //btnBuscar_Click(sender, e);
+        }
+
+        private void metroLabel3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

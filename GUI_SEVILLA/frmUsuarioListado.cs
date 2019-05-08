@@ -138,12 +138,13 @@ namespace GUI_SEVILLA
             winUsuario.NombresCompletos = dgvUsuarios.Rows[indexUsuarioMod].Cells[1].Value.ToString();
             winUsuario.NroDoc = dgvUsuarios.Rows[indexUsuarioMod].Cells[2].Value.ToString();
             winUsuario.NombreUsuario = dgvUsuarios.Rows[indexUsuarioMod].Cells[3].Value.ToString();
-            winUsuario.Contrasenia = VariablesGlobales.llave_publica;
+            winUsuario.Contrasenia = VariablesGlobales.configuracion;
             winUsuario.UsuDebeCambiarContrasenia= Convert.ToBoolean(dgvUsuarios.Rows[indexUsuarioMod].Cells[4].Value);
             winUsuario.UsuNocamnbiaContrasenia = Convert.ToBoolean(dgvUsuarios.Rows[indexUsuarioMod].Cells[5].Value);
             winUsuario.UsuNuncaCaduca = Convert.ToBoolean(dgvUsuarios.Rows[indexUsuarioMod].Cells[6].Value);
             winUsuario.UsuUsuDeshabilita = Convert.ToBoolean(dgvUsuarios.Rows[indexUsuarioMod].Cells[7].Value);
             winUsuario.Admin= Convert.ToBoolean(dgvUsuarios.Rows[indexUsuarioMod].Cells[8].Value);
+            winUsuario.pass = dgvUsuarios.Rows[indexUsuarioMod].Cells[9].Value.ToString();
             winUsuario.ShowDialog();
             LlenarGrillaUsuarios();
         }

@@ -138,7 +138,7 @@ namespace GUI_SEVILLA
                 //    MessageBox.Show("Ha ocurrido un error en la apertura, intente de nuevo.", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 //}
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                
             }          

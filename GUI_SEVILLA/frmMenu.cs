@@ -19,45 +19,6 @@ namespace GUI_SEVILLA
             InitializeComponent();
         }
 
-        private void rbCrearUsuario_Click(object sender, EventArgs e)
-        {
-            if (FormIsOpen("frmUsuario"))
-
-            {
-                return;
-            }
-            frmUsuario winUser = new frmUsuario();
-            winUser.MdiParent = this;
-            winUser.Show();
-        }
-
-        private void rbActualizarUsuario_Click(object sender, EventArgs e)
-        {
-            if (FormIsOpen("frmUsuarioListado"))
-
-            {
-                return;
-            }
-            frmUsuarioListado winUserList = new frmUsuarioListado();
-            winUserList.MdiParent = this;
-            winUserList.Show();
-        }
-
-        private void rbCambiarContrasenia_Click(object sender, EventArgs e)
-        {
-            if (FormIsOpen("frmUsuarioContrasenia"))
-
-            {
-                return;
-            }
-            frmUsuarioContrasenia WinUsuContra = new frmUsuarioContrasenia
-            {
-                NombreUSuario = VariablesGlobales.NombreUsuario,
-                Flag = true
-            };
-            WinUsuContra.ShowDialog();
-        }
-
         public static Boolean FormIsOpen(String FormABuscar)
 
         {
@@ -196,8 +157,8 @@ namespace GUI_SEVILLA
 
         private void rbCobros_Click(object sender, EventArgs e)
         {
-            if (MetodosGlobales.VerificaAnioEscolar(cn))
-            {
+            //if (MetodosGlobales.VerificaAnioEscolar(cn))
+            //{
                 if (FormIsOpen("frmGeneraDeuda"))
 
                 {
@@ -206,7 +167,102 @@ namespace GUI_SEVILLA
                 frmGeneraDeuda winfrmGeneraDeuda = new frmGeneraDeuda();
                 winfrmGeneraDeuda.MdiParent = this;
                 winfrmGeneraDeuda.Show();
+            //}
+        }
+
+        private void rbSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void rbMantAlumnos_Click(object sender, EventArgs e)
+        {
+            if (FormIsOpen("frmBuscarAlumno"))
+
+            {
+                return;
             }
-        }           
+            frmBuscarAlumno winUserList = new frmBuscarAlumno();
+            winUserList.MdiParent = this;
+            winUserList.TipoModalidad = "A"; //modalidad Agregar o modificar nuevo alumno
+            winUserList.Show();
+        }
+
+        private void rbMantConceptos_Click(object sender, EventArgs e)
+        {
+            if (FormIsOpen("frmConceptos"))
+
+            {
+                return;
+            }
+            frmListadoConceptos winfrmConceptos = new frmListadoConceptos();
+            winfrmConceptos.MdiParent = this;
+            winfrmConceptos.Show();
+        }
+
+        private void rbRegistroPagos_Click(object sender, EventArgs e)
+        {
+            //if (MetodosGlobales.VerificaAnioEscolar(cn))
+            //{
+                if (FormIsOpen("frmPagos"))
+                {
+                    return;
+                }
+                frmPagos winfrmPagos = new frmPagos();
+                winfrmPagos.MdiParent = this;
+                winfrmPagos.Show();
+            //}
+        }
+
+        private void rbCrearUser_Click(object sender, EventArgs e)
+        {
+            if (FormIsOpen("frmUsuario"))
+
+            {
+                return;
+            }
+            frmUsuario winUser = new frmUsuario();
+            winUser.MdiParent = this;
+            winUser.Show();
+        }
+
+        private void rbActualizar_Click(object sender, EventArgs e)
+        {
+            if (FormIsOpen("frmUsuarioListado"))
+
+            {
+                return;
+            }
+            frmUsuarioListado winUserList = new frmUsuarioListado();
+            winUserList.MdiParent = this;
+            winUserList.Show();
+        }
+
+        private void rbCambiarPassword_Click(object sender, EventArgs e)
+        {
+            if (FormIsOpen("frmUsuarioContrasenia"))
+
+            {
+                return;
+            }
+            frmUsuarioContrasenia WinUsuContra = new frmUsuarioContrasenia
+            {
+                NombreUSuario = VariablesGlobales.NombreUsuario,
+                Flag = true
+            };
+            WinUsuContra.ShowDialog();
+        }
+
+        private void rbListadoPagos_Click(object sender, EventArgs e)
+        {
+            if (FormIsOpen("frmPagosListado"))
+
+            {
+                return;
+            }
+            frmPagosListado winfrmPagosListado = new frmPagosListado();
+            winfrmPagosListado.MdiParent = this;
+            winfrmPagosListado.Show();
+        }
     }
 }

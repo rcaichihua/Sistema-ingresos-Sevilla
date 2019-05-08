@@ -5,6 +5,7 @@ using System.Text;
 using System.Data;
 using DAO_SEVILLA;
 using System.Collections;
+using System.Configuration;
 
 namespace BL_SEVILLA
 {
@@ -14,24 +15,10 @@ namespace BL_SEVILLA
         private CDatos cone = new CDatos();
 
         #region Logica de Negocio conexion con servidores
-        public string TraerServidorSGI()
-        {
-            return cone.TraerServidorSGI();
-        }
 
-        public string TraerServidorSUNATFE()
+        public string TraerServidorSevilla(string srv, string bd, string us, string pw)
         {
-            return cone.TraerServidorSunatFE();
-        }
-
-        public string TraerServidorTesoreria()
-        {
-            return cone.TraerServidorTesoreria();
-        }
-
-        public string TraerServidorSevilla()
-        {
-            return cone.TraerServidorSevilla();
+            return cone.TraerServidorSevilla(srv,bd,us,pw);
         }
         #endregion
 
@@ -68,7 +55,7 @@ namespace BL_SEVILLA
             {
                 return cone.EjecutarSqlDTS(SQL,BD);
             }
-            catch (Exception) { throw; }
+            catch (ApplicationException) { throw; }
         }
 
         public int EjecutarUD(string SQL, string BD)
@@ -89,11 +76,12 @@ namespace BL_SEVILLA
             catch (Exception) { throw; }
         }       
 
-        public DataSet IngresaRecibo(string ProcedimientoAlmacenado, bool estado, DataTable dtCabecera,DataTable dtCabeceraDetalle,string BD)
+        public DataSet IngresaRecibo(string ProcedimientoAlmacenado, DataTable dtCabecera,DataTable dtCabeceraDetalle,int anio,string fase,
+            string BD)
         {
             try
             {
-                return cone.IngresaRecibo(ProcedimientoAlmacenado, estado, dtCabecera, dtCabeceraDetalle,BD);
+                return cone.IngresaRecibo(ProcedimientoAlmacenado, dtCabecera, dtCabeceraDetalle,anio,fase,BD);
             }
             catch (Exception) { throw; }
         }
