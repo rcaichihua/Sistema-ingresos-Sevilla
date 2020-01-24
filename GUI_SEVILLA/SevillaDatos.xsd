@@ -500,6 +500,32 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="deudatotal" msprop:Generator_TableClassName="deudatotalDataTable" msprop:Generator_TableVarName="tabledeudatotal" msprop:Generator_RowChangedName="deudatotalRowChanged" msprop:Generator_TablePropName="deudatotal" msprop:Generator_RowDeletingName="deudatotalRowDeleting" msprop:Generator_RowChangingName="deudatotalRowChanging" msprop:Generator_RowEvHandlerName="deudatotalRowChangeEventHandler" msprop:Generator_RowDeletedName="deudatotalRowDeleted" msprop:Generator_RowClassName="deudatotalRow" msprop:Generator_UserTableName="deudatotal" msprop:Generator_RowEvArgName="deudatotalRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="TIPODOC" msprop:Generator_ColumnVarNameInTable="columnTIPODOC" msprop:Generator_ColumnPropNameInRow="TIPODOC" msprop:Generator_ColumnPropNameInTable="TIPODOCColumn" msprop:Generator_UserColumnName="TIPODOC" type="xs:string" minOccurs="0" />
+              <xs:element name="NRODOC" msprop:Generator_ColumnVarNameInTable="columnNRODOC" msprop:Generator_ColumnPropNameInRow="NRODOC" msprop:Generator_ColumnPropNameInTable="NRODOCColumn" msprop:Generator_UserColumnName="NRODOC" type="xs:string" minOccurs="0" />
+              <xs:element name="ALUMNO" msprop:Generator_ColumnVarNameInTable="columnALUMNO" msprop:Generator_ColumnPropNameInRow="ALUMNO" msprop:Generator_ColumnPropNameInTable="ALUMNOColumn" msprop:Generator_UserColumnName="ALUMNO" type="xs:string" minOccurs="0" />
+              <xs:element name="NIVEL" msprop:Generator_ColumnVarNameInTable="columnNIVEL" msprop:Generator_ColumnPropNameInRow="NIVEL" msprop:Generator_ColumnPropNameInTable="NIVELColumn" msprop:Generator_UserColumnName="NIVEL" type="xs:string" minOccurs="0" />
+              <xs:element name="GRADO" msprop:Generator_ColumnVarNameInTable="columnGRADO" msprop:Generator_ColumnPropNameInRow="GRADO" msprop:Generator_ColumnPropNameInTable="GRADOColumn" msprop:Generator_UserColumnName="GRADO" type="xs:string" minOccurs="0" />
+              <xs:element name="_x0032_018" msprop:Generator_ColumnVarNameInTable="column2018" msprop:Generator_ColumnPropNameInRow="_2018" msprop:Generator_ColumnPropNameInTable="_2018Column" msprop:Generator_UserColumnName="2018" type="xs:decimal" minOccurs="0" />
+              <xs:element name="_x0032_019" msprop:Generator_ColumnVarNameInTable="column2019" msprop:Generator_ColumnPropNameInRow="_2019" msprop:Generator_ColumnPropNameInTable="_2019Column" msprop:Generator_UserColumnName="2019" type="xs:decimal" minOccurs="0" />
+              <xs:element name="_x0032_020" msprop:Generator_ColumnVarNameInTable="column2020" msprop:Generator_ColumnPropNameInRow="_2020" msprop:Generator_ColumnPropNameInTable="_2020Column" msprop:Generator_UserColumnName="2020" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DEUDA_TOTAL" msprop:Generator_TableClassName="DEUDA_TOTALDataTable" msprop:Generator_TableVarName="tableDEUDA_TOTAL" msprop:Generator_TablePropName="DEUDA_TOTAL" msprop:Generator_RowDeletingName="DEUDA_TOTALRowDeleting" msprop:Generator_RowChangingName="DEUDA_TOTALRowChanging" msprop:Generator_RowEvHandlerName="DEUDA_TOTALRowChangeEventHandler" msprop:Generator_RowDeletedName="DEUDA_TOTALRowDeleted" msprop:Generator_UserTableName="DEUDA_TOTAL" msprop:Generator_RowChangedName="DEUDA_TOTALRowChanged" msprop:Generator_RowEvArgName="DEUDA_TOTALRowChangeEvent" msprop:Generator_RowClassName="DEUDA_TOTALRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="GRUPO" msprop:Generator_ColumnVarNameInTable="columnGRUPO" msprop:Generator_ColumnPropNameInRow="GRUPO" msprop:Generator_ColumnPropNameInTable="GRUPOColumn" msprop:Generator_UserColumnName="GRUPO" type="xs:string" minOccurs="0" />
+              <xs:element name="TIPODOC" msprop:Generator_ColumnVarNameInTable="columnTIPODOC" msprop:Generator_ColumnPropNameInRow="TIPODOC" msprop:Generator_ColumnPropNameInTable="TIPODOCColumn" msprop:Generator_UserColumnName="TIPODOC" type="xs:string" minOccurs="0" />
+              <xs:element name="NRODOC" msprop:Generator_ColumnVarNameInTable="columnNRODOC" msprop:Generator_ColumnPropNameInRow="NRODOC" msprop:Generator_ColumnPropNameInTable="NRODOCColumn" msprop:Generator_UserColumnName="NRODOC" type="xs:string" minOccurs="0" />
+              <xs:element name="ALUMNO" msprop:Generator_ColumnVarNameInTable="columnALUMNO" msprop:Generator_ColumnPropNameInRow="ALUMNO" msprop:Generator_ColumnPropNameInTable="ALUMNOColumn" msprop:Generator_UserColumnName="ALUMNO" type="xs:string" minOccurs="0" />
+              <xs:element name="ANIO" msprop:Generator_ColumnVarNameInTable="columnANIO" msprop:Generator_ColumnPropNameInRow="ANIO" msprop:Generator_ColumnPropNameInTable="ANIOColumn" msprop:Generator_UserColumnName="ANIO" type="xs:short" minOccurs="0" />
+              <xs:element name="TOTAL" msprop:Generator_ColumnVarNameInTable="columnTOTAL" msprop:Generator_ColumnPropNameInRow="TOTAL" msprop:Generator_ColumnPropNameInTable="TOTALColumn" msprop:Generator_UserColumnName="TOTAL" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">

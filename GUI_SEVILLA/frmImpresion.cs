@@ -53,6 +53,13 @@ namespace GUI_SEVILLA
                 rptReciboCaja.SetDataSource(MiTabla);
                 crvImpresion.ReportSource = rptReciboCaja;
             }
+            else if (TipoReporte == 6)
+            {
+                Reportes.rptReporteTotalPorAlumno rptReciboCaja = new Reportes.rptReporteTotalPorAlumno();
+                //Reportes.rptDeudaTotal rptReciboCaja = new Reportes.rptDeudaTotal();
+                rptReciboCaja.SetDataSource(MiTabla);
+                crvImpresion.ReportSource = rptReciboCaja;
+            }
         }
     }
 }

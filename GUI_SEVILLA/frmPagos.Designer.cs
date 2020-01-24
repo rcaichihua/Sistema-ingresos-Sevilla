@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.chkConceptosOtrosAnios = new MetroFramework.Controls.MetroCheckBox();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.btnBuscar = new MetroFramework.Controls.MetroButton();
-            this.txtDni = new MetroFramework.Controls.MetroTextBox();
+            this.txtDatos = new MetroFramework.Controls.MetroTextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lblIdMatricula = new MetroFramework.Controls.MetroLabel();
             this.txtNivel = new MetroFramework.Controls.MetroTextBox();
@@ -100,13 +100,14 @@
             this.txtSaldo = new MetroFramework.Controls.MetroTextBox();
             this.mtpOtros = new MetroFramework.Controls.MetroTabPage();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.metroLabel25 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel24 = new MetroFramework.Controls.MetroLabel();
+            this.lblNuevo = new MetroFramework.Controls.MetroLabel();
             this.btnSalir = new MetroFramework.Controls.MetroButton();
             this.btnGuardar = new MetroFramework.Controls.MetroButton();
             this.btnNuevo = new MetroFramework.Controls.MetroButton();
             this.ttMensaje = new MetroFramework.Components.MetroToolTip();
-            this.lblNuevo = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel24 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel25 = new MetroFramework.Controls.MetroLabel();
+            this.chkBuscar = new MetroFramework.Controls.MetroCheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -122,10 +123,11 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.chkBuscar);
             this.groupBox1.Controls.Add(this.chkConceptosOtrosAnios);
             this.groupBox1.Controls.Add(this.metroLabel2);
             this.groupBox1.Controls.Add(this.btnBuscar);
-            this.groupBox1.Controls.Add(this.txtDni);
+            this.groupBox1.Controls.Add(this.txtDatos);
             this.groupBox1.Enabled = false;
             this.groupBox1.Location = new System.Drawing.Point(23, 63);
             this.groupBox1.Name = "groupBox1";
@@ -136,7 +138,7 @@
             // 
             // chkConceptosOtrosAnios
             // 
-            this.chkConceptosOtrosAnios.Location = new System.Drawing.Point(199, 24);
+            this.chkConceptosOtrosAnios.Location = new System.Drawing.Point(214, 24);
             this.chkConceptosOtrosAnios.Name = "chkConceptosOtrosAnios";
             this.chkConceptosOtrosAnios.Size = new System.Drawing.Size(101, 30);
             this.chkConceptosOtrosAnios.TabIndex = 1;
@@ -148,53 +150,54 @@
             this.metroLabel2.AutoSize = true;
             this.metroLabel2.Location = new System.Drawing.Point(6, 35);
             this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(45, 19);
+            this.metroLabel2.Size = new System.Drawing.Size(68, 19);
             this.metroLabel2.TabIndex = 9;
-            this.metroLabel2.Text = "DOC :";
+            this.metroLabel2.Text = "Nº / Nom";
             // 
             // btnBuscar
             // 
             this.btnBuscar.BackgroundImage = global::GUI_SEVILLA.Properties.Resources.buscar2;
             this.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnBuscar.Location = new System.Drawing.Point(306, 19);
+            this.btnBuscar.Location = new System.Drawing.Point(321, 19);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(53, 35);
+            this.btnBuscar.Size = new System.Drawing.Size(38, 35);
             this.btnBuscar.TabIndex = 2;
             this.btnBuscar.UseSelectable = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
-            // txtDni
+            // txtDatos
             // 
-            this.txtDni.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtDatos.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             // 
             // 
             // 
-            this.txtDni.CustomButton.Image = null;
-            this.txtDni.CustomButton.Location = new System.Drawing.Point(114, 1);
-            this.txtDni.CustomButton.Name = "";
-            this.txtDni.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtDni.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtDni.CustomButton.TabIndex = 1;
-            this.txtDni.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtDni.CustomButton.UseSelectable = true;
-            this.txtDni.CustomButton.Visible = false;
-            this.txtDni.Lines = new string[0];
-            this.txtDni.Location = new System.Drawing.Point(57, 31);
-            this.txtDni.MaxLength = 32767;
-            this.txtDni.Name = "txtDni";
-            this.txtDni.PasswordChar = '\0';
-            this.txtDni.WaterMark = "Ingrese el Nº de Documento";
-            this.txtDni.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtDni.SelectedText = "";
-            this.txtDni.SelectionLength = 0;
-            this.txtDni.SelectionStart = 0;
-            this.txtDni.ShortcutsEnabled = true;
-            this.txtDni.Size = new System.Drawing.Size(136, 23);
-            this.txtDni.TabIndex = 0;
-            this.txtDni.UseSelectable = true;
-            this.txtDni.WaterMark = "Ingrese el Nº de Documento";
-            this.txtDni.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtDni.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtDatos.CustomButton.Image = null;
+            this.txtDatos.CustomButton.Location = new System.Drawing.Point(106, 1);
+            this.txtDatos.CustomButton.Name = "";
+            this.txtDatos.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtDatos.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtDatos.CustomButton.TabIndex = 1;
+            this.txtDatos.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtDatos.CustomButton.UseSelectable = true;
+            this.txtDatos.CustomButton.Visible = false;
+            this.txtDatos.Lines = new string[0];
+            this.txtDatos.Location = new System.Drawing.Point(80, 31);
+            this.txtDatos.MaxLength = 32767;
+            this.txtDatos.Name = "txtDatos";
+            this.txtDatos.PasswordChar = '\0';
+            this.txtDatos.PromptText = "Ingrese el Nº de Doc o Nom";
+            this.txtDatos.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtDatos.SelectedText = "";
+            this.txtDatos.SelectionLength = 0;
+            this.txtDatos.SelectionStart = 0;
+            this.txtDatos.ShortcutsEnabled = true;
+            this.txtDatos.Size = new System.Drawing.Size(128, 23);
+            this.txtDatos.TabIndex = 0;
+            this.txtDatos.UseSelectable = true;
+            this.txtDatos.WaterMark = "Ingrese el Nº de Doc o Nom";
+            this.txtDatos.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtDatos.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtDatos.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDatos_KeyDown);
             // 
             // groupBox2
             // 
@@ -251,7 +254,7 @@
             this.txtNivel.MaxLength = 32767;
             this.txtNivel.Name = "txtNivel";
             this.txtNivel.PasswordChar = '\0';
-            this.txtNivel.WaterMark = "Nivel";
+            this.txtNivel.PromptText = "Nivel";
             this.txtNivel.ReadOnly = true;
             this.txtNivel.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtNivel.SelectedText = "";
@@ -294,7 +297,7 @@
             this.txtTurno.MaxLength = 32767;
             this.txtTurno.Name = "txtTurno";
             this.txtTurno.PasswordChar = '\0';
-            this.txtTurno.WaterMark = "Turno";
+            this.txtTurno.PromptText = "Turno";
             this.txtTurno.ReadOnly = true;
             this.txtTurno.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtTurno.SelectedText = "";
@@ -337,7 +340,7 @@
             this.txtFase.MaxLength = 32767;
             this.txtFase.Name = "txtFase";
             this.txtFase.PasswordChar = '\0';
-            this.txtFase.WaterMark = "Fase escolar";
+            this.txtFase.PromptText = "Fase escolar";
             this.txtFase.ReadOnly = true;
             this.txtFase.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtFase.SelectedText = "";
@@ -380,7 +383,7 @@
             this.txtAnioEscolar.MaxLength = 32767;
             this.txtAnioEscolar.Name = "txtAnioEscolar";
             this.txtAnioEscolar.PasswordChar = '\0';
-            this.txtAnioEscolar.WaterMark = "Año escolar";
+            this.txtAnioEscolar.PromptText = "Año escolar";
             this.txtAnioEscolar.ReadOnly = true;
             this.txtAnioEscolar.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtAnioEscolar.SelectedText = "";
@@ -423,7 +426,7 @@
             this.txtSeccion.MaxLength = 32767;
             this.txtSeccion.Name = "txtSeccion";
             this.txtSeccion.PasswordChar = '\0';
-            this.txtSeccion.WaterMark = "Sección";
+            this.txtSeccion.PromptText = "Sección";
             this.txtSeccion.ReadOnly = true;
             this.txtSeccion.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtSeccion.SelectedText = "";
@@ -466,7 +469,7 @@
             this.txtGrado.MaxLength = 32767;
             this.txtGrado.Name = "txtGrado";
             this.txtGrado.PasswordChar = '\0';
-            this.txtGrado.WaterMark = "Grado";
+            this.txtGrado.PromptText = "Grado";
             this.txtGrado.ReadOnly = true;
             this.txtGrado.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtGrado.SelectedText = "";
@@ -518,7 +521,7 @@
             this.txtNombres.MaxLength = 32767;
             this.txtNombres.Name = "txtNombres";
             this.txtNombres.PasswordChar = '\0';
-            this.txtNombres.WaterMark = "Nombre completo del alumno";
+            this.txtNombres.PromptText = "Nombre completo del alumno";
             this.txtNombres.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtNombres.SelectedText = "";
             this.txtNombres.SelectionLength = 0;
@@ -563,7 +566,7 @@
             this.txtGlosa.Multiline = true;
             this.txtGlosa.Name = "txtGlosa";
             this.txtGlosa.PasswordChar = '\0';
-            this.txtGlosa.WaterMark = "Podria ingresar glosa para el recibo";
+            this.txtGlosa.PromptText = "Podria ingresar glosa para el recibo";
             this.txtGlosa.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtGlosa.SelectedText = "";
             this.txtGlosa.SelectionLength = 0;
@@ -715,7 +718,7 @@
             this.txtimporte.MaxLength = 32767;
             this.txtimporte.Name = "txtimporte";
             this.txtimporte.PasswordChar = '\0';
-            this.txtimporte.WaterMark = "Importe";
+            this.txtimporte.PromptText = "Importe";
             this.txtimporte.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtimporte.SelectedText = "";
             this.txtimporte.SelectionLength = 0;
@@ -748,7 +751,7 @@
             this.txtNroOperacion.MaxLength = 32767;
             this.txtNroOperacion.Name = "txtNroOperacion";
             this.txtNroOperacion.PasswordChar = '\0';
-            this.txtNroOperacion.WaterMark = "Ingrese número de operación";
+            this.txtNroOperacion.PromptText = "Ingrese número de operación";
             this.txtNroOperacion.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtNroOperacion.SelectedText = "";
             this.txtNroOperacion.SelectionLength = 0;
@@ -858,7 +861,7 @@
             this.txtNumeroDocumento.MaxLength = 32767;
             this.txtNumeroDocumento.Name = "txtNumeroDocumento";
             this.txtNumeroDocumento.PasswordChar = '\0';
-            this.txtNumeroDocumento.WaterMark = "Número de documento";
+            this.txtNumeroDocumento.PromptText = "Número de documento";
             this.txtNumeroDocumento.ReadOnly = true;
             this.txtNumeroDocumento.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtNumeroDocumento.SelectedText = "";
@@ -895,7 +898,7 @@
             this.txtSerie.MaxLength = 32767;
             this.txtSerie.Name = "txtSerie";
             this.txtSerie.PasswordChar = '\0';
-            this.txtSerie.WaterMark = "Serie";
+            this.txtSerie.PromptText = "Serie";
             this.txtSerie.ReadOnly = true;
             this.txtSerie.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtSerie.SelectedText = "";
@@ -1020,7 +1023,7 @@
             this.txtTotal.MaxLength = 32767;
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.PasswordChar = '\0';
-            this.txtTotal.WaterMark = "Serie";
+            this.txtTotal.PromptText = "Serie";
             this.txtTotal.ReadOnly = true;
             this.txtTotal.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtTotal.SelectedText = "";
@@ -1054,14 +1057,14 @@
             this.dgvDetallePago.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvDetallePago.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvDetallePago.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetallePago.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetallePago.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvDetallePago.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDetallePago.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IDCTACTE,
@@ -1069,14 +1072,14 @@
             this.PENSION,
             this.IMPORTE,
             this.ESTADOPAGO});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDetallePago.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDetallePago.DefaultCellStyle = dataGridViewCellStyle11;
             this.dgvDetallePago.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDetallePago.EnableHeadersVisualStyles = false;
             this.dgvDetallePago.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -1085,14 +1088,14 @@
             this.dgvDetallePago.Name = "dgvDetallePago";
             this.dgvDetallePago.ReadOnly = true;
             this.dgvDetallePago.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetallePago.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetallePago.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvDetallePago.RowHeadersWidth = 30;
             this.dgvDetallePago.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvDetallePago.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -1122,10 +1125,10 @@
             // 
             // IMPORTE
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "N2";
-            dataGridViewCellStyle2.NullValue = "0.00";
-            this.IMPORTE.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle10.Format = "N2";
+            dataGridViewCellStyle10.NullValue = "0.00";
+            this.IMPORTE.DefaultCellStyle = dataGridViewCellStyle10;
             this.IMPORTE.HeaderText = "IMPORTE";
             this.IMPORTE.Name = "IMPORTE";
             this.IMPORTE.ReadOnly = true;
@@ -1196,7 +1199,7 @@
             this.txtAcuenta.MaxLength = 32767;
             this.txtAcuenta.Name = "txtAcuenta";
             this.txtAcuenta.PasswordChar = '\0';
-            this.txtAcuenta.WaterMark = "A cuenta";
+            this.txtAcuenta.PromptText = "A cuenta";
             this.txtAcuenta.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtAcuenta.SelectedText = "";
             this.txtAcuenta.SelectionLength = 0;
@@ -1232,7 +1235,7 @@
             this.txtSaldo.MaxLength = 32767;
             this.txtSaldo.Name = "txtSaldo";
             this.txtSaldo.PasswordChar = '\0';
-            this.txtSaldo.WaterMark = "Saldo";
+            this.txtSaldo.PromptText = "Saldo";
             this.txtSaldo.ReadOnly = true;
             this.txtSaldo.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtSaldo.SelectedText = "";
@@ -1277,6 +1280,36 @@
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Operaciones";
             // 
+            // metroLabel25
+            // 
+            this.metroLabel25.AutoSize = true;
+            this.metroLabel25.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.metroLabel25.Location = new System.Drawing.Point(282, 50);
+            this.metroLabel25.Name = "metroLabel25";
+            this.metroLabel25.Size = new System.Drawing.Size(27, 15);
+            this.metroLabel25.TabIndex = 7;
+            this.metroLabel25.Text = "Salir";
+            // 
+            // metroLabel24
+            // 
+            this.metroLabel24.AutoSize = true;
+            this.metroLabel24.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.metroLabel24.Location = new System.Drawing.Point(159, 50);
+            this.metroLabel24.Name = "metroLabel24";
+            this.metroLabel24.Size = new System.Drawing.Size(48, 15);
+            this.metroLabel24.TabIndex = 7;
+            this.metroLabel24.Text = "Guardar";
+            // 
+            // lblNuevo
+            // 
+            this.lblNuevo.AutoSize = true;
+            this.lblNuevo.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.lblNuevo.Location = new System.Drawing.Point(49, 50);
+            this.lblNuevo.Name = "lblNuevo";
+            this.lblNuevo.Size = new System.Drawing.Size(40, 15);
+            this.lblNuevo.TabIndex = 7;
+            this.lblNuevo.Text = "Nuevo";
+            // 
             // btnSalir
             // 
             this.btnSalir.BackgroundImage = global::GUI_SEVILLA.Properties.Resources.salirsistema;
@@ -1317,35 +1350,15 @@
             this.ttMensaje.StyleManager = null;
             this.ttMensaje.Theme = MetroFramework.MetroThemeStyle.Light;
             // 
-            // lblNuevo
+            // chkBuscar
             // 
-            this.lblNuevo.AutoSize = true;
-            this.lblNuevo.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.lblNuevo.Location = new System.Drawing.Point(49, 50);
-            this.lblNuevo.Name = "lblNuevo";
-            this.lblNuevo.Size = new System.Drawing.Size(40, 15);
-            this.lblNuevo.TabIndex = 7;
-            this.lblNuevo.Text = "Nuevo";
-            // 
-            // metroLabel24
-            // 
-            this.metroLabel24.AutoSize = true;
-            this.metroLabel24.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.metroLabel24.Location = new System.Drawing.Point(159, 50);
-            this.metroLabel24.Name = "metroLabel24";
-            this.metroLabel24.Size = new System.Drawing.Size(48, 15);
-            this.metroLabel24.TabIndex = 7;
-            this.metroLabel24.Text = "Guardar";
-            // 
-            // metroLabel25
-            // 
-            this.metroLabel25.AutoSize = true;
-            this.metroLabel25.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.metroLabel25.Location = new System.Drawing.Point(282, 50);
-            this.metroLabel25.Name = "metroLabel25";
-            this.metroLabel25.Size = new System.Drawing.Size(27, 15);
-            this.metroLabel25.TabIndex = 7;
-            this.metroLabel25.Text = "Salir";
+            this.chkBuscar.AutoSize = true;
+            this.chkBuscar.Location = new System.Drawing.Point(80, 10);
+            this.chkBuscar.Name = "chkBuscar";
+            this.chkBuscar.Size = new System.Drawing.Size(75, 15);
+            this.chkBuscar.TabIndex = 21;
+            this.chkBuscar.Text = "&Busqueda";
+            this.chkBuscar.UseSelectable = true;
             // 
             // frmPagos
             // 
@@ -1392,7 +1405,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroButton btnBuscar;
-        private MetroFramework.Controls.MetroTextBox txtDni;
+        private MetroFramework.Controls.MetroTextBox txtDatos;
         private System.Windows.Forms.GroupBox groupBox2;
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroTextBox txtNombres;
@@ -1464,5 +1477,6 @@
         private MetroFramework.Controls.MetroLabel metroLabel25;
         private MetroFramework.Controls.MetroLabel metroLabel24;
         private MetroFramework.Controls.MetroLabel lblNuevo;
+        private MetroFramework.Controls.MetroCheckBox chkBuscar;
     }
 }

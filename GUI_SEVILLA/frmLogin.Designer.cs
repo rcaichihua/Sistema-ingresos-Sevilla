@@ -46,6 +46,8 @@ namespace GUI_SEVILLA
             this.txtUsuario = new MetroFramework.Controls.MetroTextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ttMensaje = new MetroFramework.Components.MetroToolTip();
+            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -53,7 +55,7 @@ namespace GUI_SEVILLA
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(36, 19);
+            this.metroLabel1.Location = new System.Drawing.Point(35, 31);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(53, 19);
             this.metroLabel1.TabIndex = 5;
@@ -62,7 +64,7 @@ namespace GUI_SEVILLA
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(14, 48);
+            this.metroLabel2.Location = new System.Drawing.Point(13, 60);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(75, 19);
             this.metroLabel2.TabIndex = 6;
@@ -72,10 +74,13 @@ namespace GUI_SEVILLA
             // 
             this.btnSalir.BackgroundImage = global::GUI_SEVILLA.Properties.Resources.salirsistema;
             this.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnSalir.Location = new System.Drawing.Point(162, 147);
+            this.btnSalir.FontSize = MetroFramework.MetroButtonSize.Tall;
+            this.btnSalir.FontWeight = MetroFramework.MetroButtonWeight.Regular;
+            this.btnSalir.Location = new System.Drawing.Point(161, 159);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(101, 32);
+            this.btnSalir.Size = new System.Drawing.Size(101, 47);
             this.btnSalir.TabIndex = 3;
+            this.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSalir.UseSelectable = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             this.btnSalir.MouseLeave += new System.EventHandler(this.btnSalir_MouseLeave);
@@ -84,15 +89,20 @@ namespace GUI_SEVILLA
             // 
             this.btnIngresar.BackgroundImage = global::GUI_SEVILLA.Properties.Resources.ingresar;
             this.btnIngresar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnIngresar.Location = new System.Drawing.Point(55, 147);
+            this.btnIngresar.FontSize = MetroFramework.MetroButtonSize.Tall;
+            this.btnIngresar.FontWeight = MetroFramework.MetroButtonWeight.Regular;
+            this.btnIngresar.Location = new System.Drawing.Point(54, 159);
             this.btnIngresar.Name = "btnIngresar";
-            this.btnIngresar.Size = new System.Drawing.Size(101, 32);
+            this.btnIngresar.Size = new System.Drawing.Size(101, 47);
             this.btnIngresar.TabIndex = 2;
+            this.btnIngresar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnIngresar.UseSelectable = true;
             this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.metroLabel6);
+            this.groupBox1.Controls.Add(this.metroLabel5);
             this.groupBox1.Controls.Add(this.metroLabel4);
             this.groupBox1.Controls.Add(this.metroLabel3);
             this.groupBox1.Controls.Add(this.cboFase);
@@ -103,9 +113,9 @@ namespace GUI_SEVILLA
             this.groupBox1.Controls.Add(this.btnIngresar);
             this.groupBox1.Controls.Add(this.metroLabel2);
             this.groupBox1.Controls.Add(this.metroLabel1);
-            this.groupBox1.Location = new System.Drawing.Point(283, 63);
+            this.groupBox1.Location = new System.Drawing.Point(227, 63);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(296, 192);
+            this.groupBox1.Size = new System.Drawing.Size(296, 241);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Inicio de Sesión";
@@ -113,7 +123,7 @@ namespace GUI_SEVILLA
             // metroLabel4
             // 
             this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(55, 112);
+            this.metroLabel4.Location = new System.Drawing.Point(54, 124);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(34, 19);
             this.metroLabel4.TabIndex = 8;
@@ -122,7 +132,7 @@ namespace GUI_SEVILLA
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(11, 79);
+            this.metroLabel3.Location = new System.Drawing.Point(10, 91);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(78, 19);
             this.metroLabel3.TabIndex = 8;
@@ -132,7 +142,7 @@ namespace GUI_SEVILLA
             // 
             this.cboFase.FormattingEnabled = true;
             this.cboFase.ItemHeight = 23;
-            this.cboFase.Location = new System.Drawing.Point(95, 112);
+            this.cboFase.Location = new System.Drawing.Point(94, 124);
             this.cboFase.Name = "cboFase";
             this.cboFase.Size = new System.Drawing.Size(121, 29);
             this.cboFase.TabIndex = 7;
@@ -142,7 +152,7 @@ namespace GUI_SEVILLA
             // 
             this.cboAnio.FormattingEnabled = true;
             this.cboAnio.ItemHeight = 23;
-            this.cboAnio.Location = new System.Drawing.Point(95, 77);
+            this.cboAnio.Location = new System.Drawing.Point(94, 89);
             this.cboAnio.Name = "cboAnio";
             this.cboAnio.Size = new System.Drawing.Size(121, 29);
             this.cboAnio.TabIndex = 7;
@@ -164,11 +174,11 @@ namespace GUI_SEVILLA
             this.txtContrasenia.CustomButton.UseSelectable = true;
             this.txtContrasenia.CustomButton.Visible = false;
             this.txtContrasenia.Lines = new string[0];
-            this.txtContrasenia.Location = new System.Drawing.Point(95, 48);
+            this.txtContrasenia.Location = new System.Drawing.Point(94, 60);
             this.txtContrasenia.MaxLength = 32767;
             this.txtContrasenia.Name = "txtContrasenia";
             this.txtContrasenia.PasswordChar = '*';
-            this.txtContrasenia.WaterMark = "Ingrese su contraseña";
+            this.txtContrasenia.PromptText = "Ingrese su contraseña";
             this.txtContrasenia.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtContrasenia.SelectedText = "";
             this.txtContrasenia.SelectionLength = 0;
@@ -198,11 +208,11 @@ namespace GUI_SEVILLA
             this.txtUsuario.CustomButton.UseSelectable = true;
             this.txtUsuario.CustomButton.Visible = false;
             this.txtUsuario.Lines = new string[0];
-            this.txtUsuario.Location = new System.Drawing.Point(95, 19);
+            this.txtUsuario.Location = new System.Drawing.Point(94, 31);
             this.txtUsuario.MaxLength = 32767;
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.PasswordChar = '\0';
-            this.txtUsuario.WaterMark = "Ingrese nombre de Usuario";
+            this.txtUsuario.PromptText = "Ingrese nombre de Usuario";
             this.txtUsuario.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtUsuario.SelectedText = "";
             this.txtUsuario.SelectionLength = 0;
@@ -218,13 +228,10 @@ namespace GUI_SEVILLA
             // 
             // pictureBox1
             // 
-            //ResourceManager rm = Resources.ResourceManager;
-            //Bitmap myImage = (Bitmap)rm.GetObject("pictureBox1.Image");
-
-            this.pictureBox1.Image = (System.Drawing.Image)(resources.GetObject("pictureBox1.Image"));
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(23, 63);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(254, 192);
+            this.pictureBox1.Size = new System.Drawing.Size(198, 241);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
@@ -235,11 +242,31 @@ namespace GUI_SEVILLA
             this.ttMensaje.StyleManager = null;
             this.ttMensaje.Theme = MetroFramework.MetroThemeStyle.Light;
             // 
+            // metroLabel5
+            // 
+            this.metroLabel5.AutoSize = true;
+            this.metroLabel5.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel5.Location = new System.Drawing.Point(75, 209);
+            this.metroLabel5.Name = "metroLabel5";
+            this.metroLabel5.Size = new System.Drawing.Size(59, 19);
+            this.metroLabel5.TabIndex = 9;
+            this.metroLabel5.Text = "&Ingresar";
+            // 
+            // metroLabel6
+            // 
+            this.metroLabel6.AutoSize = true;
+            this.metroLabel6.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel6.Location = new System.Drawing.Point(195, 209);
+            this.metroLabel6.Name = "metroLabel6";
+            this.metroLabel6.Size = new System.Drawing.Size(34, 19);
+            this.metroLabel6.TabIndex = 10;
+            this.metroLabel6.Text = "&Salir";
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(591, 268);
+            this.ClientSize = new System.Drawing.Size(548, 330);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBox1);
             this.MaximizeBox = false;
@@ -270,6 +297,8 @@ namespace GUI_SEVILLA
         private MetroFramework.Controls.MetroLabel metroLabel4;
         private MetroFramework.Controls.MetroComboBox cboFase;
         private MetroFramework.Components.MetroToolTip ttMensaje;
+        private MetroFramework.Controls.MetroLabel metroLabel6;
+        private MetroFramework.Controls.MetroLabel metroLabel5;
     }
 }
 

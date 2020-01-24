@@ -25,6 +25,9 @@ namespace GUI_SEVILLA
         public string telefono_ { get; set; }
         public string seguro_ { get; set; }
         public string observacionesAlum_ { get; set; }
+        public bool Buscar { get; set; }
+        public string Doc_busqueda { get; set; }
+        public string CriterioBusqueda { get; set; }
 
         public string TipoModalidad { get; set; }
 
@@ -37,7 +40,9 @@ namespace GUI_SEVILLA
 
         private void frmAlumno_Load(object sender, EventArgs e)
         {
+
             cboBuscar.SelectedIndex = 0;
+
             if (TipoModalidad=="M")
             {
                 btnEditar.Enabled = false;
@@ -45,6 +50,14 @@ namespace GUI_SEVILLA
             else
             {
                 btnEditar.Enabled = true;
+            }
+            if (Buscar)
+            {
+                txtFiltro.Text = CriterioBusqueda;
+                btnBuscar_Click(sender,e);
+                btnEditar.Enabled = false;
+                btnAgregar.Enabled = false;
+                btnListadoAlumnos.Enabled = false;
             }
         }
 
@@ -188,6 +201,28 @@ namespace GUI_SEVILLA
         private void metroLabel5_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void dgvAlumnos_DoubleClick(object sender, EventArgs e)
+        {
+            if (this.dgvAlumnos.CurrentRow!=null)
+            {
+                if (Buscar)
+                {
+                    int index;
+                    index = this.dgvAlumnos.CurrentRow.Index;
+                    Doc_busqueda = this.dgvAlumnos.Rows[index].Cells[1].Value.ToString();
+                    if (Doc_busqueda!=string.Empty)
+                    {
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("La alumna seleccionada no tiene asignado un Nro de documento.", 
+                            VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
         }
     }
 }

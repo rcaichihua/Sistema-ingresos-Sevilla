@@ -74,6 +74,7 @@ namespace GUI_SEVILLA
                 //MessageBox.Show(Program.Server+" / "+ Program.database +" / "+ Program.dbUsername+"/"+Program.dbPassword);
                 cn.TraerServidorSevilla(Program.Server, Program.database, Program.dbUsername, Program.dbPassword);
                 LlenarAnio();
+
                 CargarFase();
             }
             catch (Exception ex)
@@ -89,7 +90,7 @@ namespace GUI_SEVILLA
             StringBuilder errorMessages = new StringBuilder();
             try
             {
-                cboAnio.DataSource = cn.EjecutarSqlDTS("exec USP_ANIOESCOLARSelectAll", conectar.conexionbdSevilla).Tables[0];
+                cboAnio.DataSource = cn.EjecutarSqlDTS("select a.IDANIO,b.ANIO from APERTURAANIOESCOLAR a inner join ANIOESCOLAR b on a.IDANIO=b.idanio where ESTADO=1", conectar.conexionbdSevilla).Tables[0];
                 cboAnio.DisplayMember = "ANIO";
                 cboAnio.ValueMember = "IDANIO";
             }

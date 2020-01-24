@@ -563,6 +563,16 @@ namespace GUI_SEVILLA.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap sevilla_fw {
+            get {
+                object obj = ResourceManager.GetObject("sevilla_fw", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap verdetalle {
             get {
                 object obj = ResourceManager.GetObject("verdetalle", resourceCulture);

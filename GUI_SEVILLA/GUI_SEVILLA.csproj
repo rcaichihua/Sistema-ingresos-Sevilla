@@ -25,7 +25,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <UpdateUrl>\\192.168.1.8\sistemasevilla\</UpdateUrl>
     <ProductName>Sistema de Matrícula Instituto Sevilla</ProductName>
-    <ApplicationRevision>54</ApplicationRevision>
+    <ApplicationRevision>5</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -71,7 +71,7 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>6A566B4B5A26118F1FF4369D71EB0640A349E072</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>53E9B95BA330357EE65FA297870720A2CB388AF0</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>GUI_SEVILLA_TemporaryKey.pfx</ManifestKeyFile>
@@ -263,6 +263,12 @@
       <DependentUpon>rptAlumnosTotales.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reportes\rptDeudaTotal.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptDeudaTotal.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reportes\rptDeudaTotalAlumnos.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -285,6 +291,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptReciboCaja.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\rptReporteTotalPorAlumno.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptReporteTotalPorAlumno.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="SevillaDatos.cs">
@@ -384,6 +396,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptAlumnosTotales.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptDeudaTotal.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptDeudaTotal.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\rptDeudaTotalAlumnos.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptDeudaTotalAlumnos.cs</LastGenOutput>
@@ -399,6 +415,10 @@
     <EmbeddedResource Include="Reportes\rptReciboCaja.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptReciboCaja.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptReporteTotalPorAlumno.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptReporteTotalPorAlumno.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
     <None Include="GUI_SEVILLA_TemporaryKey.pfx" />
@@ -431,6 +451,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\sevilla.fw.png" />
     <None Include="Resources\perfil.png" />
     <None Include="Resources\procesar.png" />
     <None Include="Resources\logincolegio.jpg" />

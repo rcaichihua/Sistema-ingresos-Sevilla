@@ -42,6 +42,12 @@
             this.txtFiltro = new MetroFramework.Controls.MetroTextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvAlumnos = new MetroFramework.Controls.MetroGrid();
+            this.IDALUMNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dni = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombres = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FECHANAC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.edad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ESTADO = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnAgregar = new MetroFramework.Controls.MetroButton();
             this.btnEditar = new MetroFramework.Controls.MetroButton();
             this.btnSalir = new MetroFramework.Controls.MetroButton();
@@ -51,12 +57,6 @@
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
-            this.IDALUMNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dni = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombres = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FECHANAC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.edad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ESTADO = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).BeginInit();
@@ -226,6 +226,63 @@
             this.dgvAlumnos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAlumnos.Size = new System.Drawing.Size(571, 250);
             this.dgvAlumnos.TabIndex = 0;
+            this.dgvAlumnos.DoubleClick += new System.EventHandler(this.dgvAlumnos_DoubleClick);
+            // 
+            // IDALUMNO
+            // 
+            this.IDALUMNO.DataPropertyName = "IDALUMNO";
+            this.IDALUMNO.HeaderText = "IDALUMNO";
+            this.IDALUMNO.Name = "IDALUMNO";
+            this.IDALUMNO.ReadOnly = true;
+            this.IDALUMNO.Visible = false;
+            // 
+            // dni
+            // 
+            this.dni.DataPropertyName = "DNI";
+            this.dni.HeaderText = "Nº DOC";
+            this.dni.Name = "dni";
+            this.dni.ReadOnly = true;
+            this.dni.Width = 70;
+            // 
+            // nombres
+            // 
+            this.nombres.DataPropertyName = "NOMBRES";
+            this.nombres.HeaderText = "NOMBRES COMPLETOS";
+            this.nombres.Name = "nombres";
+            this.nombres.ReadOnly = true;
+            this.nombres.Width = 200;
+            // 
+            // FECHANAC
+            // 
+            this.FECHANAC.DataPropertyName = "FECHANAC";
+            dataGridViewCellStyle2.Format = "d";
+            dataGridViewCellStyle2.NullValue = null;
+            this.FECHANAC.DefaultCellStyle = dataGridViewCellStyle2;
+            this.FECHANAC.HeaderText = "FECHA NACIMIENTO";
+            this.FECHANAC.Name = "FECHANAC";
+            this.FECHANAC.ReadOnly = true;
+            // 
+            // edad
+            // 
+            this.edad.DataPropertyName = "EDAD";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.edad.DefaultCellStyle = dataGridViewCellStyle3;
+            this.edad.HeaderText = "EDAD";
+            this.edad.Name = "edad";
+            this.edad.ReadOnly = true;
+            // 
+            // ESTADO
+            // 
+            this.ESTADO.DataPropertyName = "ESTADO";
+            this.ESTADO.FalseValue = "0";
+            this.ESTADO.HeaderText = "ACTIVO?";
+            this.ESTADO.IndeterminateValue = "0";
+            this.ESTADO.Name = "ESTADO";
+            this.ESTADO.ReadOnly = true;
+            this.ESTADO.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ESTADO.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ESTADO.TrueValue = "1";
+            this.ESTADO.Width = 50;
             // 
             // btnAgregar
             // 
@@ -317,62 +374,6 @@
             this.metroLabel5.TabIndex = 7;
             this.metroLabel5.Text = "Salir";
             this.metroLabel5.Click += new System.EventHandler(this.metroLabel5_Click);
-            // 
-            // IDALUMNO
-            // 
-            this.IDALUMNO.DataPropertyName = "IDALUMNO";
-            this.IDALUMNO.HeaderText = "IDALUMNO";
-            this.IDALUMNO.Name = "IDALUMNO";
-            this.IDALUMNO.ReadOnly = true;
-            this.IDALUMNO.Visible = false;
-            // 
-            // dni
-            // 
-            this.dni.DataPropertyName = "DNI";
-            this.dni.HeaderText = "Nº DOC";
-            this.dni.Name = "dni";
-            this.dni.ReadOnly = true;
-            this.dni.Width = 70;
-            // 
-            // nombres
-            // 
-            this.nombres.DataPropertyName = "NOMBRES";
-            this.nombres.HeaderText = "NOMBRES COMPLETOS";
-            this.nombres.Name = "nombres";
-            this.nombres.ReadOnly = true;
-            this.nombres.Width = 200;
-            // 
-            // FECHANAC
-            // 
-            this.FECHANAC.DataPropertyName = "FECHANAC";
-            dataGridViewCellStyle2.Format = "d";
-            dataGridViewCellStyle2.NullValue = null;
-            this.FECHANAC.DefaultCellStyle = dataGridViewCellStyle2;
-            this.FECHANAC.HeaderText = "FECHA NACIMIENTO";
-            this.FECHANAC.Name = "FECHANAC";
-            this.FECHANAC.ReadOnly = true;
-            // 
-            // edad
-            // 
-            this.edad.DataPropertyName = "EDAD";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.edad.DefaultCellStyle = dataGridViewCellStyle3;
-            this.edad.HeaderText = "EDAD";
-            this.edad.Name = "edad";
-            this.edad.ReadOnly = true;
-            // 
-            // ESTADO
-            // 
-            this.ESTADO.DataPropertyName = "ESTADO";
-            this.ESTADO.FalseValue = "0";
-            this.ESTADO.HeaderText = "ACTIVO?";
-            this.ESTADO.IndeterminateValue = "0";
-            this.ESTADO.Name = "ESTADO";
-            this.ESTADO.ReadOnly = true;
-            this.ESTADO.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ESTADO.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.ESTADO.TrueValue = "1";
-            this.ESTADO.Width = 50;
             // 
             // frmBuscarAlumno
             // 

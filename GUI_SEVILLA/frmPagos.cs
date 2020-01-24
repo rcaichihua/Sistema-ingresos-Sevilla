@@ -34,7 +34,7 @@ namespace GUI_SEVILLA
                 btnGuardar.Enabled = true;
                 cboFormaPago.SelectedIndex = 0;
                 cboTipoDocumento.SelectedIndex = 0;
-                txtDni.Focus();
+                txtDatos.Focus();
                 txtNumeroDocumento.Text = cn.EjecutarSqlDTS("SELECT RIGHT('00000000'+CONVERT(VARCHAR,CORRELATIVO+1),8) AS NRORECIBO FROM CORRELATIVO WHERE ESTADO=1 AND TIPO='RECIBO'", conectar.conexionbdSevilla).Tables[0].Rows[0][0].ToString();
                 btnNuevo.BackgroundImage = Properties.Resources.cancelar;
             }
@@ -73,7 +73,7 @@ namespace GUI_SEVILLA
             cboPension.DataSource = null;
             txtSaldo.Text = "0.00";
             txtAcuenta.Text = "0.00";
-            txtDni.Clear();
+            txtDatos.Clear();
             txtTotal.Text = "0.00";
             txtimporte.Text = "0.00";
             chkConceptosOtrosAnios.Checked = false;
@@ -93,79 +93,110 @@ namespace GUI_SEVILLA
             this.Close();
         }
 
+        public static string QuitarCaracteres(string cadena)
+        {
+            string lineaNueva = "";
+            string lineaNueva2 = "";
+            int tamanoLinea = 0;
+            string[] ESPACIO = new string[37] { "\"\"", ";", ",", "+", "!", "#", "$", "%", "/", "(", "\\", "¡", "¿", "'", "`", "~", "[", "}", "]", "<", ">", "_", ")", "{", "^", ":", "|", "¬", "=", "?", "°", "º", "´", "&", "º", "-", "*" };
+
+            tamanoLinea = cadena.Length;
+
+            for (int i = 0; i < tamanoLinea; i++)
+            {
+                lineaNueva = cadena.Substring(i, 1);
+                for (int espa_ = 0; espa_ < ESPACIO.Length; espa_++)
+                {
+                    if (ESPACIO[espa_].ToString() == lineaNueva)
+                    {
+                        lineaNueva = @"";
+                    }
+                }
+                lineaNueva2 = lineaNueva2 + lineaNueva;
+            }
+            return lineaNueva2;
+        }
+
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             Int64 dni;
             DataTable dtDatosAlumno = new DataTable();
             DataTable dtPagos = new DataTable();
 
-            if (txtDni.Text != string.Empty)
+            txtDatos.Text = MetodosGlobales.QuitarCaracteres(txtDatos.Text.Trim());
+
+            if (txtDatos.Text != string.Empty)
             {
-                if (Int64.TryParse(txtDni.Text.Trim(), out dni))
+                if (chkBuscar.Checked)
                 {
-                    String proc = "";
-                    String proc2 = "";
+                    frmBuscarAlumno win = new frmBuscarAlumno();
+                    win.CriterioBusqueda = txtDatos.Text.Trim();
+                    win.Buscar = true;
+                    win.ShowDialog();
 
-                    if (chkConceptosOtrosAnios.Checked)
+                    if (win.Doc_busqueda == null) return;
+
+                    txtDatos.Text = win.Doc_busqueda;
+                }
+
+                String proc = "";
+                String proc2 = "";
+
+                if (chkConceptosOtrosAnios.Checked)
+                {
+                    proc = "USP_ALUMNOSearchForPayOtrosConceptos_2";
+                    proc2 = "USP_MATRICULAAlumnoSearchPayOtrosConceptos_2";
+                }
+                else
+                {
+                    proc = "USP_ALUMNOSearchForPay_2";
+                    proc2 = "USP_MATRICULAAlumnoSearchPay_2";
+                }
+                dtDatosAlumno = cn.TraerDataset(proc, conectar.conexionbdSevilla, txtDatos.Text.Trim(),
+                    VariablesGlobales.AnioEscolarLogueado, VariablesGlobales.AnioFaseEscolarLogueado, 1).Tables[0];
+
+                if (dtDatosAlumno.Rows.Count > 0)
+                {
+                    txtNombres.Text = dtDatosAlumno.Rows[0][2].ToString();
+                    txtGrado.Text = dtDatosAlumno.Rows[0][3].ToString();
+                    txtNivel.Text = dtDatosAlumno.Rows[0][4].ToString();
+                    txtSeccion.Text = dtDatosAlumno.Rows[0][5].ToString();
+                    txtTurno.Text = dtDatosAlumno.Rows[0][6].ToString();
+                    txtAnioEscolar.Text = dtDatosAlumno.Rows[0][7].ToString();
+                    txtFase.Text = dtDatosAlumno.Rows[0][8].ToString();
+                    lblIdMatricula.Text = dtDatosAlumno.Rows[0][0].ToString();
+
+                    dtPagos = cn.TraerDataset(proc2, conectar.conexionbdSevilla, dtDatosAlumno.Rows[0][1].ToString(),
+                        dtDatosAlumno.Rows[0][7].ToString(), dtDatosAlumno.Rows[0][8].ToString(), dtDatosAlumno.Rows[0][0].ToString()).Tables[0];
+
+                    if (dtPagos.Rows.Count > 0)
                     {
-                        proc = "USP_ALUMNOSearchForPayOtrosConceptos";
-                        proc2 = "USP_MATRICULAAlumnoSearchPayOtrosConceptos";
+                        cboPension.DataSource = dtPagos;
+                        cboPension.DisplayMember = "CONCEPTO";
+                        cboPension.ValueMember = "IDCTACTE";
                     }
                     else
                     {
-                        proc = "USP_ALUMNOSearchForPay";
-                        proc2 = "USP_MATRICULAAlumnoSearchPay";
-                    }
-                    dtDatosAlumno = cn.TraerDataset(proc, conectar.conexionbdSevilla, txtDni.Text.Trim(),
-                        VariablesGlobales.AnioEscolarLogueado, VariablesGlobales.AnioFaseEscolarLogueado, 1).Tables[0];
-
-                    if (dtDatosAlumno.Rows.Count > 0)
-                    {
-                        txtNombres.Text = dtDatosAlumno.Rows[0][2].ToString();
-                        txtGrado.Text = dtDatosAlumno.Rows[0][3].ToString();
-                        txtNivel.Text = dtDatosAlumno.Rows[0][4].ToString();
-                        txtSeccion.Text = dtDatosAlumno.Rows[0][5].ToString();
-                        txtTurno.Text = dtDatosAlumno.Rows[0][6].ToString();
-                        txtAnioEscolar.Text = dtDatosAlumno.Rows[0][7].ToString();
-                        txtFase.Text = dtDatosAlumno.Rows[0][8].ToString();
-                        lblIdMatricula.Text = dtDatosAlumno.Rows[0][0].ToString();
-
-                        dtPagos = cn.TraerDataset(proc2, conectar.conexionbdSevilla, dtDatosAlumno.Rows[0][1].ToString(),
-                            dtDatosAlumno.Rows[0][7].ToString(), dtDatosAlumno.Rows[0][8].ToString(), dtDatosAlumno.Rows[0][0].ToString()).Tables[0];
-
-                        if (dtPagos.Rows.Count > 0)
-                        {
-                            cboPension.DataSource = dtPagos;
-                            cboPension.DisplayMember = "CONCEPTO";
-                            cboPension.ValueMember = "IDCTACTE";
-                        }
-                        else
-                        {
-                            MessageBox.Show("El Nº de documento ingresado no tiene deudas registradas en el periodo " +
-                                VariablesGlobales.AnioEscolarLogueado + " - " + VariablesGlobales.AnioFaseEscolarLogueado, VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                            groupBox6.Enabled = false;
-                            txtDni.Focus();
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("El Nº de documento ingresado no ha sido encontrado.", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        txtDni.Focus();
+                        MessageBox.Show("El Nº de documento ingresado no tiene deudas registradas en el periodo " +
+                            VariablesGlobales.AnioEscolarLogueado + " - " + VariablesGlobales.AnioFaseEscolarLogueado, VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        groupBox6.Enabled = false;
+                        txtDatos.Focus();
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Ingrese un Nº de documento válido.", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    txtDni.Focus();
+                    MessageBox.Show("El Nº de documento ingresado no ha sido encontrado.", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    txtDatos.Focus();
                 }
             }
             else
             {
-                MessageBox.Show("Ingrese el Nº de documento para la búsqueda.", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                txtDni.Focus();
+                MessageBox.Show("Ingrese un criterio para la búsqueda.", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtDatos.Focus();
             }
 
         }
+
 
         private void frmPagos_Load(object sender, EventArgs e)
         {
@@ -486,6 +517,12 @@ namespace GUI_SEVILLA
             }
         }
 
-
+        private void txtDatos_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == (char)Keys.Enter)
+            {
+                btnBuscar_Click(sender,e);
+            }
+        }
     }
 }

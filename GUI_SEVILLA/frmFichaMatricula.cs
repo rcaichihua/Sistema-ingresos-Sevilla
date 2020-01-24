@@ -54,14 +54,15 @@ namespace GUI_SEVILLA
                 LlenaDatosSeccion();
                 txtObservacionesMatricula.Focus();
             }
-            if (chkBecado.Checked)
-            {
-                nudPorcentaje.Enabled = true;
-            }
-            else
-            {
-                nudPorcentaje.Enabled = false;
-            }
+            //pedido diego - cuando se matricula luego se puede cambiar el estado de la beca mas adelante.
+            //if (chkBecado.Checked)
+            //{
+            //    nudPorcentaje.Enabled = true;
+            //}
+            //else
+            //{
+            //    nudPorcentaje.Enabled = false;
+            //}
         }
 
         private void LlenaDatosAlumno()

@@ -37,6 +37,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblEncabezado = new MetroFramework.Controls.MetroLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.chkBuscar = new MetroFramework.Controls.MetroCheckBox();
             this.rbMatriculaBaja = new MetroFramework.Controls.MetroRadioButton();
             this.rbMatriculaActiva = new MetroFramework.Controls.MetroRadioButton();
             this.rbOtrasDeudas = new MetroFramework.Controls.MetroRadioButton();
@@ -61,14 +62,18 @@
             this.MONTODEUDA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DIASRETRASO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
+            this.cboAnio = new MetroFramework.Controls.MetroComboBox();
             this.rbTodos = new MetroFramework.Controls.MetroRadioButton();
             this.rbAcuenta = new MetroFramework.Controls.MetroRadioButton();
             this.rbAnulado = new MetroFramework.Controls.MetroRadioButton();
+            this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.rbCancelado = new MetroFramework.Controls.MetroRadioButton();
             this.rbPendiente = new MetroFramework.Controls.MetroRadioButton();
+            this.btnDeuda = new MetroFramework.Controls.MetroButton();
             this.btnSalir = new MetroFramework.Controls.MetroButton();
             this.btnImprimirTotal = new MetroFramework.Controls.MetroButton();
             this.btnImprimir = new MetroFramework.Controls.MetroButton();
@@ -90,6 +95,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.chkBuscar);
             this.groupBox1.Controls.Add(this.rbMatriculaBaja);
             this.groupBox1.Controls.Add(this.rbMatriculaActiva);
             this.groupBox1.Controls.Add(this.rbOtrasDeudas);
@@ -104,6 +110,16 @@
             this.groupBox1.Size = new System.Drawing.Size(401, 102);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            // 
+            // chkBuscar
+            // 
+            this.chkBuscar.AutoSize = true;
+            this.chkBuscar.Location = new System.Drawing.Point(84, 12);
+            this.chkBuscar.Name = "chkBuscar";
+            this.chkBuscar.Size = new System.Drawing.Size(75, 15);
+            this.chkBuscar.TabIndex = 20;
+            this.chkBuscar.Text = "&Busqueda";
+            this.chkBuscar.UseSelectable = true;
             // 
             // rbMatriculaBaja
             // 
@@ -200,7 +216,7 @@
             this.txtNombres.MaxLength = 32767;
             this.txtNombres.Name = "txtNombres";
             this.txtNombres.PasswordChar = '\0';
-            this.txtNombres.WaterMark = "Nombre completo del alumno";
+            this.txtNombres.PromptText = "Nombre completo del alumno";
             this.txtNombres.ReadOnly = true;
             this.txtNombres.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtNombres.SelectedText = "";
@@ -234,7 +250,7 @@
             this.txtFiltro.MaxLength = 32767;
             this.txtFiltro.Name = "txtFiltro";
             this.txtFiltro.PasswordChar = '\0';
-            this.txtFiltro.WaterMark = "Ingrese Nº de Doc...";
+            this.txtFiltro.PromptText = "Ingrese Nº de Doc...";
             this.txtFiltro.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtFiltro.SelectedText = "";
             this.txtFiltro.SelectionLength = 0;
@@ -423,14 +439,18 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.metroLabel7);
+            this.groupBox3.Controls.Add(this.cboAnio);
             this.groupBox3.Controls.Add(this.rbTodos);
             this.groupBox3.Controls.Add(this.rbAcuenta);
             this.groupBox3.Controls.Add(this.rbAnulado);
+            this.groupBox3.Controls.Add(this.metroLabel8);
             this.groupBox3.Controls.Add(this.metroLabel5);
             this.groupBox3.Controls.Add(this.metroLabel4);
             this.groupBox3.Controls.Add(this.metroLabel3);
             this.groupBox3.Controls.Add(this.rbCancelado);
             this.groupBox3.Controls.Add(this.rbPendiente);
+            this.groupBox3.Controls.Add(this.btnDeuda);
             this.groupBox3.Controls.Add(this.btnSalir);
             this.groupBox3.Controls.Add(this.btnImprimirTotal);
             this.groupBox3.Controls.Add(this.btnImprimir);
@@ -439,13 +459,35 @@
             this.groupBox3.Size = new System.Drawing.Size(471, 102);
             this.groupBox3.TabIndex = 19;
             this.groupBox3.TabStop = false;
+            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
+            // 
+            // metroLabel7
+            // 
+            this.metroLabel7.AutoSize = true;
+            this.metroLabel7.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.metroLabel7.Location = new System.Drawing.Point(6, 56);
+            this.metroLabel7.Name = "metroLabel7";
+            this.metroLabel7.Size = new System.Drawing.Size(66, 15);
+            this.metroLabel7.TabIndex = 10;
+            this.metroLabel7.Text = "Año escolar";
+            // 
+            // cboAnio
+            // 
+            this.cboAnio.FormattingEnabled = true;
+            this.cboAnio.ItemHeight = 23;
+            this.cboAnio.Location = new System.Drawing.Point(6, 24);
+            this.cboAnio.Name = "cboAnio";
+            this.cboAnio.Size = new System.Drawing.Size(98, 29);
+            this.cboAnio.TabIndex = 9;
+            this.cboAnio.UseSelectable = true;
+            this.cboAnio.SelectedIndexChanged += new System.EventHandler(this.cboAnio_SelectedIndexChanged);
             // 
             // rbTodos
             // 
             this.rbTodos.AutoSize = true;
             this.rbTodos.Location = new System.Drawing.Point(323, 79);
             this.rbTodos.Name = "rbTodos";
-            this.rbTodos.Size = new System.Drawing.Size(55, 15);
+            this.rbTodos.Size = new System.Drawing.Size(54, 15);
             this.rbTodos.TabIndex = 6;
             this.rbTodos.Text = "Todos";
             this.rbTodos.UseSelectable = true;
@@ -473,11 +515,22 @@
             this.rbAnulado.UseSelectable = true;
             this.rbAnulado.CheckedChanged += new System.EventHandler(this.rbAnulado_CheckedChanged);
             // 
+            // metroLabel8
+            // 
+            this.metroLabel8.AutoSize = true;
+            this.metroLabel8.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.metroLabel8.Location = new System.Drawing.Point(209, 57);
+            this.metroLabel8.Name = "metroLabel8";
+            this.metroLabel8.Size = new System.Drawing.Size(85, 15);
+            this.metroLabel8.TabIndex = 6;
+            this.metroLabel8.Text = "Deuda por Año";
+            this.metroLabel8.Click += new System.EventHandler(this.metroLabel3_Click);
+            // 
             // metroLabel5
             // 
             this.metroLabel5.AutoSize = true;
             this.metroLabel5.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.metroLabel5.Location = new System.Drawing.Point(323, 56);
+            this.metroLabel5.Location = new System.Drawing.Point(419, 57);
             this.metroLabel5.Name = "metroLabel5";
             this.metroLabel5.Size = new System.Drawing.Size(27, 15);
             this.metroLabel5.TabIndex = 6;
@@ -488,22 +541,22 @@
             // 
             this.metroLabel4.AutoSize = true;
             this.metroLabel4.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.metroLabel4.Location = new System.Drawing.Point(162, 56);
+            this.metroLabel4.Location = new System.Drawing.Point(311, 54);
             this.metroLabel4.Name = "metroLabel4";
-            this.metroLabel4.Size = new System.Drawing.Size(84, 15);
+            this.metroLabel4.Size = new System.Drawing.Size(85, 15);
             this.metroLabel4.TabIndex = 6;
-            this.metroLabel4.Text = "Ver deuda total";
+            this.metroLabel4.Text = "Deuda por mes";
             this.metroLabel4.Click += new System.EventHandler(this.metroLabel3_Click);
             // 
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
             this.metroLabel3.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.metroLabel3.Location = new System.Drawing.Point(16, 56);
+            this.metroLabel3.Location = new System.Drawing.Point(112, 57);
             this.metroLabel3.Name = "metroLabel3";
-            this.metroLabel3.Size = new System.Drawing.Size(113, 15);
+            this.metroLabel3.Size = new System.Drawing.Size(91, 15);
             this.metroLabel3.TabIndex = 6;
-            this.metroLabel3.Text = "Ver reporte individual";
+            this.metroLabel3.Text = "Ver rep individual";
             this.metroLabel3.Click += new System.EventHandler(this.metroLabel3_Click);
             // 
             // rbCancelado
@@ -530,14 +583,26 @@
             this.rbPendiente.UseSelectable = true;
             this.rbPendiente.CheckedChanged += new System.EventHandler(this.rbPendiente_CheckedChanged);
             // 
+            // btnDeuda
+            // 
+            this.btnDeuda.BackgroundImage = global::GUI_SEVILLA.Properties.Resources.registrogrado;
+            this.btnDeuda.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnDeuda.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.btnDeuda.Location = new System.Drawing.Point(209, 16);
+            this.btnDeuda.Name = "btnDeuda";
+            this.btnDeuda.Size = new System.Drawing.Size(87, 38);
+            this.btnDeuda.TabIndex = 1;
+            this.btnDeuda.UseSelectable = true;
+            this.btnDeuda.Click += new System.EventHandler(this.btnDeuda_Click);
+            // 
             // btnSalir
             // 
             this.btnSalir.BackgroundImage = global::GUI_SEVILLA.Properties.Resources.salir;
             this.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnSalir.FontSize = MetroFramework.MetroButtonSize.Medium;
-            this.btnSalir.Location = new System.Drawing.Point(294, 15);
+            this.btnSalir.Location = new System.Drawing.Point(401, 16);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(93, 38);
+            this.btnSalir.Size = new System.Drawing.Size(64, 38);
             this.btnSalir.TabIndex = 1;
             this.btnSalir.UseSelectable = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
@@ -547,7 +612,7 @@
             this.btnImprimirTotal.BackgroundImage = global::GUI_SEVILLA.Properties.Resources.deudaTotal;
             this.btnImprimirTotal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnImprimirTotal.FontSize = MetroFramework.MetroButtonSize.Medium;
-            this.btnImprimirTotal.Location = new System.Drawing.Point(162, 15);
+            this.btnImprimirTotal.Location = new System.Drawing.Point(302, 15);
             this.btnImprimirTotal.Name = "btnImprimirTotal";
             this.btnImprimirTotal.Size = new System.Drawing.Size(93, 38);
             this.btnImprimirTotal.TabIndex = 0;
@@ -559,7 +624,7 @@
             this.btnImprimir.BackgroundImage = global::GUI_SEVILLA.Properties.Resources.reporteindi;
             this.btnImprimir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnImprimir.FontSize = MetroFramework.MetroButtonSize.Medium;
-            this.btnImprimir.Location = new System.Drawing.Point(25, 15);
+            this.btnImprimir.Location = new System.Drawing.Point(110, 16);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(93, 38);
             this.btnImprimir.TabIndex = 0;
@@ -632,5 +697,10 @@
         private MetroFramework.Controls.MetroLabel metroLabel5;
         private MetroFramework.Controls.MetroLabel metroLabel4;
         private MetroFramework.Controls.MetroLabel metroLabel6;
+        private MetroFramework.Controls.MetroLabel metroLabel7;
+        private MetroFramework.Controls.MetroComboBox cboAnio;
+        private MetroFramework.Controls.MetroCheckBox chkBuscar;
+        private MetroFramework.Controls.MetroLabel metroLabel8;
+        private MetroFramework.Controls.MetroButton btnDeuda;
     }
 }
