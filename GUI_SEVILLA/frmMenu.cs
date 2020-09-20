@@ -106,7 +106,7 @@ namespace GUI_SEVILLA
         {
             this.Text = "...::: S I S T E M A  D E  M A T R I C U L A :::..  || Año " + VariablesGlobales.AnioFiscal + " : " + VariablesGlobales.NombreAnioActual;
 
-            this.BackgroundImage = global::GUI_SEVILLA.Properties.Resources.sevilla_fw;
+            this.BackgroundImage = global::GUI_SEVILLA.Properties.Resources.sevilla_fondo_fw;
             this.BackgroundImageLayout = ImageLayout.Center;
         }
 
