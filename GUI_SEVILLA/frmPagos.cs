@@ -319,7 +319,7 @@ namespace GUI_SEVILLA
                 var dt = new DataTable();
                 try
                 {
-                    dt = cn.TraerDataset("USP_CUENTABANCARIASelectAll", conectar.conexionbdSevilla, cboEntidadBancaria.SelectedValue).Tables[0];
+                    dt = cn.TraerDataset("USP_CUENTABANCARIASelectAll", conectar.conexionbdSevilla, cboEntidadBancaria.SelectedValue.ToString()== "System.Data.DataRowView" ? "0": cboEntidadBancaria.SelectedValue).Tables[0];
                     cboNroCuenta.Refresh();
                     cboNroCuenta.DataSource = dt;
                     cboNroCuenta.DisplayMember = "numero_cuenta";
@@ -522,6 +522,24 @@ namespace GUI_SEVILLA
             if (e.KeyValue == (char)Keys.Enter)
             {
                 btnBuscar_Click(sender,e);
+            }
+        }
+
+        private void cboFormaPago_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboFormaPago.Text=="RECIBO")
+            {
+                cboEntidadBancaria.SelectedValue = 0;
+                cboNroCuenta.SelectedValue = 0;
+                cboEntidadBancaria.Enabled = false;
+                cboNroCuenta.Enabled = false;
+            }
+            else
+            {
+                cboEntidadBancaria.SelectedValue = 0;
+                cboNroCuenta.SelectedValue = 0;
+                cboEntidadBancaria.Enabled = true;
+                cboNroCuenta.Enabled = true;
             }
         }
     }

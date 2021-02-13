@@ -58,11 +58,11 @@ namespace GUI_SEVILLA
                 HostUser = Dns.GetHostName();
                 IPAddress[] hostIPs = Dns.GetHostAddresses(HostUser);
 
-                for (int i = 0; i < hostIPs.Length; i++)
-                {
-                    Ip = hostIPs[i].ToString();
-                    if (Ip.Substring(0, 9) == "192.168.1") break;
-                }
+                //for (int i = 0; i < hostIPs.Length; i++)
+                //{
+                //    Ip = hostIPs[i].ToString();
+                //    if (Ip.Substring(0, 9) == "192.168.1") break;
+                //}
 
                 VariablesGlobales.UserHostIp = HostUser + "/" + Ip;
 
