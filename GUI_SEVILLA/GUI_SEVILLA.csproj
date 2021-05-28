@@ -25,7 +25,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <UpdateUrl>\\192.168.1.8\sistemas\SEVILLA\</UpdateUrl>
     <ProductName>Sistema de Matrícula Instituto Sevilla</ProductName>
-    <ApplicationRevision>4</ApplicationRevision>
+    <ApplicationRevision>13</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -33,7 +33,7 @@
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -108,6 +108,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DatabasePicker.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAgregarModalidadPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAgregarModalidadPago.designer.cs">
+      <DependentUpon>frmAgregarModalidadPago.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAlumnos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -234,6 +246,18 @@
     <Compile Include="frmPagosListado.Designer.cs">
       <DependentUpon>frmPagosListado.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReporte.Designer.cs">
+      <DependentUpon>frmReporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSeleccionDeudaAnio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSeleccionDeudaAnio.Designer.cs">
+      <DependentUpon>frmSeleccionDeudaAnio.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -287,10 +311,22 @@
       <DependentUpon>rptListadoAlumnosMatriculados.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reportes\rptListaVouchers.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptListaVouchers.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reportes\rptReciboCaja.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptReciboCaja.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\rptReporteDiario.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptReporteDiario.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\rptReporteTotalPorAlumno.cs">
@@ -307,7 +343,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SevillaDatos.xsd</DependentUpon>
     </Compile>
+    <Compile Include="varGlobales.cs" />
     <Compile Include="VariablesGlobales.cs" />
+    <Compile Include="VariablesMetodosEstaticos.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAgregarModalidadPago.resx">
+      <DependentUpon>frmAgregarModalidadPago.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAlumnos.resx">
       <DependentUpon>frmAlumnos.cs</DependentUpon>
     </EmbeddedResource>
@@ -372,6 +416,12 @@
     <EmbeddedResource Include="frmPagosListado.resx">
       <DependentUpon>frmPagosListado.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmReporte.resx">
+      <DependentUpon>frmReporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSeleccionDeudaAnio.resx">
+      <DependentUpon>frmSeleccionDeudaAnio.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmUsuario.resx">
       <DependentUpon>frmUsuario.cs</DependentUpon>
     </EmbeddedResource>
@@ -412,9 +462,17 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptListadoAlumnosMatriculados.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptListaVouchers.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptListaVouchers.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\rptReciboCaja.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptReciboCaja.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptReporteDiario.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptReporteDiario.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\rptReporteTotalPorAlumno.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -452,6 +510,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\salir_.png" />
     <None Include="Resources\sevilla_fondo.fw.png" />
     <None Include="Resources\sevilla.fw.png" />
     <None Include="Resources\perfil.png" />
@@ -520,6 +579,11 @@
     <None Include="Resources\cancelar.png" />
     <None Include="Resources\colegio.ico" />
     <None Include="Resources\acceso.png" />
+    <None Include="Resources\GeneraTxtDeuda.png" />
+    <None Include="Resources\GeneraTxtBancos.png" />
+    <None Include="Resources\fraccion.png" />
+    <None Include="Resources\eliminarV.png" />
+    <None Include="Resources\agregarpago.png" />
     <Content Include="Resources\icons8_School.ico" />
     <None Include="Resources\Aula.jpg" />
   </ItemGroup>

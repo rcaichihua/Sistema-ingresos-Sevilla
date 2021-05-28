@@ -256,7 +256,8 @@ namespace DAO_SEVILLA
             }
         }
         
-        public DataSet IngresaRecibo(string ProcedimientoAlmacenado, DataTable dtCabecera, DataTable dtCabeceraDetalle,int anio,string fase
+        public DataSet IngresaRecibo(string ProcedimientoAlmacenado, DataTable dtCabecera, 
+            DataTable dtCabeceraDetalle, DataTable modalidadesPago, int anio,string fase
             ,string conexion)
         {
             using (var cn = new SqlConnection(conexion))
@@ -273,8 +274,11 @@ namespace DAO_SEVILLA
                     SqlParameter tvpParam2 = mComando.Parameters.AddWithValue("@TablaCabeceraDetalleTmp", dtCabeceraDetalle);
                     tvpParam2.SqlDbType = SqlDbType.Structured;
 
-                    SqlParameter tvpParam3 = mComando.Parameters.AddWithValue("@FASE",fase );
-                    SqlParameter tvpParam4 = mComando.Parameters.AddWithValue("@ANIO", anio);
+                    SqlParameter tvpParam3 = mComando.Parameters.AddWithValue("@TablamodalidadesPagoTmp", modalidadesPago);
+                    tvpParam3.SqlDbType = SqlDbType.Structured;
+
+                    SqlParameter tvpParam4 = mComando.Parameters.AddWithValue("@FASE",fase );
+                    SqlParameter tvpParam5 = mComando.Parameters.AddWithValue("@ANIO", anio);
 
 
                     new SqlDataAdapter(mComando).Fill(mDataset);

@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.chkBuscar = new MetroFramework.Controls.MetroCheckBox();
             this.chkConceptosOtrosAnios = new MetroFramework.Controls.MetroCheckBox();
@@ -57,6 +59,7 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtGlosa = new MetroFramework.Controls.MetroTextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnAgregarPago = new System.Windows.Forms.Button();
             this.dtpFechaDeposito = new MetroFramework.Controls.MetroDateTime();
             this.cboNroCuenta = new MetroFramework.Controls.MetroComboBox();
             this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
@@ -81,6 +84,7 @@
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.mtpPensiones = new MetroFramework.Controls.MetroTabPage();
+            this.chkFraccionamiento = new System.Windows.Forms.CheckBox();
             this.metroLabel22 = new MetroFramework.Controls.MetroLabel();
             this.btnQuitar = new MetroFramework.Controls.MetroButton();
             this.btnLimpiar = new MetroFramework.Controls.MetroButton();
@@ -91,12 +95,16 @@
             this.IDCTACTE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IDCONCEPTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PENSION = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MORA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IMPORTE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ESTADOPAGO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.metroLabel20 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel23 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel16 = new MetroFramework.Controls.MetroLabel();
             this.cboPension = new MetroFramework.Controls.MetroComboBox();
             this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
+            this.txtMora = new MetroFramework.Controls.MetroTextBox();
             this.txtAcuenta = new MetroFramework.Controls.MetroTextBox();
             this.txtSaldo = new MetroFramework.Controls.MetroTextBox();
             this.mtpOtros = new MetroFramework.Controls.MetroTabPage();
@@ -591,6 +599,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.btnAgregarPago);
             this.groupBox4.Controls.Add(this.dtpFechaDeposito);
             this.groupBox4.Controls.Add(this.cboNroCuenta);
             this.groupBox4.Controls.Add(this.metroLabel9);
@@ -610,6 +619,22 @@
             this.groupBox4.TabIndex = 2;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Modalidad de Pago";
+            // 
+            // btnAgregarPago
+            // 
+            this.btnAgregarPago.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnAgregarPago.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregarPago.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarPago.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarPago.ForeColor = System.Drawing.Color.Navy;
+            this.btnAgregarPago.Image = global::GUI_SEVILLA.Properties.Resources.agregarpago;
+            this.btnAgregarPago.Location = new System.Drawing.Point(397, 96);
+            this.btnAgregarPago.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.btnAgregarPago.Name = "btnAgregarPago";
+            this.btnAgregarPago.Size = new System.Drawing.Size(44, 33);
+            this.btnAgregarPago.TabIndex = 122;
+            this.btnAgregarPago.UseVisualStyleBackColor = false;
+            this.btnAgregarPago.Click += new System.EventHandler(this.btnAgregarPago_Click);
             // 
             // dtpFechaDeposito
             // 
@@ -951,6 +976,7 @@
             // 
             // mtpPensiones
             // 
+            this.mtpPensiones.Controls.Add(this.chkFraccionamiento);
             this.mtpPensiones.Controls.Add(this.metroLabel22);
             this.mtpPensiones.Controls.Add(this.btnQuitar);
             this.mtpPensiones.Controls.Add(this.btnLimpiar);
@@ -958,9 +984,11 @@
             this.mtpPensiones.Controls.Add(this.txtTotal);
             this.mtpPensiones.Controls.Add(this.groupBox7);
             this.mtpPensiones.Controls.Add(this.metroLabel20);
+            this.mtpPensiones.Controls.Add(this.metroLabel23);
             this.mtpPensiones.Controls.Add(this.metroLabel16);
             this.mtpPensiones.Controls.Add(this.cboPension);
             this.mtpPensiones.Controls.Add(this.metroLabel13);
+            this.mtpPensiones.Controls.Add(this.txtMora);
             this.mtpPensiones.Controls.Add(this.txtAcuenta);
             this.mtpPensiones.Controls.Add(this.txtSaldo);
             this.mtpPensiones.HorizontalScrollbarBarColor = true;
@@ -974,6 +1002,17 @@
             this.mtpPensiones.VerticalScrollbarBarColor = true;
             this.mtpPensiones.VerticalScrollbarHighlightOnWheel = false;
             this.mtpPensiones.VerticalScrollbarSize = 10;
+            // 
+            // chkFraccionamiento
+            // 
+            this.chkFraccionamiento.AutoSize = true;
+            this.chkFraccionamiento.BackColor = System.Drawing.Color.Transparent;
+            this.chkFraccionamiento.Location = new System.Drawing.Point(429, 32);
+            this.chkFraccionamiento.Name = "chkFraccionamiento";
+            this.chkFraccionamiento.Size = new System.Drawing.Size(32, 17);
+            this.chkFraccionamiento.TabIndex = 10;
+            this.chkFraccionamiento.Text = "F";
+            this.chkFraccionamiento.UseVisualStyleBackColor = false;
             // 
             // metroLabel22
             // 
@@ -1069,29 +1108,31 @@
             this.dgvDetallePago.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvDetallePago.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvDetallePago.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetallePago.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetallePago.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDetallePago.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDetallePago.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IDCTACTE,
             this.IDCONCEPTO,
             this.PENSION,
+            this.MORA,
             this.IMPORTE,
-            this.ESTADOPAGO});
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDetallePago.DefaultCellStyle = dataGridViewCellStyle7;
+            this.ESTADOPAGO,
+            this.TOTAL});
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDetallePago.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvDetallePago.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDetallePago.EnableHeadersVisualStyles = false;
             this.dgvDetallePago.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -1100,14 +1141,14 @@
             this.dgvDetallePago.Name = "dgvDetallePago";
             this.dgvDetallePago.ReadOnly = true;
             this.dgvDetallePago.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetallePago.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetallePago.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvDetallePago.RowHeadersWidth = 30;
             this.dgvDetallePago.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvDetallePago.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -1133,17 +1174,30 @@
             this.PENSION.HeaderText = "PENSION";
             this.PENSION.Name = "PENSION";
             this.PENSION.ReadOnly = true;
-            this.PENSION.Width = 300;
+            this.PENSION.Width = 190;
+            // 
+            // MORA
+            // 
+            this.MORA.DataPropertyName = "MORA";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "N2";
+            dataGridViewCellStyle2.NullValue = "0.00";
+            this.MORA.DefaultCellStyle = dataGridViewCellStyle2;
+            this.MORA.HeaderText = "MORA";
+            this.MORA.Name = "MORA";
+            this.MORA.ReadOnly = true;
+            this.MORA.Width = 60;
             // 
             // IMPORTE
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle6.Format = "N2";
-            dataGridViewCellStyle6.NullValue = "0.00";
-            this.IMPORTE.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = "0.00";
+            this.IMPORTE.DefaultCellStyle = dataGridViewCellStyle3;
             this.IMPORTE.HeaderText = "IMPORTE";
             this.IMPORTE.Name = "IMPORTE";
             this.IMPORTE.ReadOnly = true;
+            this.IMPORTE.Width = 70;
             // 
             // ESTADOPAGO
             // 
@@ -1152,19 +1206,39 @@
             this.ESTADOPAGO.ReadOnly = true;
             this.ESTADOPAGO.Visible = false;
             // 
+            // TOTAL
+            // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Format = "N2";
+            dataGridViewCellStyle4.NullValue = "0.00";
+            this.TOTAL.DefaultCellStyle = dataGridViewCellStyle4;
+            this.TOTAL.HeaderText = "TOTAL";
+            this.TOTAL.Name = "TOTAL";
+            this.TOTAL.ReadOnly = true;
+            this.TOTAL.Width = 80;
+            // 
             // metroLabel20
             // 
             this.metroLabel20.AutoSize = true;
-            this.metroLabel20.Location = new System.Drawing.Point(338, 10);
+            this.metroLabel20.Location = new System.Drawing.Point(366, 10);
             this.metroLabel20.Name = "metroLabel20";
             this.metroLabel20.Size = new System.Drawing.Size(60, 19);
             this.metroLabel20.TabIndex = 9;
             this.metroLabel20.Text = "A cuenta";
             // 
+            // metroLabel23
+            // 
+            this.metroLabel23.AutoSize = true;
+            this.metroLabel23.Location = new System.Drawing.Point(303, 10);
+            this.metroLabel23.Name = "metroLabel23";
+            this.metroLabel23.Size = new System.Drawing.Size(41, 19);
+            this.metroLabel23.TabIndex = 9;
+            this.metroLabel23.Text = "Mora";
+            // 
             // metroLabel16
             // 
             this.metroLabel16.AutoSize = true;
-            this.metroLabel16.Location = new System.Drawing.Point(260, 10);
+            this.metroLabel16.Location = new System.Drawing.Point(240, 10);
             this.metroLabel16.Name = "metroLabel16";
             this.metroLabel16.Size = new System.Drawing.Size(42, 19);
             this.metroLabel16.TabIndex = 9;
@@ -1172,11 +1246,12 @@
             // 
             // cboPension
             // 
+            this.cboPension.DropDownWidth = 300;
             this.cboPension.FormattingEnabled = true;
             this.cboPension.ItemHeight = 23;
             this.cboPension.Location = new System.Drawing.Point(0, 26);
             this.cboPension.Name = "cboPension";
-            this.cboPension.Size = new System.Drawing.Size(254, 29);
+            this.cboPension.Size = new System.Drawing.Size(234, 29);
             this.cboPension.TabIndex = 0;
             this.cboPension.UseSelectable = true;
             this.cboPension.SelectedIndexChanged += new System.EventHandler(this.cboPension_SelectedIndexChanged);
@@ -1190,6 +1265,42 @@
             this.metroLabel13.TabIndex = 9;
             this.metroLabel13.Text = "Pensión";
             // 
+            // txtMora
+            // 
+            this.txtMora.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            // 
+            // 
+            // 
+            this.txtMora.CustomButton.Image = null;
+            this.txtMora.CustomButton.Location = new System.Drawing.Point(35, 1);
+            this.txtMora.CustomButton.Name = "";
+            this.txtMora.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtMora.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtMora.CustomButton.TabIndex = 1;
+            this.txtMora.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtMora.CustomButton.UseSelectable = true;
+            this.txtMora.CustomButton.Visible = false;
+            this.txtMora.Lines = new string[] {
+        "0.00"};
+            this.txtMora.Location = new System.Drawing.Point(303, 32);
+            this.txtMora.MaxLength = 32767;
+            this.txtMora.Name = "txtMora";
+            this.txtMora.PasswordChar = '\0';
+            this.txtMora.PromptText = "Saldo";
+            this.txtMora.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtMora.SelectedText = "";
+            this.txtMora.SelectionLength = 0;
+            this.txtMora.SelectionStart = 0;
+            this.txtMora.ShortcutsEnabled = true;
+            this.txtMora.Size = new System.Drawing.Size(57, 23);
+            this.txtMora.TabIndex = 1;
+            this.txtMora.Text = "0.00";
+            this.txtMora.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtMora.UseSelectable = true;
+            this.txtMora.WaterMark = "Saldo";
+            this.txtMora.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtMora.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
             // txtAcuenta
             // 
             this.txtAcuenta.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -1197,7 +1308,7 @@
             // 
             // 
             this.txtAcuenta.CustomButton.Image = null;
-            this.txtAcuenta.CustomButton.Location = new System.Drawing.Point(85, 1);
+            this.txtAcuenta.CustomButton.Location = new System.Drawing.Point(35, 1);
             this.txtAcuenta.CustomButton.Name = "";
             this.txtAcuenta.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtAcuenta.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -1207,7 +1318,7 @@
             this.txtAcuenta.CustomButton.Visible = false;
             this.txtAcuenta.Lines = new string[] {
         "0.00"};
-            this.txtAcuenta.Location = new System.Drawing.Point(338, 32);
+            this.txtAcuenta.Location = new System.Drawing.Point(366, 32);
             this.txtAcuenta.MaxLength = 32767;
             this.txtAcuenta.Name = "txtAcuenta";
             this.txtAcuenta.PasswordChar = '\0';
@@ -1217,7 +1328,7 @@
             this.txtAcuenta.SelectionLength = 0;
             this.txtAcuenta.SelectionStart = 0;
             this.txtAcuenta.ShortcutsEnabled = true;
-            this.txtAcuenta.Size = new System.Drawing.Size(107, 23);
+            this.txtAcuenta.Size = new System.Drawing.Size(57, 23);
             this.txtAcuenta.TabIndex = 2;
             this.txtAcuenta.Text = "0.00";
             this.txtAcuenta.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -1233,7 +1344,7 @@
             // 
             // 
             this.txtSaldo.CustomButton.Image = null;
-            this.txtSaldo.CustomButton.Location = new System.Drawing.Point(50, 1);
+            this.txtSaldo.CustomButton.Location = new System.Drawing.Point(35, 1);
             this.txtSaldo.CustomButton.Name = "";
             this.txtSaldo.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtSaldo.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -1243,7 +1354,7 @@
             this.txtSaldo.CustomButton.Visible = false;
             this.txtSaldo.Lines = new string[] {
         "0.00"};
-            this.txtSaldo.Location = new System.Drawing.Point(260, 32);
+            this.txtSaldo.Location = new System.Drawing.Point(240, 32);
             this.txtSaldo.MaxLength = 32767;
             this.txtSaldo.Name = "txtSaldo";
             this.txtSaldo.PasswordChar = '\0';
@@ -1254,7 +1365,7 @@
             this.txtSaldo.SelectionLength = 0;
             this.txtSaldo.SelectionStart = 0;
             this.txtSaldo.ShortcutsEnabled = true;
-            this.txtSaldo.Size = new System.Drawing.Size(72, 23);
+            this.txtSaldo.Size = new System.Drawing.Size(57, 23);
             this.txtSaldo.TabIndex = 1;
             this.txtSaldo.Text = "0.00";
             this.txtSaldo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -1470,15 +1581,21 @@
         private MetroFramework.Controls.MetroTextBox txtGlosa;
         private MetroFramework.Controls.MetroDateTime dtpFechaRecibo;
         private MetroFramework.Controls.MetroLabel metroLabel6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDCTACTE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDCONCEPTO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PENSION;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IMPORTE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ESTADOPAGO;
         private MetroFramework.Components.MetroToolTip ttMensaje;
         private MetroFramework.Controls.MetroLabel metroLabel25;
         private MetroFramework.Controls.MetroLabel metroLabel24;
         private MetroFramework.Controls.MetroLabel lblNuevo;
         private MetroFramework.Controls.MetroCheckBox chkBuscar;
+        private System.Windows.Forms.CheckBox chkFraccionamiento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDCTACTE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDCONCEPTO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PENSION;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MORA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IMPORTE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ESTADOPAGO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TOTAL;
+        private MetroFramework.Controls.MetroLabel metroLabel23;
+        private MetroFramework.Controls.MetroTextBox txtMora;
+        internal System.Windows.Forms.Button btnAgregarPago;
     }
 }

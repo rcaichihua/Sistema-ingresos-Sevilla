@@ -38,38 +38,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvListadoRecibos = new MetroFramework.Controls.MetroGrid();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.Label3 = new System.Windows.Forms.Label();
-            this.Label4 = new System.Windows.Forms.Label();
-            this.rbTodos = new MetroFramework.Controls.MetroRadioButton();
-            this.rbAnulado = new MetroFramework.Controls.MetroRadioButton();
-            this.rbActivos = new MetroFramework.Controls.MetroRadioButton();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dtpHasta = new MetroFramework.Controls.MetroDateTime();
-            this.dtpDesde = new MetroFramework.Controls.MetroDateTime();
-            this.txtNroRecibo = new MetroFramework.Controls.MetroTextBox();
-            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
-            this.txtNombres = new MetroFramework.Controls.MetroTextBox();
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.lblEncabezado = new MetroFramework.Controls.MetroLabel();
-            this.btnBuscar = new MetroFramework.Controls.MetroButton();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.GBOpciones = new System.Windows.Forms.GroupBox();
-            this.btnVerRecibo = new MetroFramework.Controls.MetroButton();
-            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
-            this.btnAnularRecibo = new MetroFramework.Controls.MetroButton();
-            this.btnDetalle = new MetroFramework.Controls.MetroButton();
-            this.btnSalir = new MetroFramework.Controls.MetroButton();
-            this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
-            this.lblTotalSoles = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
-            this.lblCantidadRegistros = new MetroFramework.Controls.MetroLabel();
             this.IDRECIBO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TIPO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NUMERORECIBO = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -80,6 +48,39 @@
             this.NOMBRE_ENTIDAD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IMPORTERECIBO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ESTADO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.Label3 = new System.Windows.Forms.Label();
+            this.Label4 = new System.Windows.Forms.Label();
+            this.rbTodos = new MetroFramework.Controls.MetroRadioButton();
+            this.rbAnulado = new MetroFramework.Controls.MetroRadioButton();
+            this.rbActivos = new MetroFramework.Controls.MetroRadioButton();
+            this.btnBuscar = new MetroFramework.Controls.MetroButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dtpHasta = new MetroFramework.Controls.MetroDateTime();
+            this.dtpDesde = new MetroFramework.Controls.MetroDateTime();
+            this.txtNroRecibo = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.txtNombres = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.GBOpciones = new System.Windows.Forms.GroupBox();
+            this.btnSalir = new MetroFramework.Controls.MetroButton();
+            this.btnVouchers = new MetroFramework.Controls.MetroButton();
+            this.btnReporteLiquidacion = new MetroFramework.Controls.MetroButton();
+            this.btnAnularRecibo = new MetroFramework.Controls.MetroButton();
+            this.btnVerRecibo = new MetroFramework.Controls.MetroButton();
+            this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
+            this.lblTotalSoles = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
+            this.lblCantidadRegistros = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListadoRecibos)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -146,391 +147,6 @@
             this.dgvListadoRecibos.Size = new System.Drawing.Size(787, 298);
             this.dgvListadoRecibos.TabIndex = 1;
             this.dgvListadoRecibos.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvListadoRecibos_CellFormatting);
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.Label3);
-            this.groupBox3.Controls.Add(this.Label4);
-            this.groupBox3.Controls.Add(this.rbTodos);
-            this.groupBox3.Controls.Add(this.rbAnulado);
-            this.groupBox3.Controls.Add(this.rbActivos);
-            this.groupBox3.Location = new System.Drawing.Point(600, 94);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(204, 77);
-            this.groupBox3.TabIndex = 22;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Estado de los recibos";
-            // 
-            // Label3
-            // 
-            this.Label3.BackColor = System.Drawing.Color.LightCoral;
-            this.Label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Label3.Location = new System.Drawing.Point(91, 38);
-            this.Label3.Name = "Label3";
-            this.Label3.Size = new System.Drawing.Size(30, 17);
-            this.Label3.TabIndex = 85;
-            // 
-            // Label4
-            // 
-            this.Label4.BackColor = System.Drawing.Color.White;
-            this.Label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Label4.Location = new System.Drawing.Point(91, 19);
-            this.Label4.Name = "Label4";
-            this.Label4.Size = new System.Drawing.Size(30, 17);
-            this.Label4.TabIndex = 86;
-            // 
-            // rbTodos
-            // 
-            this.rbTodos.AutoSize = true;
-            this.rbTodos.Location = new System.Drawing.Point(137, 19);
-            this.rbTodos.Name = "rbTodos";
-            this.rbTodos.Size = new System.Drawing.Size(55, 15);
-            this.rbTodos.TabIndex = 6;
-            this.rbTodos.Text = "Todos";
-            this.rbTodos.UseSelectable = true;
-            // 
-            // rbAnulado
-            // 
-            this.rbAnulado.AutoSize = true;
-            this.rbAnulado.Location = new System.Drawing.Point(6, 40);
-            this.rbAnulado.Name = "rbAnulado";
-            this.rbAnulado.Size = new System.Drawing.Size(73, 15);
-            this.rbAnulado.TabIndex = 6;
-            this.rbAnulado.Text = "Anulados";
-            this.rbAnulado.UseSelectable = true;
-            // 
-            // rbActivos
-            // 
-            this.rbActivos.AutoSize = true;
-            this.rbActivos.Checked = true;
-            this.rbActivos.Location = new System.Drawing.Point(6, 19);
-            this.rbActivos.Name = "rbActivos";
-            this.rbActivos.Size = new System.Drawing.Size(62, 15);
-            this.rbActivos.TabIndex = 6;
-            this.rbActivos.TabStop = true;
-            this.rbActivos.Text = "Activos";
-            this.rbActivos.UseSelectable = true;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.dtpHasta);
-            this.groupBox1.Controls.Add(this.dtpDesde);
-            this.groupBox1.Controls.Add(this.txtNroRecibo);
-            this.groupBox1.Controls.Add(this.metroLabel4);
-            this.groupBox1.Controls.Add(this.metroLabel3);
-            this.groupBox1.Controls.Add(this.metroLabel2);
-            this.groupBox1.Controls.Add(this.txtNombres);
-            this.groupBox1.Controls.Add(this.metroLabel1);
-            this.groupBox1.Location = new System.Drawing.Point(23, 94);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(571, 77);
-            this.groupBox1.TabIndex = 20;
-            this.groupBox1.TabStop = false;
-            // 
-            // dtpHasta
-            // 
-            this.dtpHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpHasta.Location = new System.Drawing.Point(438, 35);
-            this.dtpHasta.MinimumSize = new System.Drawing.Size(0, 29);
-            this.dtpHasta.Name = "dtpHasta";
-            this.dtpHasta.Size = new System.Drawing.Size(111, 29);
-            this.dtpHasta.TabIndex = 7;
-            // 
-            // dtpDesde
-            // 
-            this.dtpDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDesde.Location = new System.Drawing.Point(321, 35);
-            this.dtpDesde.MinimumSize = new System.Drawing.Size(0, 29);
-            this.dtpDesde.Name = "dtpDesde";
-            this.dtpDesde.Size = new System.Drawing.Size(111, 29);
-            this.dtpDesde.TabIndex = 7;
-            // 
-            // txtNroRecibo
-            // 
-            this.txtNroRecibo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            // 
-            // 
-            // 
-            this.txtNroRecibo.CustomButton.Image = null;
-            this.txtNroRecibo.CustomButton.Location = new System.Drawing.Point(85, 1);
-            this.txtNroRecibo.CustomButton.Name = "";
-            this.txtNroRecibo.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtNroRecibo.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtNroRecibo.CustomButton.TabIndex = 1;
-            this.txtNroRecibo.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtNroRecibo.CustomButton.UseSelectable = true;
-            this.txtNroRecibo.CustomButton.Visible = false;
-            this.txtNroRecibo.Lines = new string[0];
-            this.txtNroRecibo.Location = new System.Drawing.Point(6, 35);
-            this.txtNroRecibo.MaxLength = 32767;
-            this.txtNroRecibo.Name = "txtNroRecibo";
-            this.txtNroRecibo.PasswordChar = '\0';
-            this.txtNroRecibo.WaterMark = "Ingrese Nº recibo";
-            this.txtNroRecibo.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtNroRecibo.SelectedText = "";
-            this.txtNroRecibo.SelectionLength = 0;
-            this.txtNroRecibo.SelectionStart = 0;
-            this.txtNroRecibo.ShortcutsEnabled = true;
-            this.txtNroRecibo.Size = new System.Drawing.Size(107, 23);
-            this.txtNroRecibo.TabIndex = 0;
-            this.txtNroRecibo.UseSelectable = true;
-            this.txtNroRecibo.WaterMark = "Ingrese Nº recibo";
-            this.txtNroRecibo.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtNroRecibo.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // metroLabel4
-            // 
-            this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(438, 13);
-            this.metroLabel4.Name = "metroLabel4";
-            this.metroLabel4.Size = new System.Drawing.Size(41, 19);
-            this.metroLabel4.TabIndex = 6;
-            this.metroLabel4.Text = "Hasta";
-            // 
-            // metroLabel3
-            // 
-            this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(325, 13);
-            this.metroLabel3.Name = "metroLabel3";
-            this.metroLabel3.Size = new System.Drawing.Size(45, 19);
-            this.metroLabel3.TabIndex = 6;
-            this.metroLabel3.Text = "Desde";
-            // 
-            // metroLabel2
-            // 
-            this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(6, 13);
-            this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(69, 19);
-            this.metroLabel2.TabIndex = 6;
-            this.metroLabel2.Text = "Nº Recibo";
-            // 
-            // txtNombres
-            // 
-            this.txtNombres.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            // 
-            // 
-            // 
-            this.txtNombres.CustomButton.Image = null;
-            this.txtNombres.CustomButton.Location = new System.Drawing.Point(174, 1);
-            this.txtNombres.CustomButton.Name = "";
-            this.txtNombres.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtNombres.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtNombres.CustomButton.TabIndex = 1;
-            this.txtNombres.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtNombres.CustomButton.UseSelectable = true;
-            this.txtNombres.CustomButton.Visible = false;
-            this.txtNombres.Lines = new string[0];
-            this.txtNombres.Location = new System.Drawing.Point(119, 35);
-            this.txtNombres.MaxLength = 32767;
-            this.txtNombres.Name = "txtNombres";
-            this.txtNombres.PasswordChar = '\0';
-            this.txtNombres.WaterMark = "Ingrese nombres para el filtro";
-            this.txtNombres.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtNombres.SelectedText = "";
-            this.txtNombres.SelectionLength = 0;
-            this.txtNombres.SelectionStart = 0;
-            this.txtNombres.ShortcutsEnabled = true;
-            this.txtNombres.Size = new System.Drawing.Size(196, 23);
-            this.txtNombres.TabIndex = 3;
-            this.txtNombres.UseSelectable = true;
-            this.txtNombres.WaterMark = "Ingrese nombres para el filtro";
-            this.txtNombres.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtNombres.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // metroLabel1
-            // 
-            this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(119, 13);
-            this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(64, 19);
-            this.metroLabel1.TabIndex = 6;
-            this.metroLabel1.Text = "Nombres";
-            // 
-            // lblEncabezado
-            // 
-            this.lblEncabezado.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.lblEncabezado.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.lblEncabezado.Location = new System.Drawing.Point(23, 60);
-            this.lblEncabezado.Name = "lblEncabezado";
-            this.lblEncabezado.Size = new System.Drawing.Size(808, 31);
-            this.lblEncabezado.TabIndex = 21;
-            this.lblEncabezado.Text = ": : : : RECIBOS EMITIDOS : : : : ";
-            this.lblEncabezado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.BackgroundImage = global::GUI_SEVILLA.Properties.Resources.buscar;
-            this.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnBuscar.FontSize = MetroFramework.MetroButtonSize.Medium;
-            this.btnBuscar.Location = new System.Drawing.Point(810, 107);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(93, 38);
-            this.btnBuscar.TabIndex = 1;
-            this.btnBuscar.UseSelectable = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.dgvListadoRecibos);
-            this.groupBox2.Location = new System.Drawing.Point(23, 177);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(793, 317);
-            this.groupBox2.TabIndex = 23;
-            this.groupBox2.TabStop = false;
-            // 
-            // GBOpciones
-            // 
-            this.GBOpciones.BackColor = System.Drawing.Color.Transparent;
-            this.GBOpciones.Controls.Add(this.btnSalir);
-            this.GBOpciones.Controls.Add(this.btnDetalle);
-            this.GBOpciones.Controls.Add(this.btnAnularRecibo);
-            this.GBOpciones.Controls.Add(this.btnVerRecibo);
-            this.GBOpciones.Controls.Add(this.metroLabel8);
-            this.GBOpciones.Controls.Add(this.metroLabel7);
-            this.GBOpciones.Controls.Add(this.metroLabel6);
-            this.GBOpciones.Controls.Add(this.metroLabel5);
-            this.GBOpciones.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GBOpciones.Location = new System.Drawing.Point(822, 177);
-            this.GBOpciones.Name = "GBOpciones";
-            this.GBOpciones.Size = new System.Drawing.Size(85, 317);
-            this.GBOpciones.TabIndex = 98;
-            this.GBOpciones.TabStop = false;
-            // 
-            // btnVerRecibo
-            // 
-            this.btnVerRecibo.BackgroundImage = global::GUI_SEVILLA.Properties.Resources.verrecibo;
-            this.btnVerRecibo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnVerRecibo.FontSize = MetroFramework.MetroButtonSize.Medium;
-            this.btnVerRecibo.Location = new System.Drawing.Point(6, 16);
-            this.btnVerRecibo.Name = "btnVerRecibo";
-            this.btnVerRecibo.Size = new System.Drawing.Size(61, 42);
-            this.btnVerRecibo.TabIndex = 1;
-            this.btnVerRecibo.UseSelectable = true;
-            this.btnVerRecibo.Click += new System.EventHandler(this.btnVerRecibo_Click);
-            // 
-            // metroLabel5
-            // 
-            this.metroLabel5.AutoSize = true;
-            this.metroLabel5.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.metroLabel5.Location = new System.Drawing.Point(6, 61);
-            this.metroLabel5.Name = "metroLabel5";
-            this.metroLabel5.Size = new System.Drawing.Size(60, 15);
-            this.metroLabel5.TabIndex = 6;
-            this.metroLabel5.Text = "Ver Recibo";
-            // 
-            // btnAnularRecibo
-            // 
-            this.btnAnularRecibo.BackgroundImage = global::GUI_SEVILLA.Properties.Resources.anular;
-            this.btnAnularRecibo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnAnularRecibo.FontSize = MetroFramework.MetroButtonSize.Medium;
-            this.btnAnularRecibo.Location = new System.Drawing.Point(6, 79);
-            this.btnAnularRecibo.Name = "btnAnularRecibo";
-            this.btnAnularRecibo.Size = new System.Drawing.Size(61, 42);
-            this.btnAnularRecibo.TabIndex = 1;
-            this.btnAnularRecibo.UseSelectable = true;
-            this.btnAnularRecibo.Click += new System.EventHandler(this.btnAnularRecibo_Click);
-            // 
-            // btnDetalle
-            // 
-            this.btnDetalle.BackgroundImage = global::GUI_SEVILLA.Properties.Resources.verdetalle;
-            this.btnDetalle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnDetalle.FontSize = MetroFramework.MetroButtonSize.Medium;
-            this.btnDetalle.Location = new System.Drawing.Point(6, 146);
-            this.btnDetalle.Name = "btnDetalle";
-            this.btnDetalle.Size = new System.Drawing.Size(61, 42);
-            this.btnDetalle.TabIndex = 1;
-            this.btnDetalle.UseSelectable = true;
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.BackgroundImage = global::GUI_SEVILLA.Properties.Resources.salir;
-            this.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnSalir.FontSize = MetroFramework.MetroButtonSize.Medium;
-            this.btnSalir.Location = new System.Drawing.Point(8, 246);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(61, 42);
-            this.btnSalir.TabIndex = 1;
-            this.btnSalir.UseSelectable = true;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
-            // 
-            // metroLabel6
-            // 
-            this.metroLabel6.AutoSize = true;
-            this.metroLabel6.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.metroLabel6.Location = new System.Drawing.Point(5, 124);
-            this.metroLabel6.Name = "metroLabel6";
-            this.metroLabel6.Size = new System.Drawing.Size(76, 15);
-            this.metroLabel6.TabIndex = 6;
-            this.metroLabel6.Text = "Anular Recibo";
-            // 
-            // metroLabel7
-            // 
-            this.metroLabel7.AutoSize = true;
-            this.metroLabel7.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.metroLabel7.Location = new System.Drawing.Point(8, 191);
-            this.metroLabel7.Name = "metroLabel7";
-            this.metroLabel7.Size = new System.Drawing.Size(59, 15);
-            this.metroLabel7.TabIndex = 6;
-            this.metroLabel7.Text = "Ver detalle";
-            // 
-            // metroLabel8
-            // 
-            this.metroLabel8.AutoSize = true;
-            this.metroLabel8.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.metroLabel8.Location = new System.Drawing.Point(26, 291);
-            this.metroLabel8.Name = "metroLabel8";
-            this.metroLabel8.Size = new System.Drawing.Size(27, 15);
-            this.metroLabel8.TabIndex = 6;
-            this.metroLabel8.Text = "Salir";
-            this.metroLabel8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // metroLabel9
-            // 
-            this.metroLabel9.AutoSize = true;
-            this.metroLabel9.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.metroLabel9.Location = new System.Drawing.Point(835, 148);
-            this.metroLabel9.Name = "metroLabel9";
-            this.metroLabel9.Size = new System.Drawing.Size(40, 15);
-            this.metroLabel9.TabIndex = 6;
-            this.metroLabel9.Text = "Buscar";
-            // 
-            // metroLabel10
-            // 
-            this.metroLabel10.AutoSize = true;
-            this.metroLabel10.Location = new System.Drawing.Point(511, 511);
-            this.metroLabel10.Name = "metroLabel10";
-            this.metroLabel10.Size = new System.Drawing.Size(147, 19);
-            this.metroLabel10.TabIndex = 6;
-            this.metroLabel10.Text = "TOTAL IMPORTE SOLES";
-            // 
-            // lblTotalSoles
-            // 
-            this.lblTotalSoles.AutoSize = true;
-            this.lblTotalSoles.Location = new System.Drawing.Point(737, 511);
-            this.lblTotalSoles.Name = "lblTotalSoles";
-            this.lblTotalSoles.Size = new System.Drawing.Size(33, 19);
-            this.lblTotalSoles.TabIndex = 6;
-            this.lblTotalSoles.Text = "0.00";
-            // 
-            // metroLabel11
-            // 
-            this.metroLabel11.AutoSize = true;
-            this.metroLabel11.Location = new System.Drawing.Point(23, 511);
-            this.metroLabel11.Name = "metroLabel11";
-            this.metroLabel11.Size = new System.Drawing.Size(223, 19);
-            this.metroLabel11.TabIndex = 6;
-            this.metroLabel11.Text = "Número total de pagos encontrados";
-            // 
-            // lblCantidadRegistros
-            // 
-            this.lblCantidadRegistros.AutoSize = true;
-            this.lblCantidadRegistros.Location = new System.Drawing.Point(267, 511);
-            this.lblCantidadRegistros.Name = "lblCantidadRegistros";
-            this.lblCantidadRegistros.Size = new System.Drawing.Size(16, 19);
-            this.lblCantidadRegistros.TabIndex = 6;
-            this.lblCantidadRegistros.Text = "0";
             // 
             // IDRECIBO
             // 
@@ -622,18 +238,415 @@
             this.ESTADO.ReadOnly = true;
             this.ESTADO.Visible = false;
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.Label3);
+            this.groupBox3.Controls.Add(this.Label4);
+            this.groupBox3.Controls.Add(this.rbTodos);
+            this.groupBox3.Controls.Add(this.rbAnulado);
+            this.groupBox3.Controls.Add(this.metroLabel9);
+            this.groupBox3.Controls.Add(this.rbActivos);
+            this.groupBox3.Controls.Add(this.btnBuscar);
+            this.groupBox3.Location = new System.Drawing.Point(600, 63);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(307, 77);
+            this.groupBox3.TabIndex = 22;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Estado de los recibos";
+            // 
+            // Label3
+            // 
+            this.Label3.BackColor = System.Drawing.Color.LightCoral;
+            this.Label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Label3.Location = new System.Drawing.Point(91, 38);
+            this.Label3.Name = "Label3";
+            this.Label3.Size = new System.Drawing.Size(30, 17);
+            this.Label3.TabIndex = 85;
+            // 
+            // Label4
+            // 
+            this.Label4.BackColor = System.Drawing.Color.White;
+            this.Label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Label4.Location = new System.Drawing.Point(91, 19);
+            this.Label4.Name = "Label4";
+            this.Label4.Size = new System.Drawing.Size(30, 17);
+            this.Label4.TabIndex = 86;
+            // 
+            // rbTodos
+            // 
+            this.rbTodos.AutoSize = true;
+            this.rbTodos.Location = new System.Drawing.Point(137, 19);
+            this.rbTodos.Name = "rbTodos";
+            this.rbTodos.Size = new System.Drawing.Size(54, 15);
+            this.rbTodos.TabIndex = 6;
+            this.rbTodos.Text = "Todos";
+            this.rbTodos.UseSelectable = true;
+            // 
+            // rbAnulado
+            // 
+            this.rbAnulado.AutoSize = true;
+            this.rbAnulado.Location = new System.Drawing.Point(6, 40);
+            this.rbAnulado.Name = "rbAnulado";
+            this.rbAnulado.Size = new System.Drawing.Size(73, 15);
+            this.rbAnulado.TabIndex = 6;
+            this.rbAnulado.Text = "Anulados";
+            this.rbAnulado.UseSelectable = true;
+            // 
+            // rbActivos
+            // 
+            this.rbActivos.AutoSize = true;
+            this.rbActivos.Checked = true;
+            this.rbActivos.Location = new System.Drawing.Point(6, 19);
+            this.rbActivos.Name = "rbActivos";
+            this.rbActivos.Size = new System.Drawing.Size(62, 15);
+            this.rbActivos.TabIndex = 6;
+            this.rbActivos.TabStop = true;
+            this.rbActivos.Text = "Activos";
+            this.rbActivos.UseSelectable = true;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.BackgroundImage = global::GUI_SEVILLA.Properties.Resources.buscar;
+            this.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnBuscar.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.btnBuscar.Location = new System.Drawing.Point(208, 20);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(93, 38);
+            this.btnBuscar.TabIndex = 1;
+            this.btnBuscar.UseSelectable = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.dtpHasta);
+            this.groupBox1.Controls.Add(this.dtpDesde);
+            this.groupBox1.Controls.Add(this.txtNroRecibo);
+            this.groupBox1.Controls.Add(this.metroLabel4);
+            this.groupBox1.Controls.Add(this.metroLabel3);
+            this.groupBox1.Controls.Add(this.metroLabel2);
+            this.groupBox1.Controls.Add(this.txtNombres);
+            this.groupBox1.Controls.Add(this.metroLabel1);
+            this.groupBox1.Location = new System.Drawing.Point(23, 63);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(571, 77);
+            this.groupBox1.TabIndex = 20;
+            this.groupBox1.TabStop = false;
+            // 
+            // dtpHasta
+            // 
+            this.dtpHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpHasta.Location = new System.Drawing.Point(438, 35);
+            this.dtpHasta.MinimumSize = new System.Drawing.Size(0, 29);
+            this.dtpHasta.Name = "dtpHasta";
+            this.dtpHasta.Size = new System.Drawing.Size(111, 29);
+            this.dtpHasta.TabIndex = 7;
+            // 
+            // dtpDesde
+            // 
+            this.dtpDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDesde.Location = new System.Drawing.Point(321, 35);
+            this.dtpDesde.MinimumSize = new System.Drawing.Size(0, 29);
+            this.dtpDesde.Name = "dtpDesde";
+            this.dtpDesde.Size = new System.Drawing.Size(111, 29);
+            this.dtpDesde.TabIndex = 7;
+            // 
+            // txtNroRecibo
+            // 
+            this.txtNroRecibo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            // 
+            // 
+            // 
+            this.txtNroRecibo.CustomButton.Image = null;
+            this.txtNroRecibo.CustomButton.Location = new System.Drawing.Point(85, 1);
+            this.txtNroRecibo.CustomButton.Name = "";
+            this.txtNroRecibo.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtNroRecibo.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtNroRecibo.CustomButton.TabIndex = 1;
+            this.txtNroRecibo.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtNroRecibo.CustomButton.UseSelectable = true;
+            this.txtNroRecibo.CustomButton.Visible = false;
+            this.txtNroRecibo.Lines = new string[0];
+            this.txtNroRecibo.Location = new System.Drawing.Point(6, 35);
+            this.txtNroRecibo.MaxLength = 32767;
+            this.txtNroRecibo.Name = "txtNroRecibo";
+            this.txtNroRecibo.PasswordChar = '\0';
+            this.txtNroRecibo.PromptText = "Ingrese Nº recibo";
+            this.txtNroRecibo.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtNroRecibo.SelectedText = "";
+            this.txtNroRecibo.SelectionLength = 0;
+            this.txtNroRecibo.SelectionStart = 0;
+            this.txtNroRecibo.ShortcutsEnabled = true;
+            this.txtNroRecibo.Size = new System.Drawing.Size(107, 23);
+            this.txtNroRecibo.TabIndex = 0;
+            this.txtNroRecibo.UseSelectable = true;
+            this.txtNroRecibo.WaterMark = "Ingrese Nº recibo";
+            this.txtNroRecibo.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtNroRecibo.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // metroLabel4
+            // 
+            this.metroLabel4.AutoSize = true;
+            this.metroLabel4.Location = new System.Drawing.Point(438, 13);
+            this.metroLabel4.Name = "metroLabel4";
+            this.metroLabel4.Size = new System.Drawing.Size(41, 19);
+            this.metroLabel4.TabIndex = 6;
+            this.metroLabel4.Text = "Hasta";
+            // 
+            // metroLabel3
+            // 
+            this.metroLabel3.AutoSize = true;
+            this.metroLabel3.Location = new System.Drawing.Point(325, 13);
+            this.metroLabel3.Name = "metroLabel3";
+            this.metroLabel3.Size = new System.Drawing.Size(45, 19);
+            this.metroLabel3.TabIndex = 6;
+            this.metroLabel3.Text = "Desde";
+            // 
+            // metroLabel2
+            // 
+            this.metroLabel2.AutoSize = true;
+            this.metroLabel2.Location = new System.Drawing.Point(6, 13);
+            this.metroLabel2.Name = "metroLabel2";
+            this.metroLabel2.Size = new System.Drawing.Size(69, 19);
+            this.metroLabel2.TabIndex = 6;
+            this.metroLabel2.Text = "Nº Recibo";
+            // 
+            // txtNombres
+            // 
+            this.txtNombres.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            // 
+            // 
+            // 
+            this.txtNombres.CustomButton.Image = null;
+            this.txtNombres.CustomButton.Location = new System.Drawing.Point(174, 1);
+            this.txtNombres.CustomButton.Name = "";
+            this.txtNombres.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtNombres.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtNombres.CustomButton.TabIndex = 1;
+            this.txtNombres.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtNombres.CustomButton.UseSelectable = true;
+            this.txtNombres.CustomButton.Visible = false;
+            this.txtNombres.Lines = new string[0];
+            this.txtNombres.Location = new System.Drawing.Point(119, 35);
+            this.txtNombres.MaxLength = 32767;
+            this.txtNombres.Name = "txtNombres";
+            this.txtNombres.PasswordChar = '\0';
+            this.txtNombres.PromptText = "Ingrese nombres para el filtro";
+            this.txtNombres.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtNombres.SelectedText = "";
+            this.txtNombres.SelectionLength = 0;
+            this.txtNombres.SelectionStart = 0;
+            this.txtNombres.ShortcutsEnabled = true;
+            this.txtNombres.Size = new System.Drawing.Size(196, 23);
+            this.txtNombres.TabIndex = 3;
+            this.txtNombres.UseSelectable = true;
+            this.txtNombres.WaterMark = "Ingrese nombres para el filtro";
+            this.txtNombres.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtNombres.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // metroLabel1
+            // 
+            this.metroLabel1.AutoSize = true;
+            this.metroLabel1.Location = new System.Drawing.Point(119, 13);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(64, 19);
+            this.metroLabel1.TabIndex = 6;
+            this.metroLabel1.Text = "Nombres";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.dgvListadoRecibos);
+            this.groupBox2.Location = new System.Drawing.Point(23, 146);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(793, 317);
+            this.groupBox2.TabIndex = 23;
+            this.groupBox2.TabStop = false;
+            // 
+            // GBOpciones
+            // 
+            this.GBOpciones.BackColor = System.Drawing.Color.Transparent;
+            this.GBOpciones.Controls.Add(this.metroLabel12);
+            this.GBOpciones.Controls.Add(this.metroLabel8);
+            this.GBOpciones.Controls.Add(this.metroLabel7);
+            this.GBOpciones.Controls.Add(this.metroLabel6);
+            this.GBOpciones.Controls.Add(this.metroLabel5);
+            this.GBOpciones.Controls.Add(this.btnSalir);
+            this.GBOpciones.Controls.Add(this.btnVouchers);
+            this.GBOpciones.Controls.Add(this.btnReporteLiquidacion);
+            this.GBOpciones.Controls.Add(this.btnAnularRecibo);
+            this.GBOpciones.Controls.Add(this.btnVerRecibo);
+            this.GBOpciones.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GBOpciones.Location = new System.Drawing.Point(822, 146);
+            this.GBOpciones.Name = "GBOpciones";
+            this.GBOpciones.Size = new System.Drawing.Size(85, 317);
+            this.GBOpciones.TabIndex = 98;
+            this.GBOpciones.TabStop = false;
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.BackgroundImage = global::GUI_SEVILLA.Properties.Resources.salir;
+            this.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnSalir.FontWeight = MetroFramework.MetroButtonWeight.Light;
+            this.btnSalir.Location = new System.Drawing.Point(6, 255);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(73, 27);
+            this.btnSalir.TabIndex = 1;
+            this.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnSalir.UseSelectable = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
+            // btnVouchers
+            // 
+            this.btnVouchers.BackgroundImage = global::GUI_SEVILLA.Properties.Resources.archivoBanco;
+            this.btnVouchers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnVouchers.FontWeight = MetroFramework.MetroButtonWeight.Light;
+            this.btnVouchers.Location = new System.Drawing.Point(6, 194);
+            this.btnVouchers.Name = "btnVouchers";
+            this.btnVouchers.Size = new System.Drawing.Size(73, 27);
+            this.btnVouchers.TabIndex = 1;
+            this.btnVouchers.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnVouchers.UseSelectable = true;
+            this.btnVouchers.Click += new System.EventHandler(this.btnVouchers_Click);
+            // 
+            // btnReporteLiquidacion
+            // 
+            this.btnReporteLiquidacion.BackgroundImage = global::GUI_SEVILLA.Properties.Resources.verdetalle;
+            this.btnReporteLiquidacion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnReporteLiquidacion.FontWeight = MetroFramework.MetroButtonWeight.Light;
+            this.btnReporteLiquidacion.Location = new System.Drawing.Point(6, 133);
+            this.btnReporteLiquidacion.Name = "btnReporteLiquidacion";
+            this.btnReporteLiquidacion.Size = new System.Drawing.Size(73, 27);
+            this.btnReporteLiquidacion.TabIndex = 1;
+            this.btnReporteLiquidacion.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnReporteLiquidacion.UseSelectable = true;
+            this.btnReporteLiquidacion.Click += new System.EventHandler(this.btnReporteLiquidacion_Click);
+            // 
+            // btnAnularRecibo
+            // 
+            this.btnAnularRecibo.BackgroundImage = global::GUI_SEVILLA.Properties.Resources.anular;
+            this.btnAnularRecibo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnAnularRecibo.FontWeight = MetroFramework.MetroButtonWeight.Light;
+            this.btnAnularRecibo.Location = new System.Drawing.Point(6, 72);
+            this.btnAnularRecibo.Name = "btnAnularRecibo";
+            this.btnAnularRecibo.Size = new System.Drawing.Size(73, 27);
+            this.btnAnularRecibo.TabIndex = 1;
+            this.btnAnularRecibo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnAnularRecibo.UseSelectable = true;
+            this.btnAnularRecibo.Click += new System.EventHandler(this.btnAnularRecibo_Click);
+            // 
+            // btnVerRecibo
+            // 
+            this.btnVerRecibo.BackgroundImage = global::GUI_SEVILLA.Properties.Resources.verrecibo;
+            this.btnVerRecibo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnVerRecibo.FontWeight = MetroFramework.MetroButtonWeight.Light;
+            this.btnVerRecibo.Location = new System.Drawing.Point(6, 11);
+            this.btnVerRecibo.Name = "btnVerRecibo";
+            this.btnVerRecibo.Size = new System.Drawing.Size(73, 27);
+            this.btnVerRecibo.TabIndex = 1;
+            this.btnVerRecibo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnVerRecibo.UseSelectable = true;
+            this.btnVerRecibo.Click += new System.EventHandler(this.btnVerRecibo_Click);
+            // 
+            // metroLabel9
+            // 
+            this.metroLabel9.AutoSize = true;
+            this.metroLabel9.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.metroLabel9.Location = new System.Drawing.Point(235, 59);
+            this.metroLabel9.Name = "metroLabel9";
+            this.metroLabel9.Size = new System.Drawing.Size(40, 15);
+            this.metroLabel9.TabIndex = 6;
+            this.metroLabel9.Text = "Buscar";
+            // 
+            // metroLabel10
+            // 
+            this.metroLabel10.AutoSize = true;
+            this.metroLabel10.Location = new System.Drawing.Point(511, 480);
+            this.metroLabel10.Name = "metroLabel10";
+            this.metroLabel10.Size = new System.Drawing.Size(147, 19);
+            this.metroLabel10.TabIndex = 6;
+            this.metroLabel10.Text = "TOTAL IMPORTE SOLES";
+            // 
+            // lblTotalSoles
+            // 
+            this.lblTotalSoles.AutoSize = true;
+            this.lblTotalSoles.Location = new System.Drawing.Point(737, 480);
+            this.lblTotalSoles.Name = "lblTotalSoles";
+            this.lblTotalSoles.Size = new System.Drawing.Size(33, 19);
+            this.lblTotalSoles.TabIndex = 6;
+            this.lblTotalSoles.Text = "0.00";
+            // 
+            // metroLabel11
+            // 
+            this.metroLabel11.AutoSize = true;
+            this.metroLabel11.Location = new System.Drawing.Point(23, 480);
+            this.metroLabel11.Name = "metroLabel11";
+            this.metroLabel11.Size = new System.Drawing.Size(223, 19);
+            this.metroLabel11.TabIndex = 6;
+            this.metroLabel11.Text = "Número total de pagos encontrados";
+            // 
+            // lblCantidadRegistros
+            // 
+            this.lblCantidadRegistros.AutoSize = true;
+            this.lblCantidadRegistros.Location = new System.Drawing.Point(267, 480);
+            this.lblCantidadRegistros.Name = "lblCantidadRegistros";
+            this.lblCantidadRegistros.Size = new System.Drawing.Size(16, 19);
+            this.lblCantidadRegistros.TabIndex = 6;
+            this.lblCantidadRegistros.Text = "0";
+            // 
+            // metroLabel5
+            // 
+            this.metroLabel5.AutoSize = true;
+            this.metroLabel5.Location = new System.Drawing.Point(6, 41);
+            this.metroLabel5.Name = "metroLabel5";
+            this.metroLabel5.Size = new System.Drawing.Size(72, 19);
+            this.metroLabel5.TabIndex = 7;
+            this.metroLabel5.Text = "&Ver Recibo";
+            // 
+            // metroLabel6
+            // 
+            this.metroLabel6.AutoSize = true;
+            this.metroLabel6.Location = new System.Drawing.Point(6, 102);
+            this.metroLabel6.Name = "metroLabel6";
+            this.metroLabel6.Size = new System.Drawing.Size(47, 19);
+            this.metroLabel6.TabIndex = 8;
+            this.metroLabel6.Text = "&Anular";
+            // 
+            // metroLabel7
+            // 
+            this.metroLabel7.AutoSize = true;
+            this.metroLabel7.Location = new System.Drawing.Point(7, 163);
+            this.metroLabel7.Name = "metroLabel7";
+            this.metroLabel7.Size = new System.Drawing.Size(75, 19);
+            this.metroLabel7.TabIndex = 9;
+            this.metroLabel7.Text = "&Liquidación";
+            // 
+            // metroLabel8
+            // 
+            this.metroLabel8.AutoSize = true;
+            this.metroLabel8.Location = new System.Drawing.Point(6, 224);
+            this.metroLabel8.Name = "metroLabel8";
+            this.metroLabel8.Size = new System.Drawing.Size(61, 19);
+            this.metroLabel8.TabIndex = 10;
+            this.metroLabel8.Text = "&Vouchers";
+            // 
+            // metroLabel12
+            // 
+            this.metroLabel12.AutoSize = true;
+            this.metroLabel12.Location = new System.Drawing.Point(6, 285);
+            this.metroLabel12.Name = "metroLabel12";
+            this.metroLabel12.Size = new System.Drawing.Size(34, 19);
+            this.metroLabel12.TabIndex = 11;
+            this.metroLabel12.Text = "&Salir";
+            // 
             // frmPagosListado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(930, 550);
+            this.ClientSize = new System.Drawing.Size(930, 518);
             this.Controls.Add(this.GBOpciones);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btnBuscar);
-            this.Controls.Add(this.lblEncabezado);
-            this.Controls.Add(this.metroLabel9);
             this.Controls.Add(this.lblTotalSoles);
             this.Controls.Add(this.lblCantidadRegistros);
             this.Controls.Add(this.metroLabel11);
@@ -642,7 +655,7 @@
             this.Name = "frmPagosListado";
             this.Resizable = false;
             this.Style = MetroFramework.MetroColorStyle.Purple;
-            this.Text = "...:::Listado de recibos:::...";
+            this.Text = ": : : : RECIBOS EMITIDOS : : : : ";
             this.Load += new System.EventHandler(this.frmPagosListado_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListadoRecibos)).EndInit();
             this.groupBox3.ResumeLayout(false);
@@ -669,7 +682,6 @@
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroTextBox txtNombres;
         private MetroFramework.Controls.MetroTextBox txtNroRecibo;
-        private MetroFramework.Controls.MetroLabel lblEncabezado;
         private MetroFramework.Controls.MetroLabel metroLabel4;
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private MetroFramework.Controls.MetroDateTime dtpHasta;
@@ -681,12 +693,8 @@
         internal System.Windows.Forms.GroupBox GBOpciones;
         private MetroFramework.Controls.MetroButton btnVerRecibo;
         private MetroFramework.Controls.MetroButton btnSalir;
-        private MetroFramework.Controls.MetroButton btnDetalle;
+        private MetroFramework.Controls.MetroButton btnReporteLiquidacion;
         private MetroFramework.Controls.MetroButton btnAnularRecibo;
-        private MetroFramework.Controls.MetroLabel metroLabel8;
-        private MetroFramework.Controls.MetroLabel metroLabel7;
-        private MetroFramework.Controls.MetroLabel metroLabel6;
-        private MetroFramework.Controls.MetroLabel metroLabel5;
         private MetroFramework.Controls.MetroLabel metroLabel9;
         private MetroFramework.Controls.MetroLabel metroLabel10;
         private MetroFramework.Controls.MetroLabel lblTotalSoles;
@@ -702,5 +710,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NOMBRE_ENTIDAD;
         private System.Windows.Forms.DataGridViewTextBoxColumn IMPORTERECIBO;
         private System.Windows.Forms.DataGridViewTextBoxColumn ESTADO;
+        private MetroFramework.Controls.MetroButton btnVouchers;
+        private MetroFramework.Controls.MetroLabel metroLabel12;
+        private MetroFramework.Controls.MetroLabel metroLabel8;
+        private MetroFramework.Controls.MetroLabel metroLabel7;
+        private MetroFramework.Controls.MetroLabel metroLabel6;
+        private MetroFramework.Controls.MetroLabel metroLabel5;
     }
 }

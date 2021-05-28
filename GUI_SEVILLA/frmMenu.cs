@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using BL_SEVILLA;
+using DAO_SEVILLA;
 
 namespace GUI_SEVILLA
 {
@@ -266,6 +268,54 @@ namespace GUI_SEVILLA
             frmPagosListado winfrmPagosListado = new frmPagosListado();
             winfrmPagosListado.MdiParent = this;
             winfrmPagosListado.Show();
+        }
+
+        private void rbGeneraTxtDeudas_Click(object sender, EventArgs e)
+        {
+            frmSeleccionDeudaAnio win = new frmSeleccionDeudaAnio();
+            win.ShowDialog();
+            //try
+            //{
+            //    if (!Directory.Exists(@"C:\BBVA"))
+            //    {
+            //        Directory.CreateDirectory(@"C:\BBVA");
+            //    }
+
+            //    DataTable TablaDatos = new DataTable();
+
+            //    TablaDatos = cn.TraerDataset("USP_DEUDA_TOTAL_MENSUAL_BANCOS", conectar.conexionbdSevilla, 
+            //        VariablesGlobales.AnioEscolarAperturado).Tables[0];
+
+            //    int rowcount = TablaDatos.Rows.Count;
+
+            //    TextWriter sw = new StreamWriter($@"C:\BBVA\DeudaSevilla" + DateTime.Now.ToString("yyyyMMdd") + ".txt");
+
+            //    for (int i = 0; i < rowcount; i++)
+            //    {
+            //        sw.WriteLine(TablaDatos.Rows[i][0].ToString());
+            //    }
+
+            //    sw.Close();
+
+            //    MessageBox.Show(@"Archivo deudas Exportados correctamente a TXT en la ruta C:\BBVA", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message, VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
+            
+        }
+
+        private void rbGeneraTxtBanco_Click(object sender, EventArgs e)
+        {
+            if (FormIsOpen("Form1"))
+
+            {
+                return;
+            }
+            Form1 winfrmEstadoCuenta = new Form1();
+            winfrmEstadoCuenta.MdiParent = this;
+            winfrmEstadoCuenta.Show();
         }
     }
 }

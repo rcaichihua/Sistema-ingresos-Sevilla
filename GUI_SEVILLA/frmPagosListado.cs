@@ -14,6 +14,7 @@ namespace GUI_SEVILLA
     public partial class frmPagosListado : MetroFramework.Forms.MetroForm
     {
         CNegocio cn = new CNegocio();
+        private DataTable dtDatosReporte;
 
         public frmPagosListado()
         {
@@ -29,7 +30,8 @@ namespace GUI_SEVILLA
 
         private DataTable CargarDatos()
         {
-            return cn.TraerDataset("USP_RECIBOSelectAll", conectar.conexionbdSevilla,dtpDesde.Value,dtpHasta.Value, (txtNroRecibo.Text.Trim()==""?null: txtNroRecibo.Text), txtNombres.Text.Trim(),
+            return cn.TraerDataset("USP_RECIBOSelectAll", conectar.conexionbdSevilla,dtpDesde.Value,dtpHasta.Value, 
+                (txtNroRecibo.Text.Trim()==""?null: txtNroRecibo.Text), txtNombres.Text.Trim(),
                 rbActivos.Checked ? "A" : (rbAnulado.Checked ? "N":"T")).Tables[0];
         }
 
@@ -48,6 +50,7 @@ namespace GUI_SEVILLA
         private void frmPagosListado_Load(object sender, EventArgs e)
         {
             AnularAutocompletadoColumnas();
+            btnBuscar_Click(sender, e);
         }
         private void AnularAutocompletadoColumnas()
         {
@@ -110,6 +113,66 @@ namespace GUI_SEVILLA
             winAnula.Id_Comprobante_Anular= Convert.ToInt32(dgvListadoRecibos.Rows[index].Cells["IDRECIBO"].Value);
             winAnula.ShowDialog();
             btnBuscar_Click(sender, e);
+        }
+
+        private void btnReporteLiquidacion_Click(object sender, EventArgs e)
+        {
+
+            dtDatosReporte = cn.TraerDataset("USP_RECIBOSelect_Liquidacion", conectar.conexionbdSevilla, 
+                dtpDesde.Value.ToString("yyyyMMdd")
+              , dtpHasta.Value.ToString("yyyyMMdd"), rbActivos.Checked ? "A" : (rbAnulado.Checked ? "N" : "T")).Tables[0];
+
+            if (dtDatosReporte.Rows.Count > 0)
+            {
+                frmReporte win = new frmReporte();
+
+                Reportes.rptReporteDiario rptReporteDiario = new Reportes.rptReporteDiario();
+
+                rptReporteDiario.SetDataSource(dtDatosReporte);
+                rptReporteDiario.SetParameterValue("@Desde", dtpDesde.Value.ToShortDateString());
+                rptReporteDiario.SetParameterValue("@Hasta", dtpHasta.Value.ToShortDateString());
+
+
+                win.crvReportes.ReportSource = rptReporteDiario;
+
+                win.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No hay datos para el reporte.", VariablesMetodosEstaticos.encabezado
+                , MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+        }
+
+        private void btnVouchers_Click(object sender, EventArgs e)
+        {
+            dtDatosReporte = cn.TraerDataset("USP_LISTA_VOUCHEERS_RECIBOS", conectar.conexionbdSevilla,
+                dtpDesde.Value.ToString("yyyyMMdd")
+              , dtpHasta.Value.ToString("yyyyMMdd"), rbActivos.Checked ? "A" : (rbAnulado.Checked ? "N" : "T"),
+                txtNombres.Text.Trim()).Tables[0];
+
+            if (dtDatosReporte.Rows.Count > 0)
+            {
+                frmReporte win = new frmReporte();
+
+                Reportes.rptListaVouchers rptReporteDiario = new Reportes.rptListaVouchers();
+
+                rptReporteDiario.SetDataSource(dtDatosReporte);
+                rptReporteDiario.SetParameterValue("@Desde", dtpDesde.Value.ToShortDateString());
+                rptReporteDiario.SetParameterValue("@Hasta", dtpHasta.Value.ToShortDateString());
+
+
+                win.crvReportes.ReportSource = rptReporteDiario;
+
+                win.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No hay datos para el reporte.", VariablesMetodosEstaticos.encabezado
+                , MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
         }
     }
 }

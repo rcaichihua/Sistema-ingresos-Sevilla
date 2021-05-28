@@ -207,8 +207,10 @@ namespace GUI_SEVILLA
             if (!rbOtrasDeudas.Checked)
             {
                 winImpre.MiTabla = cn.TraerDataset("USP_MATRICULAAlumnoSearch", conectar.conexionbdSevilla,
-                 Convert.ToInt32(dtDatosAlumno.Rows[0][1]), rbPendiente.Checked ? "P" : (rbCancelado.Checked ? "C" : (rbAnulado.Checked ? "A" :
-                 (rbAcuenta.Checked ? "E" : "T"))), /*VariablesGlobales.AnioEscolarLogueado*/cboAnio.Text, VariablesGlobales.AnioFaseEscolarLogueado, Convert.ToInt32(dtDatosAlumno.Rows[0][0])).Tables[0];
+                 Convert.ToInt32(dtDatosAlumno.Rows[0][1]), rbPendiente.Checked ? "P" : (rbCancelado.Checked ? "C" : 
+                 (rbAnulado.Checked ? "A" : (rbAcuenta.Checked ? "E" : "T"))), 
+                 cboAnio.Text, VariablesGlobales.AnioFaseEscolarLogueado, 
+                 Convert.ToInt32(dtDatosAlumno.Rows[0][0])).Tables[0];
                 winImpre.ShowDialog();
             }
             else

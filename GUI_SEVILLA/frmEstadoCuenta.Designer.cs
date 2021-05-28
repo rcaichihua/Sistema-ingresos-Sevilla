@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblEncabezado = new MetroFramework.Controls.MetroLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.chkBuscar = new MetroFramework.Controls.MetroCheckBox();
@@ -49,18 +50,6 @@
             this.txtFiltro = new MetroFramework.Controls.MetroTextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvEstadoCuenta = new MetroFramework.Controls.MetroGrid();
-            this.IDCTACTE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IDALUMNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ANIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MES = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CONCEPTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IMPORTE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ESTADO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ESTADOABREV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FECHAVENCIMIENTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MONTOPAGADO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MONTODEUDA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DIASRETRASO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
             this.cboAnio = new MetroFramework.Controls.MetroComboBox();
@@ -77,6 +66,19 @@
             this.btnSalir = new MetroFramework.Controls.MetroButton();
             this.btnImprimirTotal = new MetroFramework.Controls.MetroButton();
             this.btnImprimir = new MetroFramework.Controls.MetroButton();
+            this.IDCTACTE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDALUMNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ANIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MES = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CONCEPTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IMPORTE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ESTADO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ESTADOABREV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FECHAVENCIMIENTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MONTOPAGADO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MONTODEUDA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DIASRETRASO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MORA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEstadoCuenta)).BeginInit();
@@ -303,15 +305,16 @@
             this.FECHAVENCIMIENTO,
             this.MONTOPAGADO,
             this.MONTODEUDA,
-            this.DIASRETRASO});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvEstadoCuenta.DefaultCellStyle = dataGridViewCellStyle6;
+            this.DIASRETRASO,
+            this.MORA});
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvEstadoCuenta.DefaultCellStyle = dataGridViewCellStyle7;
             this.dgvEstadoCuenta.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvEstadoCuenta.EnableHeadersVisualStyles = false;
             this.dgvEstadoCuenta.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -320,122 +323,19 @@
             this.dgvEstadoCuenta.Name = "dgvEstadoCuenta";
             this.dgvEstadoCuenta.ReadOnly = true;
             this.dgvEstadoCuenta.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvEstadoCuenta.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEstadoCuenta.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvEstadoCuenta.RowHeadersWidth = 28;
             this.dgvEstadoCuenta.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvEstadoCuenta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEstadoCuenta.Size = new System.Drawing.Size(872, 296);
             this.dgvEstadoCuenta.TabIndex = 0;
-            // 
-            // IDCTACTE
-            // 
-            this.IDCTACTE.DataPropertyName = "IDCTACTE";
-            this.IDCTACTE.HeaderText = "IDCTACTE";
-            this.IDCTACTE.Name = "IDCTACTE";
-            this.IDCTACTE.ReadOnly = true;
-            this.IDCTACTE.Visible = false;
-            // 
-            // IDALUMNO
-            // 
-            this.IDALUMNO.DataPropertyName = "IDALUMNO";
-            this.IDALUMNO.HeaderText = "IDALUMNO";
-            this.IDALUMNO.Name = "IDALUMNO";
-            this.IDALUMNO.ReadOnly = true;
-            this.IDALUMNO.Visible = false;
-            // 
-            // ANIO
-            // 
-            this.ANIO.DataPropertyName = "ANIO";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.ANIO.DefaultCellStyle = dataGridViewCellStyle2;
-            this.ANIO.HeaderText = "ANIO";
-            this.ANIO.Name = "ANIO";
-            this.ANIO.ReadOnly = true;
-            this.ANIO.Width = 80;
-            // 
-            // MES
-            // 
-            this.MES.DataPropertyName = "MES";
-            this.MES.HeaderText = "MES";
-            this.MES.Name = "MES";
-            this.MES.ReadOnly = true;
-            this.MES.Visible = false;
-            // 
-            // CONCEPTO
-            // 
-            this.CONCEPTO.DataPropertyName = "CONCEPTO";
-            this.CONCEPTO.HeaderText = "CONCEPTO";
-            this.CONCEPTO.Name = "CONCEPTO";
-            this.CONCEPTO.ReadOnly = true;
-            this.CONCEPTO.Width = 200;
-            // 
-            // IMPORTE
-            // 
-            this.IMPORTE.DataPropertyName = "IMPORTE";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.Format = "N2";
-            dataGridViewCellStyle3.NullValue = "0";
-            this.IMPORTE.DefaultCellStyle = dataGridViewCellStyle3;
-            this.IMPORTE.HeaderText = "IMPORTE INICIAL";
-            this.IMPORTE.Name = "IMPORTE";
-            this.IMPORTE.ReadOnly = true;
-            // 
-            // ESTADO
-            // 
-            this.ESTADO.DataPropertyName = "ESTADO";
-            this.ESTADO.HeaderText = "ESTADO";
-            this.ESTADO.Name = "ESTADO";
-            this.ESTADO.ReadOnly = true;
-            // 
-            // ESTADOABREV
-            // 
-            this.ESTADOABREV.HeaderText = "ESTADOABREV";
-            this.ESTADOABREV.Name = "ESTADOABREV";
-            this.ESTADOABREV.ReadOnly = true;
-            this.ESTADOABREV.Visible = false;
-            // 
-            // FECHAVENCIMIENTO
-            // 
-            this.FECHAVENCIMIENTO.DataPropertyName = "FECHAVENCIMIENTO";
-            this.FECHAVENCIMIENTO.HeaderText = "FECHA DE VENCIMIENTO";
-            this.FECHAVENCIMIENTO.Name = "FECHAVENCIMIENTO";
-            this.FECHAVENCIMIENTO.ReadOnly = true;
-            // 
-            // MONTOPAGADO
-            // 
-            this.MONTOPAGADO.DataPropertyName = "MONTOPAGADO";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle4.Format = "N2";
-            dataGridViewCellStyle4.NullValue = "0";
-            this.MONTOPAGADO.DefaultCellStyle = dataGridViewCellStyle4;
-            this.MONTOPAGADO.HeaderText = "IMPORTE PAGADO";
-            this.MONTOPAGADO.Name = "MONTOPAGADO";
-            this.MONTOPAGADO.ReadOnly = true;
-            // 
-            // MONTODEUDA
-            // 
-            this.MONTODEUDA.DataPropertyName = "MONTODEUDA";
-            this.MONTODEUDA.HeaderText = "IMPORTE A PAGAR";
-            this.MONTODEUDA.Name = "MONTODEUDA";
-            this.MONTODEUDA.ReadOnly = true;
-            this.MONTODEUDA.Width = 80;
-            // 
-            // DIASRETRASO
-            // 
-            this.DIASRETRASO.DataPropertyName = "DIASRETRASO";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.DIASRETRASO.DefaultCellStyle = dataGridViewCellStyle5;
-            this.DIASRETRASO.HeaderText = "DIAS DE RETRASO";
-            this.DIASRETRASO.Name = "DIASRETRASO";
-            this.DIASRETRASO.ReadOnly = true;
-            this.DIASRETRASO.Width = 70;
             // 
             // groupBox3
             // 
@@ -631,6 +531,121 @@
             this.btnImprimir.UseSelectable = true;
             this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
+            // IDCTACTE
+            // 
+            this.IDCTACTE.DataPropertyName = "IDCTACTE";
+            this.IDCTACTE.HeaderText = "IDCTACTE";
+            this.IDCTACTE.Name = "IDCTACTE";
+            this.IDCTACTE.ReadOnly = true;
+            this.IDCTACTE.Visible = false;
+            // 
+            // IDALUMNO
+            // 
+            this.IDALUMNO.DataPropertyName = "IDALUMNO";
+            this.IDALUMNO.HeaderText = "IDALUMNO";
+            this.IDALUMNO.Name = "IDALUMNO";
+            this.IDALUMNO.ReadOnly = true;
+            this.IDALUMNO.Visible = false;
+            // 
+            // ANIO
+            // 
+            this.ANIO.DataPropertyName = "ANIO";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.ANIO.DefaultCellStyle = dataGridViewCellStyle2;
+            this.ANIO.HeaderText = "ANIO";
+            this.ANIO.Name = "ANIO";
+            this.ANIO.ReadOnly = true;
+            this.ANIO.Width = 80;
+            // 
+            // MES
+            // 
+            this.MES.DataPropertyName = "MES";
+            this.MES.HeaderText = "MES";
+            this.MES.Name = "MES";
+            this.MES.ReadOnly = true;
+            this.MES.Visible = false;
+            // 
+            // CONCEPTO
+            // 
+            this.CONCEPTO.DataPropertyName = "CONCEPTO";
+            this.CONCEPTO.HeaderText = "CONCEPTO";
+            this.CONCEPTO.Name = "CONCEPTO";
+            this.CONCEPTO.ReadOnly = true;
+            this.CONCEPTO.Width = 150;
+            // 
+            // IMPORTE
+            // 
+            this.IMPORTE.DataPropertyName = "IMPORTE";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = "0";
+            this.IMPORTE.DefaultCellStyle = dataGridViewCellStyle3;
+            this.IMPORTE.HeaderText = "IMPORTE INICIAL";
+            this.IMPORTE.Name = "IMPORTE";
+            this.IMPORTE.ReadOnly = true;
+            // 
+            // ESTADO
+            // 
+            this.ESTADO.DataPropertyName = "ESTADO";
+            this.ESTADO.HeaderText = "ESTADO";
+            this.ESTADO.Name = "ESTADO";
+            this.ESTADO.ReadOnly = true;
+            // 
+            // ESTADOABREV
+            // 
+            this.ESTADOABREV.HeaderText = "ESTADOABREV";
+            this.ESTADOABREV.Name = "ESTADOABREV";
+            this.ESTADOABREV.ReadOnly = true;
+            this.ESTADOABREV.Visible = false;
+            // 
+            // FECHAVENCIMIENTO
+            // 
+            this.FECHAVENCIMIENTO.DataPropertyName = "FECHAVENCIMIENTO";
+            this.FECHAVENCIMIENTO.HeaderText = "FECHA DE VENCIMIENTO";
+            this.FECHAVENCIMIENTO.Name = "FECHAVENCIMIENTO";
+            this.FECHAVENCIMIENTO.ReadOnly = true;
+            // 
+            // MONTOPAGADO
+            // 
+            this.MONTOPAGADO.DataPropertyName = "MONTOPAGADO";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Format = "N2";
+            dataGridViewCellStyle4.NullValue = "0";
+            this.MONTOPAGADO.DefaultCellStyle = dataGridViewCellStyle4;
+            this.MONTOPAGADO.HeaderText = "IMP. PAGADO + MORA";
+            this.MONTOPAGADO.Name = "MONTOPAGADO";
+            this.MONTOPAGADO.ReadOnly = true;
+            // 
+            // MONTODEUDA
+            // 
+            this.MONTODEUDA.DataPropertyName = "MONTODEUDA";
+            this.MONTODEUDA.HeaderText = "IMPORTE A PAGAR";
+            this.MONTODEUDA.Name = "MONTODEUDA";
+            this.MONTODEUDA.ReadOnly = true;
+            this.MONTODEUDA.Width = 80;
+            // 
+            // DIASRETRASO
+            // 
+            this.DIASRETRASO.DataPropertyName = "DIASRETRASO";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.DIASRETRASO.DefaultCellStyle = dataGridViewCellStyle5;
+            this.DIASRETRASO.HeaderText = "DIAS DE RETRASO";
+            this.DIASRETRASO.Name = "DIASRETRASO";
+            this.DIASRETRASO.ReadOnly = true;
+            this.DIASRETRASO.Width = 70;
+            // 
+            // MORA
+            // 
+            this.MORA.DataPropertyName = "MORA";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.Format = "N2";
+            dataGridViewCellStyle6.NullValue = "0";
+            this.MORA.DefaultCellStyle = dataGridViewCellStyle6;
+            this.MORA.HeaderText = "MORA";
+            this.MORA.Name = "MORA";
+            this.MORA.ReadOnly = true;
+            this.MORA.Width = 50;
+            // 
             // frmEstadoCuenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -678,18 +693,6 @@
         private MetroFramework.Controls.MetroRadioButton rbAnulado;
         private MetroFramework.Controls.MetroRadioButton rbAcuenta;
         private MetroFramework.Controls.MetroButton btnImprimirTotal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDCTACTE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDALUMNO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ANIO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MES;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CONCEPTO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IMPORTE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ESTADO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ESTADOABREV;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FECHAVENCIMIENTO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MONTOPAGADO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MONTODEUDA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DIASRETRASO;
         private MetroFramework.Controls.MetroRadioButton rbOtrasDeudas;
         private MetroFramework.Controls.MetroRadioButton rbMatriculaBaja;
         private MetroFramework.Controls.MetroRadioButton rbMatriculaActiva;
@@ -702,5 +705,18 @@
         private MetroFramework.Controls.MetroCheckBox chkBuscar;
         private MetroFramework.Controls.MetroLabel metroLabel8;
         private MetroFramework.Controls.MetroButton btnDeuda;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDCTACTE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDALUMNO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ANIO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MES;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CONCEPTO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IMPORTE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ESTADO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ESTADOABREV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FECHAVENCIMIENTO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MONTOPAGADO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MONTODEUDA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DIASRETRASO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MORA;
     }
 }

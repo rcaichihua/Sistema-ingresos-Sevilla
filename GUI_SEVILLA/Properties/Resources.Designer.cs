@@ -123,6 +123,16 @@ namespace GUI_SEVILLA.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap agregarpago {
+            get {
+                object obj = ResourceManager.GetObject("agregarpago", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap alumnos {
             get {
                 object obj = ResourceManager.GetObject("alumnos", resourceCulture);
@@ -303,6 +313,16 @@ namespace GUI_SEVILLA.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap eliminarV {
+            get {
+                object obj = ResourceManager.GetObject("eliminarV", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap EstadoCta {
             get {
                 object obj = ResourceManager.GetObject("EstadoCta", resourceCulture);
@@ -313,9 +333,39 @@ namespace GUI_SEVILLA.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap fraccion {
+            get {
+                object obj = ResourceManager.GetObject("fraccion", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap generaDeuda {
             get {
                 object obj = ResourceManager.GetObject("generaDeuda", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap GeneraTxtBancos {
+            get {
+                object obj = ResourceManager.GetObject("GeneraTxtBancos", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap GeneraTxtDeuda {
+            get {
+                object obj = ResourceManager.GetObject("GeneraTxtDeuda", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -546,6 +596,16 @@ namespace GUI_SEVILLA.Properties {
         internal static System.Drawing.Bitmap salir {
             get {
                 object obj = ResourceManager.GetObject("salir", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap salir_ {
+            get {
+                object obj = ResourceManager.GetObject("salir_", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -33,8 +33,13 @@ namespace GUI_SEVILLA
 
         private void LlenarGrilla()
         {
-            dgvConceptos.DataSource = cn.EjecutarSqlDTS("SELECT IDCONCEPTO,CODCONCEPTO,DESCRIPCONCEPTO,IMPORTE_REFERENCIAL,B.codigoCuenta,a.OBSERVACIONES,A.ESTADO FROM CONCEPTO A INNER JOIN bdtesoreria.dbo.tb_cta_contable B ON A.IDCUENTACONTABLE=B.id_cuenta_contable order by CODCONCEPTO asc", conectar.conexionbdSevilla).Tables[0];
-            dgvConceptos.Refresh();
+            dgvConceptos.DataSource = cn.EjecutarSqlDTS("SELECT a.IDCONCEPTO,CODCONCEPTO,DESCRIPCONCEPTO," + 
+                " cr.IMPORTE as IMPORTE_REFERENCIAL,B.codigoCuenta,a.OBSERVACIONES,A.ESTADO " +
+                " FROM CONCEPTO A INNER JOIN bdtesoreria.dbo.tb_cta_contable B ON A.IDCUENTACONTABLE = B.id_cuenta_contable " +
+                " inner join CONCEPTO_RANGO cr on cr.IDCONCEPTO = a.IDCONCEPTO " +
+                " where CONVERT(varchar(10), GETDATE(), 103) between cr.FECHA_INI and cr.FECHA_FIN " +
+                " order by CODCONCEPTO asc", conectar.conexionbdSevilla).Tables[0];
+                dgvConceptos.Refresh();
         }
         private void AnularAutocompletadoColumnas()
         {

@@ -41,8 +41,10 @@
             this.ribbonPanel3 = new System.Windows.Forms.RibbonPanel();
             this.rbGeneraDeuda = new System.Windows.Forms.RibbonButton();
             this.rbMatricula = new System.Windows.Forms.RibbonButton();
-            this.rbGeneracionArchivo = new System.Windows.Forms.RibbonButton();
+            this.rbGeneraTxtDeudas = new System.Windows.Forms.RibbonButton();
+            this.rbGeneraTxtBanco = new System.Windows.Forms.RibbonButton();
             this.rbRegistroPagos = new System.Windows.Forms.RibbonButton();
+            this.rbFraccionamiento = new System.Windows.Forms.RibbonButton();
             this.ribbonPanel4 = new System.Windows.Forms.RibbonPanel();
             this.rbCtaCorreinte = new System.Windows.Forms.RibbonButton();
             this.rbListadoPagos = new System.Windows.Forms.RibbonButton();
@@ -67,7 +69,6 @@
             this.rbbPerfil = new System.Windows.Forms.RibbonButton();
             this.rbbAccesos = new System.Windows.Forms.RibbonButton();
             this.ribbonOrbMenuItem1 = new System.Windows.Forms.RibbonOrbMenuItem();
-            this.ribbonPanel5 = new System.Windows.Forms.RibbonPanel();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -174,8 +175,10 @@
             // 
             this.ribbonPanel3.Items.Add(this.rbGeneraDeuda);
             this.ribbonPanel3.Items.Add(this.rbMatricula);
-            this.ribbonPanel3.Items.Add(this.rbGeneracionArchivo);
+            this.ribbonPanel3.Items.Add(this.rbGeneraTxtDeudas);
+            this.ribbonPanel3.Items.Add(this.rbGeneraTxtBanco);
             this.ribbonPanel3.Items.Add(this.rbRegistroPagos);
+            this.ribbonPanel3.Items.Add(this.rbFraccionamiento);
             this.ribbonPanel3.Text = "Operaciones";
             // 
             // rbGeneraDeuda
@@ -195,11 +198,20 @@
             this.rbMatricula.ToolTip = "";
             this.rbMatricula.Click += new System.EventHandler(this.rbMatricula_Click);
             // 
-            // rbGeneracionArchivo
+            // rbGeneraTxtDeudas
             // 
-            this.rbGeneracionArchivo.Image = global::GUI_SEVILLA.Properties.Resources.archivoBanco;
-            this.rbGeneracionArchivo.SmallImage = ((System.Drawing.Image)(resources.GetObject("rbGeneracionArchivo.SmallImage")));
-            this.rbGeneracionArchivo.Text = "Archivo Banco";
+            this.rbGeneraTxtDeudas.Image = global::GUI_SEVILLA.Properties.Resources.GeneraTxtDeuda;
+            this.rbGeneraTxtDeudas.SmallImage = ((System.Drawing.Image)(resources.GetObject("rbGeneraTxtDeudas.SmallImage")));
+            this.rbGeneraTxtDeudas.Text = "TXT Deudas";
+            this.rbGeneraTxtDeudas.TextAlignment = System.Windows.Forms.RibbonItem.RibbonItemTextAlignment.Center;
+            this.rbGeneraTxtDeudas.Click += new System.EventHandler(this.rbGeneraTxtDeudas_Click);
+            // 
+            // rbGeneraTxtBanco
+            // 
+            this.rbGeneraTxtBanco.Image = global::GUI_SEVILLA.Properties.Resources.GeneraTxtBancos;
+            this.rbGeneraTxtBanco.SmallImage = ((System.Drawing.Image)(resources.GetObject("rbGeneraTxtBanco.SmallImage")));
+            this.rbGeneraTxtBanco.Text = "TXT Banco";
+            this.rbGeneraTxtBanco.Click += new System.EventHandler(this.rbGeneraTxtBanco_Click);
             // 
             // rbRegistroPagos
             // 
@@ -207,6 +219,12 @@
             this.rbRegistroPagos.SmallImage = ((System.Drawing.Image)(resources.GetObject("rbRegistroPagos.SmallImage")));
             this.rbRegistroPagos.Text = "Registro Pagos";
             this.rbRegistroPagos.Click += new System.EventHandler(this.rbRegistroPagos_Click);
+            // 
+            // rbFraccionamiento
+            // 
+            this.rbFraccionamiento.Image = global::GUI_SEVILLA.Properties.Resources.fraccion;
+            this.rbFraccionamiento.SmallImage = ((System.Drawing.Image)(resources.GetObject("rbFraccionamiento.SmallImage")));
+            this.rbFraccionamiento.Text = "Fraccionamiento";
             // 
             // ribbonPanel4
             // 
@@ -244,7 +262,6 @@
             // ribbonTab3
             // 
             this.ribbonTab3.Panels.Add(this.ribbonPanel9);
-            this.ribbonTab3.Panels.Add(this.ribbonPanel5);
             this.ribbonTab3.Text = "Gestión";
             // 
             // ribbonPanel9
@@ -364,10 +381,6 @@
             this.ribbonOrbMenuItem1.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonOrbMenuItem1.SmallImage")));
             this.ribbonOrbMenuItem1.Text = "ribbonOrbMenuItem1";
             // 
-            // ribbonPanel5
-            // 
-            this.ribbonPanel5.Text = "Reportes";
-            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -400,7 +413,7 @@
         private System.Windows.Forms.RibbonButton rbGeneraDeuda;
         private System.Windows.Forms.RibbonButton rbMatricula;
         private System.Windows.Forms.RibbonButton rbCtaCorreinte;
-        private System.Windows.Forms.RibbonButton rbGeneracionArchivo;
+        private System.Windows.Forms.RibbonButton rbGeneraTxtBanco;
         private System.Windows.Forms.RibbonTab ribbonTab2;
         private System.Windows.Forms.RibbonPanel ribbonPanel6;
         private System.Windows.Forms.RibbonButton rbRegistroSeccion;
@@ -430,6 +443,7 @@
         private System.Windows.Forms.RibbonPanel ribbonPanel2;
         private System.Windows.Forms.RibbonButton rbbPerfil;
         private System.Windows.Forms.RibbonButton rbbAccesos;
-        private System.Windows.Forms.RibbonPanel ribbonPanel5;
+        private System.Windows.Forms.RibbonButton rbGeneraTxtDeudas;
+        private System.Windows.Forms.RibbonButton rbFraccionamiento;
     }
 }

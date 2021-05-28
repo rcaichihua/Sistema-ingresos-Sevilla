@@ -16,6 +16,7 @@ namespace GUI_SEVILLA
         CNegocio cn = new CNegocio();
         DataTable cabeceraRecibo;
         DataTable detalleRecibo;
+        DataTable modalidadesPago;
 
         public frmPagos()
         {
@@ -66,6 +67,7 @@ namespace GUI_SEVILLA
             txtTurno.Clear();
             txtAnioEscolar.Clear();
             txtFase.Clear();
+            txtGlosa.Clear();
             cboEntidadBancaria.SelectedIndex = 0;
             txtNroOperacion.Clear();
             dtpFechaDeposito.Value = DateTime.Now;
@@ -73,6 +75,7 @@ namespace GUI_SEVILLA
             cboPension.DataSource = null;
             txtSaldo.Text = "0.00";
             txtAcuenta.Text = "0.00";
+            txtMora.Text = "0.00";
             txtDatos.Clear();
             txtTotal.Text = "0.00";
             txtimporte.Text = "0.00";
@@ -86,6 +89,31 @@ namespace GUI_SEVILLA
             this.dgvDetallePago.Rows.Clear();
             this.dgvDetallePago.Refresh();
             btnGuardar.Enabled = false;
+        }
+
+        private void Limpiar2()
+        {
+            txtNombres.Clear();
+            txtGrado.Clear();
+            txtNivel.Clear();
+            txtSeccion.Clear();
+            txtTurno.Clear();
+            txtAnioEscolar.Clear();
+            txtFase.Clear();
+            cboEntidadBancaria.SelectedIndex = 0;
+            txtNroOperacion.Clear();
+            dtpFechaDeposito.Value = DateTime.Now;
+            txtNumeroDocumento.Text = "00000000";
+            cboPension.DataSource = null;
+            txtSaldo.Text = "0.00";
+            txtAcuenta.Text = "0.00";
+            txtMora.Text = "0.00";
+            //txtDatos.Clear();
+            txtTotal.Text = "0.00";
+            txtimporte.Text = "0.00";
+            this.dgvDetallePago.Rows.Clear();
+            this.dgvDetallePago.Refresh();
+            txtNumeroDocumento.Text = cn.EjecutarSqlDTS("SELECT RIGHT('00000000'+CONVERT(VARCHAR,CORRELATIVO+1),8) AS NRORECIBO FROM CORRELATIVO WHERE ESTADO=1 AND TIPO='RECIBO'", conectar.conexionbdSevilla).Tables[0].Rows[0][0].ToString();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -127,6 +155,8 @@ namespace GUI_SEVILLA
 
             if (txtDatos.Text != string.Empty)
             {
+                Limpiar2();
+
                 if (chkBuscar.Checked)
                 {
                     frmBuscarAlumno win = new frmBuscarAlumno();
@@ -202,6 +232,69 @@ namespace GUI_SEVILLA
         {
             cboFormaPago.SelectedIndex = 0;
             cargarEntidadFinanciera();
+            crearTablaTemporal();
+        }
+
+        private void crearTablaTemporal()
+        {
+            modalidadesPago = new DataTable();
+
+            //modalidadesPago.Clear();
+
+            modalidadesPago.Columns.Add("cod_mod_pago", typeof(string));
+            modalidadesPago.Columns.Add("desc_mod_Pago", typeof(string));
+            modalidadesPago.Columns.Add("concep_cod", typeof(string));
+            modalidadesPago.Columns.Add("FechaDeposito", typeof(DateTime));
+            modalidadesPago.Columns.Add("cod_entidad_financ", typeof(string));
+            modalidadesPago.Columns.Add("nombre_entidad", typeof(string));
+            modalidadesPago.Columns.Add("cuenta_bancaria_id", typeof(string));
+            modalidadesPago.Columns.Add("numero_cuenta", typeof(string));
+            modalidadesPago.Columns.Add("importe_voucher_pago", typeof(decimal));
+            modalidadesPago.Columns.Add("TipoCambio", typeof(decimal));
+            modalidadesPago.Columns.Add("importe_cambio", typeof(decimal));
+            modalidadesPago.Columns.Add("NumeroDocumento_Voucher_cheque_pago", typeof(string));
+            modalidadesPago.Columns.Add("ObservacionPago", typeof(string));
+        }
+
+        private void LimpiarTablaModalidad()
+        {
+            if (modalidadesPago.Rows.Count > 0)
+            {
+                for (int i = modalidadesPago.Rows.Count - 1; i >= 0; i--)
+                {
+                    DataRow dr = modalidadesPago.Rows[i];
+                    dr.Delete();
+                }
+                modalidadesPago.AcceptChanges();
+            }
+        }
+
+        private bool ValidarTotalesMayor()
+        {
+            decimal total = 0.00m;
+
+            foreach (DataRow item in modalidadesPago.Rows)
+            {
+                total = total + Convert.ToDecimal(item["importe_cambio"].ToString() == "" ? "0" : item["importe_cambio"].ToString());
+            }
+
+            total = total + Convert.ToDecimal(txtimporte.Text);
+
+            return (total > Convert.ToDecimal(txtTotal.Text));
+        }
+
+        private bool ValidarTotalesMenor()
+        {
+            decimal total = 0.00m;
+
+            foreach (DataRow item in modalidadesPago.Rows)
+            {
+                total = total + Convert.ToDecimal(item["importe_cambio"].ToString() == "" ? "0" : item["importe_cambio"].ToString());
+            }
+
+            total = total + Convert.ToDecimal(txtimporte.Text);
+
+            return (total < Convert.ToDecimal(txtTotal.Text));
         }
 
         private void cargarEntidadFinanciera()
@@ -216,7 +309,7 @@ namespace GUI_SEVILLA
             }
             catch (Exception)
             {
-                //MessageBox.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
+                //MessageBox.Show("Error -> " + ex.ToString() + "", VariablesGlobales.NombreMensajes,
                 //    MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }
@@ -246,11 +339,16 @@ namespace GUI_SEVILLA
                             return;
                         }
 
-                        this.dgvDetallePago.Rows.Add(cboPension.SelectedValue,0, cboPension.Text, Convert.ToDecimal(txtAcuenta.Text).ToString("#,#.00#;(#,#.00#)"),
+                        this.dgvDetallePago.Rows.Add(cboPension.SelectedValue,0, cboPension.Text,
+                            Convert.ToDecimal(chkFraccionamiento.Checked ? "0" : txtMora.Text).ToString("#,#.00#;(#,#.00#)"), 
+                            Convert.ToDecimal(txtAcuenta.Text).ToString("#,#.00#;(#,#.00#)"),
                             Convert.ToDecimal(txtAcuenta.Text) < Convert.ToDecimal(txtSaldo.Text) ? "ACUENTA" : 
-                            (Convert.ToDecimal(txtAcuenta.Text) == Convert.ToDecimal(txtSaldo.Text) ? "CANCELADO" : ""));
+                            (Convert.ToDecimal(txtAcuenta.Text) == Convert.ToDecimal(txtSaldo.Text) ? "CANCELADO" : ""),
+                            (Convert.ToDecimal(txtAcuenta.Text) + Convert.ToDecimal(chkFraccionamiento.Checked ? "0" : txtMora.Text)).ToString("#,#.00#;(#,#.00#)"));
                         
                         txtAcuenta.Text = "0.00";
+                        txtMora.Text = "0.00";
+                        chkFraccionamiento.Checked = false;
                         SumaDetalle();
                     }
                     else
@@ -279,7 +377,7 @@ namespace GUI_SEVILLA
 
             foreach (DataGridViewRow rows in this.dgvDetallePago.Rows)
             {
-                Total = Total + Convert.ToDecimal(rows.Cells[3].Value); ;
+                Total = Total + Convert.ToDecimal(rows.Cells[6].Value);
             }
 
             txtTotal.Text = Total.ToString("###,###.00");
@@ -290,6 +388,8 @@ namespace GUI_SEVILLA
             if (this.dgvDetallePago.Rows.Count <= 0) return;
 
             dgvDetallePago.Rows.Remove(dgvDetallePago.CurrentRow);
+
+            SumaDetalle();
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -299,12 +399,21 @@ namespace GUI_SEVILLA
 
         private void cboPension_SelectedIndexChanged(object sender, EventArgs e)
         {
+            DataTable dtCtaResultado = new DataTable();
+
             try
             {
-                txtSaldo.Text = Convert.ToDecimal(cn.EjecutarSqlDTS("select IMPORTE - (SELECT isnull(SUM(RD.IMPORTETOTAL),0.00) FROM RECIBO RE " + 
-                    "INNER JOIN RECIBODETALLE RD ON RE.IDRECIBO=RD.IDRECIBO WHERE RD.IDCTACTE="+ cboPension.SelectedValue + 
-                    " AND RE.ESTADO=1) from CUENTACORRIENTE where IDCTACTE=" + cboPension.SelectedValue+"", 
-                    conectar.conexionbdSevilla).Tables[0].Rows[0][0]).ToString("#,#.00#;(#,#.00#)");
+                dtCtaResultado = cn.EjecutarSqlDTS("select A.IMPORTE - (SELECT isnull(SUM(RD.IMPORTETOTAL),0.00) FROM RECIBO RE " +
+                    "INNER JOIN RECIBODETALLE RD ON RE.IDRECIBO=RD.IDRECIBO WHERE RD.IDCTACTE=" + cboPension.SelectedValue +
+                    " AND RE.ESTADO=1) , " +
+                    " CASE WHEN A.IDCONCEPTO = 1 THEN (SELECT CR1.IMPORTE FROM CONCEPTO_RANGO CR1 WHERE ID=9)*(CASE WHEN DATEDIFF(DAY,A.FECHAVENCIMIENTO," +
+                    " GETDATE()) < 0 THEN 0 ELSE DATEDIFF(DAY, A.FECHAVENCIMIENTO, GETDATE()) END) ELSE 0.00 END AS MORA" +
+                    " from CUENTACORRIENTE A where IDCTACTE=" + cboPension.SelectedValue + "",
+                    conectar.conexionbdSevilla).Tables[0];
+
+                txtSaldo.Text = Convert.ToDecimal(dtCtaResultado.Rows[0][0]).ToString("#,#.00#;(#,#.00#)");
+                txtMora.Text = Convert.ToDecimal(dtCtaResultado.Rows[0][1]).ToString("#,#.00#;(#,#.00#)");
+                txtAcuenta.Text = txtSaldo.Text;
             }
             catch (Exception)
             {
@@ -329,10 +438,14 @@ namespace GUI_SEVILLA
                     {
                         cboNroCuenta.SelectedValue = 85;
                     }
+                    if (cboEntidadBancaria.Text == "BBVA CONTINENTAL")
+                    {
+                        cboNroCuenta.SelectedValue = 125;
+                    }
                 }
                 catch (Exception)
                 {
-                    //MessageBox.Show("Error -> " + ex.ToString() + "", VariablesMetodosEstaticos.encabezado,
+                    //MessageBox.Show("Error -> " + ex.ToString() + "", VariablesGlobales.NombreMensajes,
                     //    MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
                 }
             }
@@ -350,7 +463,7 @@ namespace GUI_SEVILLA
             {
                 if (cboEntidadBancaria.SelectedIndex>0)
                 {
-                    if (cboNroCuenta.SelectedIndex>0)
+                    if (cboNroCuenta.SelectedIndex > 0)
                     {
                         if (txtNroOperacion.Text.Trim()!="")
                         {
@@ -358,7 +471,26 @@ namespace GUI_SEVILLA
                             {
                                 if (decimal.TryParse(txtimporte.Text,out importe))
                                 {
-                                    if (Convert.ToDecimal(txtimporte.Text)>0 && Convert.ToDecimal(txtimporte.Text)== Convert.ToDecimal(txtTotal.Text))
+                                    decimal totalVouchers;
+
+                                    totalVouchers = 0.00m;
+
+                                    foreach (DataRow row in modalidadesPago.Rows)
+                                    {
+                                        totalVouchers = totalVouchers + Convert.ToDecimal(row.ItemArray[10]);
+                                    }
+
+                                    if (totalVouchers==0.00m)
+                                    {
+                                        totalVouchers = Convert.ToDecimal(txtimporte.Text);
+                                    }
+                                    else
+                                    {
+                                        totalVouchers = Convert.ToDecimal(txtimporte.Text) + totalVouchers;
+                                    }
+
+                                    if (Convert.ToDecimal(txtimporte.Text)>0 &&
+                                        totalVouchers == Convert.ToDecimal(txtTotal.Text))
                                     {
                                         string message = "Esta seguro de registrar el recibo de pago.?";
                                         string caption = VariablesGlobales.NombreMensajes;
@@ -371,7 +503,8 @@ namespace GUI_SEVILLA
                                         {
                                             DataSet resultado;
                                             resultado  = new DataSet();
-                                            resultado = cn.TraerDataset("USP_RECIBOBuscaNroOperacion", conectar.conexionbdSevilla, txtNroOperacion.Text.Trim(), cboEntidadBancaria.SelectedValue, dtpFechaDeposito.Value.ToString("yyyyMMdd"));
+                                            resultado = cn.TraerDataset("USP_RECIBOBuscaNroOperacion", conectar.conexionbdSevilla, 
+                                                txtNroOperacion.Text.Trim(), cboEntidadBancaria.SelectedValue, dtpFechaDeposito.Value.ToString("yyyyMMdd"));
                                             if (resultado.Tables[0].Rows.Count>0)
                                             {
                                                 MessageBox.Show("El voucher que intenta registrar ya fue asignado a otro recibo.", VariablesGlobales.NombreMensajes,
@@ -380,7 +513,7 @@ namespace GUI_SEVILLA
                                             }
                                             resultado = new DataSet();
                                             ArmarTablasCabeceraDetalle();
-                                            resultado = cn.IngresaRecibo("USP_RECIBOIngreso", cabeceraRecibo, detalleRecibo,
+                                            resultado = cn.IngresaRecibo("USP_RECIBOIngreso", cabeceraRecibo, detalleRecibo, modalidadesPago,
                                                 VariablesGlobales.AnioEscolarLogueado,VariablesGlobales.AnioFaseEscolarLogueado,
                                                 conectar.conexionbdSevilla);
 
@@ -396,7 +529,8 @@ namespace GUI_SEVILLA
                                             else
                                             {
                                                 MessageBox.Show("El recibo fue ingresado con exito.", VariablesGlobales.NombreMensajes, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                                Limpiar("&Nuevo", false);
+                                                Limpiar("Nuevo", false);
+                                                btnNuevo.BackgroundImage = Properties.Resources.nuevo1_;
                                             }
                                         }
                                     }
@@ -473,6 +607,7 @@ namespace GUI_SEVILLA
             detalleRecibo.Columns.Add("IDCONCEPTO", typeof(int));
             detalleRecibo.Columns.Add("PENSION", typeof(string));
             detalleRecibo.Columns.Add("IMPORTE", typeof(Decimal));
+            detalleRecibo.Columns.Add("IMPORTEMORA", typeof(Decimal));
             detalleRecibo.Columns.Add("ESTADOPAGO", typeof(String));
             
 
@@ -509,8 +644,9 @@ namespace GUI_SEVILLA
                     _filaDetalle["NROITEM"] = y+1;
                     _filaDetalle["IDCONCEPTO"] = row.Cells[1].Value;
                     _filaDetalle["PENSION"] = row.Cells[2].Value;
-                    _filaDetalle["IMPORTE"] = row.Cells[3].Value;
-                    _filaDetalle["ESTADOPAGO"] = row.Cells[4].Value;
+                    _filaDetalle["IMPORTEMORA"] = row.Cells[3].Value;
+                    _filaDetalle["IMPORTE"] = row.Cells[4].Value;
+                    _filaDetalle["ESTADOPAGO"] = row.Cells[5].Value;
                     y = y + 1;
                     detalleRecibo.Rows.Add(_filaDetalle);
                 }
@@ -541,6 +677,16 @@ namespace GUI_SEVILLA
                 cboEntidadBancaria.Enabled = true;
                 cboNroCuenta.Enabled = true;
             }
+        }
+
+        private void btnAgregarPago_Click(object sender, EventArgs e)
+        {
+            frmAgregarModalidadPago win = new frmAgregarModalidadPago();
+            win.dtModalidadPago = modalidadesPago;
+            win.ImportePago = Convert.ToDecimal(txtimporte.Text);
+            win.ImporteDocumento = Convert.ToDecimal(txtTotal.Text);
+            modalidadesPago = win.dtModalidadPago;
+            win.ShowDialog();
         }
     }
 }

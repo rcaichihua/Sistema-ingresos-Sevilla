@@ -280,4 +280,22 @@
   <data name="sevilla_fondo_fw" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sevilla_fondo.fw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="GeneraTxtBancos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GeneraTxtBancos.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GeneraTxtDeuda" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GeneraTxtDeuda.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fraccion" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fraccion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="salir_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\salir_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eliminarV" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eliminarV.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="agregarpago" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\agregarpago.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

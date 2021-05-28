@@ -76,12 +76,13 @@ namespace BL_SEVILLA
             catch (Exception) { throw; }
         }       
 
-        public DataSet IngresaRecibo(string ProcedimientoAlmacenado, DataTable dtCabecera,DataTable dtCabeceraDetalle,int anio,string fase,
+        public DataSet IngresaRecibo(string ProcedimientoAlmacenado, DataTable dtCabecera,
+            DataTable dtCabeceraDetalle, DataTable modalidadesPago, int anio,string fase,
             string BD)
         {
             try
             {
-                return cone.IngresaRecibo(ProcedimientoAlmacenado, dtCabecera, dtCabeceraDetalle,anio,fase,BD);
+                return cone.IngresaRecibo(ProcedimientoAlmacenado, dtCabecera, dtCabeceraDetalle, modalidadesPago, anio,fase,BD);
             }
             catch (Exception) { throw; }
         }
